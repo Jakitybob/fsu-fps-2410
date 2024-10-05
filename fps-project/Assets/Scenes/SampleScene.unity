@@ -556,7 +556,7 @@ MonoBehaviour:
   gravity: 20
   weaponDamage: 1
   fireRate: 0.25
-  weaponRange: 150
+  weaponRange: 500
 --- !u!4 &481784602
 Transform:
   m_ObjectHideFlags: 0
@@ -719,7 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b960c7848bf8e44be61d455f9deee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuActive: {fileID: 0}
+  menuActive: {fileID: 640782976}
   menuPause: {fileID: 640782976}
   isPaused: 0
 --- !u!1 &705507993
