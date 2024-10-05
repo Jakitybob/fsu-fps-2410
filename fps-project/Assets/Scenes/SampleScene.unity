@@ -532,11 +532,11 @@ MonoBehaviour:
   ignoreMask:
     serializedVersion: 2
     m_Bits: 8
-  speed: 5
+  speed: 16
   sprintMod: 2
-  jumpSpeed: 12
+  jumpSpeed: 16
   jumpCountMax: 2
-  gravity: 32
+  gravity: 20
   weaponDamage: 1
   fireRate: 0.25
   weaponRange: 150
