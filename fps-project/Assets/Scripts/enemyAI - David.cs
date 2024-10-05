@@ -1,13 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class enemyAI : MonoBehaviour, IDamage
 {
 
-
+    [SerializeField] NavMeshAgent agent;
     [SerializeField] Renderer model;
+    [SerializeField] Transform shootPos;
+    [SerializeField] Transform headPos;
+
     [SerializeField] int HP;
+
+    [SerializeField] GameObject bullet;
+    [SerializeField] float shootRate;
+
+    bool isShooting;
+    bool playerInRange;
 
     Color colorOrig;
 
@@ -21,7 +32,48 @@ public class enemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (playerInRange)
+        {
+
+            //agent.SetDestination(gameManager.instance.player.transform.position);
+
+            if (!isShooting)
+            {
+                StartCoroutine(shoot());
+            }
+        }
+    }
+
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
+
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
+    }
+
+
+    IEnumerator shoot()
+    {
+        isShooting = true;
+
+        Instantiate(bullet, shootPos.position, transform.rotation);
+        yield return new WaitForSeconds(shootRate);
+
+
+        isShooting = false;
     }
 
 
