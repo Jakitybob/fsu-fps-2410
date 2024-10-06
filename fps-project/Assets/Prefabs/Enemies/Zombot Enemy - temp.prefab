@@ -121,6 +121,7 @@ MonoBehaviour:
   attackRate: 1
   detectionRange: 15
   walkSpeed: 3.5
+  rotateSpeed: 100
   HP: 3
 --- !u!195 &1476147854785468172
 NavMeshAgent:

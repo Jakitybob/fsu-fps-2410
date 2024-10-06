@@ -15,6 +15,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] float attackRate;
     [SerializeField] float detectionRange;
     [SerializeField] float walkSpeed;
+    [SerializeField] float rotateSpeed;
 
     [SerializeField] int HP;
 
@@ -24,6 +25,9 @@ public class enemyAI : MonoBehaviour, IDamage
     bool showExecuteFlash;
     bool nearDeath;
 
+
+    Vector3 playerDir;
+
     Color colorOrig;
 
 
@@ -32,13 +36,19 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         colorOrig = model.material.color;
         GetComponent<SphereCollider>().radius = detectionRange;
-        agent.GetComponent<NavMeshAgent>().speed = walkSpeed;
-        
+        agent.GetComponent<NavMeshAgent>().speed = walkSpeed;        
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        playerDir = gameManager.instance.player.transform.position - transform.position;
+
+        facePlayer();
+
+
+
         //when enemy is low health, start flashing yellow
         if (HP == 1 && !showExecuteFlash)
         {
@@ -48,7 +58,6 @@ public class enemyAI : MonoBehaviour, IDamage
         
         if (playerInRange && !nearDeath)
         {
-
             //agent.SetDestination(gameManager.instance.player.transform.position);
 
             if (!isShooting)
@@ -56,6 +65,13 @@ public class enemyAI : MonoBehaviour, IDamage
                 StartCoroutine(shoot());
             }
         }
+    }
+
+
+    void facePlayer()
+    {
+        Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, 0, playerDir.z));
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * rotateSpeed);
     }
 
 

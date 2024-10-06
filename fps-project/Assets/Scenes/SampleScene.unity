@@ -412,6 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuActive: {fileID: 0}
   menuPause: {fileID: 640782976}
+  player: {fileID: 0}
   isPaused: 0
 --- !u!1 &481784595
 GameObject:
@@ -721,6 +722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuActive: {fileID: 640782976}
   menuPause: {fileID: 640782976}
+  player: {fileID: 0}
   isPaused: 0
 --- !u!1 &705507993
 GameObject:
