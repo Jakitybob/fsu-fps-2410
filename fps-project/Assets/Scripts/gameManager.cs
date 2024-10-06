@@ -10,15 +10,18 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
 
+    public GameObject player;
+
     public bool isPaused;
 
     float OrigTime;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         instance = this;
         OrigTime = Time.timeScale;
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
