@@ -1743,7 +1743,7 @@ MonoBehaviour:
   controller: {fileID: 481784599}
   ignoreMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   Hp: 3
   speed: 16
   sprintMod: 2
