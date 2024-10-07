@@ -15,7 +15,7 @@ public class ButtonFunc : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         gameManager.instance.UnPaused();
     }
-    public void Quit()
+    public void Quit() 
     {
       #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;

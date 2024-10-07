@@ -70,7 +70,7 @@ public class gameManager : MonoBehaviour
         eneymyText.text = enemycount.ToString("F0");
         if(enemycount<= 0)
         {
-            Paused() ;
+            Paused();
             menuActive = Win;
             menuActive.SetActive(true);
         }
