@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class gameManager : MonoBehaviour
 {
@@ -9,12 +10,15 @@ public class gameManager : MonoBehaviour
 
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
+    [SerializeField] GameObject Win;
+    [SerializeField] GameObject Lose;
 
     public GameObject player;
-
+    [SerializeField] TMP_Text eneymyText;
     public bool isPaused;
 
     float OrigTime;
+    int enemycount;
 
     // Start is called before the first frame update
     void Awake()
@@ -60,4 +64,22 @@ public class gameManager : MonoBehaviour
         
 
     }
+    public void gameWon(int amount)
+    {
+        enemycount += amount;
+        eneymyText.text = enemycount.ToString("F0");
+        if(enemycount<= 0)
+        {
+            Paused() ;
+            menuActive = Win;
+            menuActive.SetActive(true);
+        }
+    }
+    public void gameLost()
+    {
+        Paused();
+        menuActive = Lose;
+        menuActive.SetActive(true);
+    }
+
 }
