@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class playerController : MonoBehaviour, IDamage
 {
     //
     // SERIALIZED FIELDS
@@ -19,6 +19,7 @@ public class playerController : MonoBehaviour
     [SerializeField] LayerMask ignoreMask; // Layer mask used to tell the player what to ignore when raycasting
 
     // Attributes
+    [SerializeField] int Hp;
     [SerializeField] int speed;
     [SerializeField] int sprintMod;
     [SerializeField] int jumpSpeed;
@@ -57,6 +58,7 @@ public class playerController : MonoBehaviour
         // Perform checks every frame for movement and weapon use
         Move();
         FireWeapon();
+        
     }
 
 
@@ -169,5 +171,14 @@ public class playerController : MonoBehaviour
         // Wait until the firerate has elapsed before allowing the player to shoot again
         yield return new WaitForSeconds(fireRate);
         isShooting = false;
+    }
+    public void takeDamage(int amount) 
+    { 
+        Hp -= amount;
+        if (Hp <= 0)
+        {
+            gameManager.instance.gameLost();
+        }
+
     }
 }

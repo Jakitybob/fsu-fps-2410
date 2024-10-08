@@ -58,7 +58,7 @@ public class enemyAI : MonoBehaviour, IDamage
         
         if (playerInRange && !nearDeath)
         {
-            //agent.SetDestination(gameManager.instance.player.transform.position);
+            agent.SetDestination(gameManager.instance.player.transform.position);
 
             if (!isShooting)
             {
