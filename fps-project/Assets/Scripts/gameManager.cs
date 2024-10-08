@@ -1,8 +1,15 @@
+/************************************************************************************ 
+* * Full Sail GDB229 FPS Project *
+* Developers: [NAME HERE] * [Michael Bump] *
+* *
+* A brief description of the program should also be added here. *
+************************************************************************************/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
@@ -15,6 +22,11 @@ public class gameManager : MonoBehaviour
 
     public GameObject player;
     [SerializeField] TMP_Text eneymyText;
+
+    //declare private variable
+    public Image playerHPBar;
+    public GameObject playerDmgScreen;
+
     public bool isPaused;
 
     float OrigTime;
@@ -81,5 +93,13 @@ public class gameManager : MonoBehaviour
         menuActive = Lose;
         menuActive.SetActive(true);
     }
+
+    public Image PlayerHPBar
+        {
+            get { return playerHPBar;}
+            set {playerHPBar = value;}
+        } 
+
+
 
 }

@@ -1,6 +1,6 @@
 /************************************************************************************ 
 * * Full Sail GDB229 FPS Project *
-* Developers: Jacob Yates * [NAME HERE] *
+* Developers: Jacob Yates * [Michael Bump] *
 * *
 * A brief description of the program should also be added here. *
 ************************************************************************************/
@@ -33,6 +33,7 @@ public class playerController : MonoBehaviour, IDamage
     // Movement related
     Vector3 moveDirection;
     Vector3 playerVelocity;
+    int HPOrig;
     int jumpCount;
     bool isSprinting;
     bool isShooting;
@@ -47,7 +48,10 @@ public class playerController : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
+        HPOrig = Hp;
+        updatePlayerUI();
         interactor = GetComponent<Interact>();
+
     }
 
     // Update is called once per frame
@@ -138,11 +142,27 @@ public class playerController : MonoBehaviour, IDamage
     public void takeDamage(int amount) 
     { 
         Hp -= amount;
+
+        updatePlayerUI();
+        StartCoroutine(damageFlash());
+
         if (Hp <= 0)
         {
             gameManager.instance.gameLost();
         }
 
+    }
+
+    public void updatePlayerUI()
+    {
+        gameManager.instance.PlayerHPBar.fillAmount = (float) Hp / HPOrig;
+    }
+
+    IEnumerator damageFlash()
+    {
+        gameManager.instance.playerDmgScreen.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        gameManager.instance.playerDmgScreen.SetActive(false);
     }
 
 
