@@ -42,6 +42,9 @@ public class playerController : MonoBehaviour, IDamage
     bool isSprinting;
     bool isShooting;
 
+    // Components
+    private Interact interactor;
+
     //
     // FUNCTIONS
     //
@@ -49,7 +52,7 @@ public class playerController : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        
+        interactor = GetComponent<Interact>();
     }
 
     // Update is called once per frame
@@ -59,6 +62,11 @@ public class playerController : MonoBehaviour, IDamage
         Move();
         FireWeapon();
         
+        // Fire the interactor's raycast if the Interact key was pressed
+        if (Input.GetButtonDown("Interact"))
+        {
+            interactor.InteractPressed();
+        }
     }
 
 
@@ -172,6 +180,12 @@ public class playerController : MonoBehaviour, IDamage
         yield return new WaitForSeconds(fireRate);
         isShooting = false;
     }
+
+    /*
+     * Implementation of the IDamage interface's takeDamage. When called,
+     * lowers the player's health by the amount and checks to see if the player
+     * has died or not.
+     */
     public void takeDamage(int amount) 
     { 
         Hp -= amount;
@@ -180,5 +194,16 @@ public class playerController : MonoBehaviour, IDamage
             gameManager.instance.gameLost();
         }
 
+    }
+
+
+    //
+    // GETTERS & SETTERS
+    //
+
+    // Returns the Interact component attached to the player
+    public Interact GetInteractComponent()
+    {
+        return interactor;
     }
 }

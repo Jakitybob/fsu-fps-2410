@@ -807,8 +807,8 @@ RectTransform:
   - {fileID: 640782979}
   - {fileID: 674876911}
   - {fileID: 2010194435}
-  - {fileID: 1852654240}
   - {fileID: 1803191043}
+  - {fileID: 1852654240}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1110,7 +1110,7 @@ MonoBehaviour:
   Win: {fileID: 674876910}
   Lose: {fileID: 2010194434}
   player: {fileID: 481784595}
-  eneymyText: {fileID: 1719744809}
+  eneymyText: {fileID: 1803191044}
   isPaused: 0
 --- !u!4 &382279555 stripped
 Transform:
@@ -1619,6 +1619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 481784602}
   - component: {fileID: 481784601}
+  - component: {fileID: 481784603}
   - component: {fileID: 481784599}
   - component: {fileID: 481784598}
   - component: {fileID: 481784597}
@@ -1770,6 +1771,19 @@ Transform:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &481784603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481784595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92604b25b221274c8f4d8069ce6bfaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 150
 --- !u!1001 &506567418
 PrefabInstance:
   m_ObjectHideFlags: 0
