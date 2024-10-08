@@ -26,11 +26,6 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int jumpCountMax;
     [SerializeField] int gravity;
 
-    // Weapon related data
-    [SerializeField] int weaponDamage;
-    [SerializeField] float fireRate;
-    [SerializeField] int weaponRange;
-
     //
     // MEMBER VARIABLES
     //
@@ -60,8 +55,7 @@ public class playerController : MonoBehaviour, IDamage
     {
         // Perform checks every frame for movement and weapon use
         Move();
-        FireWeapon();
-        
+       
         // Fire the interactor's raycast if the Interact key was pressed
         if (Input.GetButtonDown("Interact"))
         {
@@ -136,51 +130,6 @@ public class playerController : MonoBehaviour, IDamage
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
-
-    //
-    // WEAPON RELATED FUNCTIONS
-    //
-
-    /*
-     * This function starts the Shoot coroutine if the player is not already shooting and
-     * they pressed or are holding the Fire1 input button.
-     */
-    public void FireWeapon()
-    {
-        // If the player is pressing fire and is not already shooting, start the shoot coroutine
-        if (Input.GetButton("Fire1") && !isShooting)
-        {
-            StartCoroutine(Shoot());
-        }
-    }
-
-    /*
-     * This coroutine fires a raycast from the player's camera to the end of the weaponRange, and if a hit component
-     * that can be damaged is found, it damages that object. No matter the case, this coroutine yields until the allotted
-     * time of fireRate, in seconds, has passed, before allowing the player to shoot again.
-     */
-    private IEnumerator Shoot()
-    {
-        // Set the character to now shooting
-        isShooting = true;
-
-        // Fire a raycast from the camera out the range of the weapon and check for a result
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, weaponRange, ~ignoreMask))
-        {
-            // If the collided component has the IDamage interface, damage the collided component
-            IDamage damage = hit.collider.GetComponent<IDamage>();
-            if (damage != null)
-            {
-                damage.takeDamage(weaponDamage);
-            }
-        }
-
-        // Wait until the firerate has elapsed before allowing the player to shoot again
-        yield return new WaitForSeconds(fireRate);
-        isShooting = false;
-    }
-
     /*
      * Implementation of the IDamage interface's takeDamage. When called,
      * lowers the player's health by the amount and checks to see if the player
