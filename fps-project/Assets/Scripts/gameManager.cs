@@ -1,8 +1,8 @@
 /************************************************************************************ 
 * * Full Sail GDB229 FPS Project *
-* Developers: [NAME HERE] * [Michael Bump] *
+* Developers: [Gyoed Crespo] * [Michael Bump] * [David Oross]
 * *
-* A brief description of the program should also be added here. *
+* This is the game manager so all things that the game needs to see/use for the game to run. *
 ************************************************************************************/
 using System.Collections;
 using System.Collections.Generic;
