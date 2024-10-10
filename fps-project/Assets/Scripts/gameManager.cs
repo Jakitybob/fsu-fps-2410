@@ -17,6 +17,7 @@ public class gameManager : MonoBehaviour
 
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
+    [SerializeField] GameObject menuInventory;
     [SerializeField] GameObject Win;
     [SerializeField] GameObject Lose;
 
@@ -51,9 +52,23 @@ public class gameManager : MonoBehaviour
                 menuActive = menuPause;
                 menuActive.SetActive(isPaused);
             }
-            else if (menuActive == menuPause) {
-                UnPaused();
-              
+            else if (menuActive == menuPause) 
+            {
+                UnPaused();          
+            }
+        }
+
+        if (Input.GetButtonDown("Inventory"))
+        {
+            if (menuActive == null)
+            {
+                openInventory();
+                menuActive = menuInventory;
+                menuActive.SetActive(isPaused);
+            }
+            else if (menuActive == menuInventory)
+            {
+                closeInventory();
             }
         }
     }
@@ -73,8 +88,6 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         menuActive.SetActive(false);
         menuActive= null;
-        
-
     }
     public void gameWon(int amount)
     {
@@ -93,13 +106,26 @@ public class gameManager : MonoBehaviour
         menuActive = Lose;
         menuActive.SetActive(true);
     }
+    public void openInventory()
+    {
+        isPaused = !isPaused;
+        Time.timeScale = 0f;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
 
+    public void closeInventory()
+    {
+        isPaused = !isPaused;
+        Time.timeScale = OrigTime;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        menuActive.SetActive(false);
+        menuActive = null;
+    }
     public Image PlayerHPBar
         {
             get { return playerHPBar;}
             set {playerHPBar = value;}
         } 
-
-
-
 }
