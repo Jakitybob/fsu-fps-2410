@@ -42,11 +42,11 @@ public class GunController : MonoBehaviour
     private void Update()
     {
         ADS();
-        DefRot();
+        //DefRot();
         if (Input.GetKeyDown(KeyCode.B))
         {
             IsAuto = !IsAuto;
-            Debug.Log(IsAuto ? "Auto" : "Single Fire");
+
         }
         if (IsAuto)
         {
@@ -89,17 +89,17 @@ public class GunController : MonoBehaviour
         
     }
     
-    void DefRot()
+    /*void DefRot()
     {
         Vector2 mouseAxis = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         mouseAxis*=mouseSens;
         curr_Rot += mouseAxis;
         curr_Rot.y = Mathf.Clamp(curr_Rot.y, -90, 90);
 
-        transform.localPosition += (Vector3)mouseAxis * gunSway / 1000;
+        //transform.localPosition += (Vector3)mouseAxis * gunSway / 1000;//
         transform.root.localRotation = Quaternion.AngleAxis(curr_Rot.x, Vector3.up);
         transform.parent.localRotation = Quaternion.AngleAxis(-curr_Rot.y, Vector3.right);
-    }
+    }*/
     void MakeRecoil()
     {
         transform.localPosition -= Vector3.forward * 0.1f;
@@ -133,7 +133,7 @@ public class GunController : MonoBehaviour
         if (Input.GetMouseButton(0) && IsShoot && CurrentAmmo > 0)
         {
             IsShoot = false;
-            CurrentAmmo--;
+            CurrentAmmo --;
             StartCoroutine(Shooting());
         }
     }
