@@ -165,6 +165,17 @@ public class playerController : MonoBehaviour, IDamage
         gameManager.instance.playerDmgScreen.SetActive(false);
     }
 
+    public void Heal(int amount)
+    {
+        Hp += amount;
+        if (Hp > HPOrig)
+        {
+            Hp = HPOrig;
+        }
+        updatePlayerUI();
+
+    }
+
 
     //
     // GETTERS & SETTERS
@@ -174,16 +185,5 @@ public class playerController : MonoBehaviour, IDamage
     public Interact GetInteractComponent()
     {
         return interactor;
-    }
-
-    public void Heal(int amount)
-    {
-        Hp += amount;
-        if (Hp > HPOrig)
-        {
-            Hp = HPOrig;
-        }
-        updatePlayerUI(); 
-
     }
 }
