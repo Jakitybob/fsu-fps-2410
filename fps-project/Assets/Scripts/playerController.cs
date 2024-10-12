@@ -37,6 +37,8 @@ public class playerController : MonoBehaviour, IDamage
     int jumpCount;
     bool isSprinting;
     bool isShooting;
+    int defaultLayer;
+    float distToGround = 0.1f;
 
     // Components
     private Interact interactor;
@@ -51,6 +53,9 @@ public class playerController : MonoBehaviour, IDamage
         HPOrig = Hp;
         updatePlayerUI();
         interactor = GetComponent<Interact>();
+
+        distToGround += transform.localScale.y;
+        defaultLayer = LayerMask.GetMask("Default");
 
     }
 
@@ -116,13 +121,11 @@ public class playerController : MonoBehaviour, IDamage
      */
     public void Jump()
     {
-        
         // If the player is on the ground reset the jump count to 0 and zero the playerVelocity vector so it doesn't get infinitely small
-        if (controller.isGrounded)
+        if (isGroundedRaycast())
         {
             jumpCount = 0;
             playerVelocity = Vector3.zero;
-            
         }
 
         // If the jump input is pressed and the player hasn't exceeded the maximum number of jumps, increase the jump count and add the jump speed to the player's velocity
@@ -133,9 +136,9 @@ public class playerController : MonoBehaviour, IDamage
         }
 
         // Increase the player's velocity and move them in the corresponding direction
+        controller.Move(playerVelocity * Time.deltaTime);
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-        
     }
     /*
      * Implementation of the IDamage interface's takeDamage. When called,
@@ -168,6 +171,40 @@ public class playerController : MonoBehaviour, IDamage
         gameManager.instance.playerDmgScreen.SetActive(false);
     }
 
+    public void Heal(int amount)
+    {
+        Hp += amount;
+        if (Hp > HPOrig)
+        {
+            Hp = HPOrig;
+        }
+        updatePlayerUI();
+
+    }
+
+
+
+    //custom isGrounded method that uses raycast to detect objects with "Default" tag
+    public bool isGroundedRaycast()
+    {
+        bool isGrounded = false;
+
+        Debug.DrawRay(transform.position, Vector3.down * distToGround, Color.yellow);
+
+        if (Physics.Raycast(
+                transform.position, //where it starts [character body]
+                Vector3.down, //where it points [down]
+                distToGround, //how far out should it check for ground
+                defaultLayer, //what layer to check for
+                QueryTriggerInteraction.Ignore))
+        {
+            //if detects ground
+            isGrounded = true;
+        }
+
+        return isGrounded;
+    }
+
 
     //
     // GETTERS & SETTERS
@@ -178,15 +215,50 @@ public class playerController : MonoBehaviour, IDamage
     {
         return interactor;
     }
-    // ensures the heal isnt more than original HP and updates UI
-    public void Heal(int amount)
-    {
-        Hp += amount;
-        if (Hp > HPOrig)
-        {
-            Hp = HPOrig;
-        }
-        updatePlayerUI(); 
 
+
+
+    public void setSpeed(int newSpeed)
+    {
+        speed = newSpeed;
+    }
+    public int getSpeed()
+    {
+        return speed;
+    }
+
+
+    public void setGravity(int newGravity)
+    {
+        gravity = newGravity;
+    }
+    public int getGravity()
+    {
+        return gravity;
+    }
+
+
+    public void setVelocity(Vector3 newVelocity)
+    {
+        playerVelocity = newVelocity;
+    }
+    public Vector3 getVelocity()
+    {
+        return playerVelocity;
+    }
+
+
+    public void setJumpCount(int numOfJumps)
+    {
+        jumpCount = numOfJumps;
+    }
+
+
+    public void haltMovement()
+    {
+        setSpeed(0);
+        setGravity(0);
+
+        playerVelocity = Vector3.zero;
     }
 }

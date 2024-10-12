@@ -1,6 +1,6 @@
 /************************************************************************************ 
 * * Full Sail GDB229 FPS Project *
-* Developers: [David Oross] * [Michael Bump] *
+* Developers: [David Oross] * [Michael Bump] * [Jacob Yates (Simple Bugfixing)] *
 * *
 * This where all things enemy related are. . *
 ************************************************************************************/
@@ -13,7 +13,6 @@ using UnityEngine.AI;
 
 public class enemyAI : MonoBehaviour, IDamage
 {
-
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Renderer model;
     [SerializeField] Transform shootPos;
@@ -44,6 +43,7 @@ public class enemyAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
+        gameManager.instance.updateGameGoal(1);
         colorOrig = model.material.color;
         GetComponent<SphereCollider>().radius = detectionRange;
         agent.GetComponent<NavMeshAgent>().speed = walkSpeed;        
@@ -52,49 +52,37 @@ public class enemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        playerDir = gameManager.instance.player.transform.position - transform.position;
-        
+        playerDir = gameManager.instance.player.transform.position - headPos.position;
         facePlayer();
-        
 
-        
+        if (playerInRange)
+        {
+            canSeePlayer();
+        }
+
         //when enemy is low health, start flashing yellow
         if (HP == 1 && !showExecuteFlash)
         {
             StartCoroutine(flashExecution());
         }
-
-
-        if (playerInRange && !nearDeath)
-        {
-            agent.SetDestination(gameManager.instance.player.transform.position);
-
-            if (!isShooting)
-            {
-                    StartCoroutine(shoot());
-            }
-        }
     }
 
-   /* bool canSeePLayer() //need to figure this one out but as of now it breaks the shooting but finds target just fine hrmmm
+    bool canSeePlayer()
     {
-        
-        playerDir = gameManager.instance.player.transform.position - transform.position; 
-        //facePlayer();
-        angleToPlayer = Vector3.Angle(playerDir,transform.forward);
+        //angleToPlayer = Vector3.Angle(playerDir,transform.forward); // Commented out at the moment as this doesn't apply since the enemies always face the player
         Debug.DrawRay(headPos.position, playerDir);
 
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
+            Debug.Log(hit.collider.name);
             if (hit.collider.CompareTag("Player"))
             {
-                
                 agent.SetDestination(gameManager.instance.player.transform.position);
                 
                 if (playerInRange && !nearDeath)
                 {
-                    agent.SetDestination(gameManager.instance.player.transform.position);
+                    //StartCoroutine(flashExecution()); // Commented out since it's not implemented fully yet 
 
                     if (!isShooting)
                     {
@@ -105,7 +93,7 @@ public class enemyAI : MonoBehaviour, IDamage
             }
         }
         return false;
-    }*/
+    }
 
 
     void facePlayer()
@@ -113,7 +101,6 @@ public class enemyAI : MonoBehaviour, IDamage
         Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, 0, playerDir.z));
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * rotateSpeed);
     }
-
 
 
     void OnTriggerEnter(Collider other)
@@ -152,9 +139,9 @@ public class enemyAI : MonoBehaviour, IDamage
 
         StartCoroutine(flashHit());
 
-        
         if (HP <= 0)
         {
+            gameManager.instance.updateGameGoal(-1);
             Destroy(gameObject);
         }
         else if (HP == 1)

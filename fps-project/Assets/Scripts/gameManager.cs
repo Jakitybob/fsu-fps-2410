@@ -14,6 +14,7 @@ using UnityEngine.UI;
 public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
+    public GameObject meatHookIcon;
 
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
@@ -22,7 +23,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject Lose;
 
     public GameObject player;
-    [SerializeField] TMP_Text eneymyText;
+    [SerializeField] TMP_Text enemyText;
 
     //declare private variable
     public Image playerHPBar;
@@ -74,7 +75,7 @@ public class gameManager : MonoBehaviour
     }
     public void Paused()
     {
-        isPaused=!isPaused;
+        isPaused = !isPaused;
         Time.timeScale = 0f;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -82,17 +83,17 @@ public class gameManager : MonoBehaviour
     
     public void UnPaused()
     {
-        isPaused= !isPaused;
+        isPaused = !isPaused;
         Time.timeScale = OrigTime;
-        Cursor.visible= false;
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         menuActive.SetActive(false);
-        menuActive= null;
+        menuActive = null;
     }
-    public void gameWon(int amount)
+    public void updateGameGoal(int amount)
     {
         enemycount += amount;
-        eneymyText.text = enemycount.ToString("F0");
+        enemyText.text = enemycount.ToString("F0");
         if(enemycount<= 0)
         {
             Paused();
@@ -124,8 +125,8 @@ public class gameManager : MonoBehaviour
         menuActive = null;
     }
     public Image PlayerHPBar
-        {
-            get { return playerHPBar;}
-            set {playerHPBar = value;}
-        } 
+    {
+        get { return playerHPBar;}
+        set {playerHPBar = value;}
+    } 
 }
