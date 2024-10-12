@@ -95,7 +95,7 @@ public class GrappleR : MonoBehaviour
      }
   
     
-    //are you gappling??
+    //are you grappling??
     public bool IsGrapple()
     {
         return isGrappling;

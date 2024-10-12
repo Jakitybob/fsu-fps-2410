@@ -1,6 +1,6 @@
 /************************************************************************************ 
 * * Full Sail GDB229 FPS Project *
-* Developers: Jacob Yates * [NAME HERE] *
+* Developers: Jacob Yates * Gyoed Crespo * 
 * *
 * A brief description of the program should also be added here. *
 ************************************************************************************/

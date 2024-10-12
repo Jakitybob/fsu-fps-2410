@@ -6,9 +6,9 @@ using UnityEngine;
 public class Healthup : ScriptableObject
 {
     [SerializeField] int amount;
+    //sets heal amount and appplies it 
     public  void applyHeal(playerController player)
     {
         player.Heal(amount);
-        
     }
 }

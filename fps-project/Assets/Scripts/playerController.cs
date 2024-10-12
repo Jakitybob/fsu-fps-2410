@@ -116,11 +116,13 @@ public class playerController : MonoBehaviour, IDamage
      */
     public void Jump()
     {
+        
         // If the player is on the ground reset the jump count to 0 and zero the playerVelocity vector so it doesn't get infinitely small
         if (controller.isGrounded)
         {
             jumpCount = 0;
             playerVelocity = Vector3.zero;
+            
         }
 
         // If the jump input is pressed and the player hasn't exceeded the maximum number of jumps, increase the jump count and add the jump speed to the player's velocity
@@ -133,6 +135,7 @@ public class playerController : MonoBehaviour, IDamage
         // Increase the player's velocity and move them in the corresponding direction
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+        
     }
     /*
      * Implementation of the IDamage interface's takeDamage. When called,
@@ -175,7 +178,7 @@ public class playerController : MonoBehaviour, IDamage
     {
         return interactor;
     }
-
+    // ensures the heal isnt more than original HP and updates UI
     public void Heal(int amount)
     {
         Hp += amount;

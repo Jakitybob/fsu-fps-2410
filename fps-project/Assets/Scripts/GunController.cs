@@ -42,8 +42,7 @@ public class GunController : MonoBehaviour
     private void Update()
     {
         ADS();
-        //DefRot();
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyUp(KeyCode.B))
         {
             IsAuto = !IsAuto;
 
@@ -61,6 +60,7 @@ public class GunController : MonoBehaviour
             CurrentAmmo--;
             StartCoroutine(Shooting());
         }
+        // if "R" & ammo in Mag is less then MagSize and the ammo were holding is greater than 0 add ammoneed to the magazine and take it from reserve
         else if (Input.GetKeyDown(KeyCode.R) && CurrentAmmo < MagSize && AmmoReserved > 0)
         {
             int ammoneed = MagSize - CurrentAmmo;
@@ -78,6 +78,7 @@ public class GunController : MonoBehaviour
 
         }
     } 
+    //when RMB is clicked  it sets the guns local position to the AimPos and transitions smoothly to wantedPos  
     void ADS()
     {
         Vector3 target = localPos;
@@ -88,7 +89,7 @@ public class GunController : MonoBehaviour
 
         
     }
-    
+    //suppoused to add sway by tracking the x,y axes of mouse and adjusting the rotaion of weapon, DOES NOT WORK Causes bug that doesnt let player look left and right 
     /*void DefRot()
     {
         Vector2 mouseAxis = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
@@ -100,6 +101,7 @@ public class GunController : MonoBehaviour
         transform.root.localRotation = Quaternion.AngleAxis(curr_Rot.x, Vector3.up);
         transform.parent.localRotation = Quaternion.AngleAxis(-curr_Rot.y, Vector3.right);
     }*/
+    // moves weapon slightly on z axis either randomly based on limitations or with a set pattern emulating recoil 
     void MakeRecoil()
     {
         transform.localPosition -= Vector3.forward * 0.1f;
@@ -118,6 +120,7 @@ public class GunController : MonoBehaviour
             curr_Rot += recoilPatt[CurrRec];
         }
     }
+    // if LMB held down weapon is automatic 
     void ShootingAuto()
     {
         if(Input.GetMouseButton(0)&& IsShoot && CurrentAmmo > 0)
@@ -128,6 +131,7 @@ public class GunController : MonoBehaviour
         }
 
     }
+    //if taped single fire. Can be toggled with "B" key or hard set by changing firerate
     void ShootingSingle()
     {
         if (Input.GetMouseButton(0) && IsShoot && CurrentAmmo > 0)
@@ -146,6 +150,7 @@ public class GunController : MonoBehaviour
         IsShoot =true;
         
     }
+    //displays sprites from Flashes array  for set time
     IEnumerator MuzzleFlashes()
     { 
         muzzleFlash.sprite = Flashes[Random.Range(0, Flashes.Length)];
@@ -155,6 +160,7 @@ public class GunController : MonoBehaviour
         muzzleFlash.color = new Color(0, 0, 0, 0);
 
     }
+    //shoot ray if ray hit and target derives from IDamge apply damage if Rigid Simulate impact
     void enemyRaycast()
     {
         RaycastHit hit;
