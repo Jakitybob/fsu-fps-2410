@@ -219,8 +219,7 @@ public class meatHook : MonoBehaviour
             //conserve your momentum (hook vector + jump vector)
             momentum = (pullDir * pullSpeed) + gameManager.instance.player.GetComponent<playerController>().getVelocity();
 
-            gameManager.instance.player.GetComponent<playerController>().setJumpCount(2);
-
+            
             stopPull();
 
             state = State.Launched;
@@ -312,6 +311,7 @@ public class meatHook : MonoBehaviour
 
     private void stopPull()
     {
+        gameManager.instance.player.GetComponent<playerController>().setJumpCount(1);
         fovSlider.setFOV(origFov);
         gameManager.instance.player.GetComponent<playerController>().setGravity(origGravity);
         gameManager.instance.player.GetComponent<playerController>().setSpeed(origSpeed);
