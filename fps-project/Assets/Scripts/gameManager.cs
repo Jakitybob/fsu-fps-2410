@@ -14,6 +14,7 @@ using UnityEngine.UI;
 public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
+    public GameObject meatHookIcon;
 
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;

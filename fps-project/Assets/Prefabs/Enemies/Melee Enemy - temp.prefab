@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6433103208268788798}
   m_Layer: 6
   m_Name: Melee Enemy - temp
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,6 +60,7 @@ MonoBehaviour:
   detectionRange: 15
   walkSpeed: 3.5
   rotateSpeed: 100
+  viewAngle: 0
   HP: 3
 --- !u!195 &8483575364673660590
 NavMeshAgent:
