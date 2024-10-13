@@ -1282,6 +1282,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ToxicLiquid
       objectReference: {fileID: 0}
+    - target: {fileID: 4113050727513247494, guid: d1d432a1d9d4f5c438923350e98e9d46, type: 3}
+      propertyPath: damageAmount
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6372201314999024143, guid: d1d432a1d9d4f5c438923350e98e9d46, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -6334,6 +6338,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2411738617458386536, guid: b25332627c084354d91f2212e0702fc7, type: 3}
+      propertyPath: Flashes.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: ac112ec7b66e7fe4ba89c540152eb488, type: 3}
+    - target: {fileID: 2411738617458386536, guid: b25332627c084354d91f2212e0702fc7, type: 3}
+      propertyPath: Flashes.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: b823ae5debd986149aae0dd917e137bd, type: 3}
     - target: {fileID: 5335141273024281609, guid: b25332627c084354d91f2212e0702fc7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 105.7081
@@ -6377,6 +6389,14 @@ PrefabInstance:
     - target: {fileID: 8866918787220154023, guid: b25332627c084354d91f2212e0702fc7, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184901435988607139, guid: b25332627c084354d91f2212e0702fc7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0136
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184901435988607139, guid: b25332627c084354d91f2212e0702fc7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.1494
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
