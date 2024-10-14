@@ -53,6 +53,7 @@ MonoBehaviour:
   damageAmount: 1
   speed: 0
   destroyTime: 0
+  dotDelay: 1
 --- !u!33 &7498001840309867710
 MeshFilter:
   m_ObjectHideFlags: 0

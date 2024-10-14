@@ -34,7 +34,7 @@ public class damage : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.isTrigger)
+        if (other.isTrigger || other.CompareTag("Enemy") && type == damageType.stationary)
         {
             return;
         }
