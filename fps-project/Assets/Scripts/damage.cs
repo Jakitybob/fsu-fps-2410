@@ -11,6 +11,10 @@ public class damage : MonoBehaviour
     [SerializeField] int damageAmount;
     [SerializeField] int speed;
     [SerializeField] int destroyTime;
+    [SerializeField] float dotDelay;
+
+
+    IDamage dmg;
 
 
 
@@ -36,7 +40,7 @@ public class damage : MonoBehaviour
         }
 
 
-        IDamage dmg = other.GetComponent<IDamage>();
+        dmg = other.GetComponent<IDamage>();
 
 
         if (dmg != null)
@@ -48,6 +52,21 @@ public class damage : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else if (type == damageType.stationary)
+        {
+            //do this method, delay of x seconds, repeat every x second
+            //target is already damaged once on trigger enter, need the delay
+            InvokeRepeating(nameof(repeatStationaryDamage), dotDelay, dotDelay);
+        }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (type == damageType.stationary)
+        {
+            CancelInvoke(nameof(repeatStationaryDamage));
+        }
     }
 
 
@@ -56,5 +75,12 @@ public class damage : MonoBehaviour
     void Update()
     {
         
+    }
+
+
+
+    void repeatStationaryDamage()
+    {
+        dmg.takeDamage(damageAmount);
     }
 }
