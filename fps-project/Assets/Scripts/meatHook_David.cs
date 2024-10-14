@@ -25,6 +25,7 @@ public class meatHook : MonoBehaviour
     Vector3 pullDir;
     Vector3 momentum;
 
+    RaycastHit hit;
     float chainLength;
     float castSpeed = 100f;
 
@@ -96,7 +97,6 @@ public class meatHook : MonoBehaviour
     {
         if (Input.GetButtonDown("Meat Hook"))
         {
-            RaycastHit hit;
 
             if (isValidTarget && Physics.Raycast(
                                     Camera.main.transform.position,
@@ -197,29 +197,14 @@ public class meatHook : MonoBehaviour
 
             state = State.Normal;
         }
-        //you can cancel Meat Hook by pressing 'q'
-        else if (Input.GetButtonDown("Meat Hook"))
+        //you can cancel Meat Hook by pressing 'q'/'jump'/or killing target
+        else if (Input.GetButtonDown("Meat Hook") || Input.GetButtonDown("Jump") || hit.collider == null)
         {
             hideHookModel();
 
             //conserve your momentum (hook vector + jump vector)
             momentum = (pullDir * pullSpeed) + gameManager.instance.player.GetComponent<playerController>().getVelocity();
 
-            gameManager.instance.player.GetComponent<playerController>().setJumpCount(1);
-
-            stopPull();
-
-            state = State.Launched;
-        }
-        //you can cancel Meat Hook by jumping
-        else if (Input.GetButtonDown("Jump"))
-        {
-            hideHookModel();
-
-            //conserve your momentum (hook vector + jump vector)
-            momentum = (pullDir * pullSpeed) + gameManager.instance.player.GetComponent<playerController>().getVelocity();
-
-            
             stopPull();
 
             state = State.Launched;
@@ -299,13 +284,15 @@ public class meatHook : MonoBehaviour
 
     private void isDestinationAnEnemy(RaycastHit targetDestination)
     {
-        //in here, check if target has 'Enemy' Tag
+        //check if target uses 'EnemyAI' script and has an Enemy tag
+        if (true == targetDestination.collider.gameObject.GetComponent<enemyAI>() && targetDestination.collider.CompareTag("Enemy"))
+        {
+            //Time = distance / speed
+            float duration = Vector3.Distance(gameManager.instance.player.transform.position, pullDestination) / pullSpeed;
 
-        //if yes:
-        //freeze enemy movement/attack for x amount of time
-        //time = ( Distance[collider.Distance] divided by Speed[pullSpeed] ) + 1 second stun if too short
-
-        //if no, do nothing
+            //stun enemy for x amount of time, plus some extra padding time
+            targetDestination.collider.gameObject.GetComponent<enemyAI>().stunEnemy(duration + 0.5f);
+        }
     }
 
 

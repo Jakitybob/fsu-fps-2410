@@ -32,7 +32,7 @@ public class enemyAI : MonoBehaviour, IDamage
     float angleToPlayer;
 
     bool showExecuteFlash;
-    bool nearDeath;
+    bool isStunned;
 
 
     Vector3 playerDir;
@@ -80,7 +80,7 @@ public class enemyAI : MonoBehaviour, IDamage
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
                 
-                if (playerInRange && !nearDeath)
+                if (playerInRange && !isStunned)
                 {
                     //StartCoroutine(flashExecution()); // Commented out since it's not implemented fully yet 
 
@@ -146,9 +146,29 @@ public class enemyAI : MonoBehaviour, IDamage
         }
         else if (HP == 1)
         {
-            nearDeath = true;
+            isStunned = true;
             agent.GetComponent<NavMeshAgent>().speed = 0;
         }
+    }
+
+
+    public void stunEnemy(float duration)
+    {
+        StartCoroutine(stunDuration(duration));
+    }
+    IEnumerator stunDuration(float duration)
+    {
+        //freeze movement
+        agent.GetComponent<NavMeshAgent>().speed = 0;
+        //stop from shooting
+        isStunned = true;
+
+        yield return new WaitForSeconds(duration);
+
+        //unfreeze movement
+        agent.GetComponent<NavMeshAgent>().speed = walkSpeed;
+        //allow shooting
+        isStunned = false;
     }
 
 
