@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ElevatorController : MonoBehaviour
 {
-    [SerializeField] private float startHeight = 0f;
-    [SerializeField] private float endHeight = 10f;
+    [SerializeField] private float startHeight = 1.2f;
+    [SerializeField] private float endHeight = 11.2f;
     [SerializeField] private float speed = 2f;
     
 
@@ -22,15 +22,20 @@ public class ElevatorController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isGoingUp = !isGoingUp; // Toggle the direction on each "E" press
+            isMoving = true; // Start the elevator's movement
+        }
         if (isMoving)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
             if (Vector3.Distance(transform.position,
- targetPosition) < 0.1f)
+            targetPosition) < 0.1f)
             {
-                isMoving
- = false;
+                isMoving = false;
+
 
                 // Determine the next target position based on the current direction
                 if (isGoingUp)
@@ -42,17 +47,20 @@ public class ElevatorController : MonoBehaviour
                     targetPosition = transform.position - Vector3.up * (endHeight - startHeight);
                 }
             }
+            
         }
     }
 
     // Implementation of the IInteractable interface
-    public void Interact(Interact interactor)
+    /*public void Interact(Interact interactor)
     {
+        
         if (!isMoving)
         {
             isGoingUp = !isGoingUp; // Toggle the direction on each interaction
             isMoving = true; // Start the elevator's movement
         }
-    }
+    }*/
+    
 }
     
