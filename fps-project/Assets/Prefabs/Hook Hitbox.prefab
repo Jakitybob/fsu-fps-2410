@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 90447779858632739}
   - component: {fileID: 2160078689791652126}
   m_Layer: 0
-  m_Name: HookPoint
+  m_Name: Hook Hitbox
   m_TagString: ValidHookObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
