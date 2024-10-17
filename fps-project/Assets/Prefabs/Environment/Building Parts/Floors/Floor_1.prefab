@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8735606467333677249}
   - component: {fileID: 3719752815925119679}
   m_Layer: 0
-  m_Name: Floor_BlackTile
+  m_Name: Floor_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

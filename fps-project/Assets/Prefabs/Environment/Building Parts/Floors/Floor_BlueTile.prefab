@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8793562549599997890}
   - component: {fileID: 6659486706878769251}
   m_Layer: 0
-  m_Name: Floor_BlueCarpet
+  m_Name: Floor_BlueTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
