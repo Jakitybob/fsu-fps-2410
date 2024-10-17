@@ -19,7 +19,7 @@ public class GunController : MonoBehaviour
     public Sprite[] Flashes;
 
     public Vector3 localPos;
-    public Vector3 AimPos;
+    public Vector3 AimPos; 
     [SerializeField] float aimSmooth;
 
     [Header("Mouse Settings")]
@@ -89,18 +89,6 @@ public class GunController : MonoBehaviour
 
         
     }
-    //suppoused to add sway by tracking the x,y axes of mouse and adjusting the rotaion of weapon, DOES NOT WORK Causes bug that doesnt let player look left and right 
-    /*void DefRot()
-    {
-        Vector2 mouseAxis = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        mouseAxis*=mouseSens;
-        curr_Rot += mouseAxis;
-        curr_Rot.y = Mathf.Clamp(curr_Rot.y, -90, 90);
-
-        //transform.localPosition += (Vector3)mouseAxis * gunSway / 1000;//
-        transform.root.localRotation = Quaternion.AngleAxis(curr_Rot.x, Vector3.up);
-        transform.parent.localRotation = Quaternion.AngleAxis(-curr_Rot.y, Vector3.right);
-    }*/
     // moves weapon slightly on z axis either randomly based on limitations or with a set pattern emulating recoil 
     void MakeRecoil()
     {
