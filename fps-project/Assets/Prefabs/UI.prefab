@@ -419,7 +419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &321839502969961648
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1832,6 +1832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b960c7848bf8e44be61d455f9deee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meatHookIcon: {fileID: 1330459801187656070}
   menuActive: {fileID: 0}
   menuPause: {fileID: 7530878014103234304}
   menuInventory: {fileID: 2923982788108996947}
