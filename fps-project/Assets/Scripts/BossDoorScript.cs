@@ -7,7 +7,7 @@ public class BossDoorScript : MonoBehaviour
     public delegate void DoorOpenedHandler();
     public event DoorOpenedHandler OnDoorOpened;
 
-    // ... (other door logic)
+    
 
     private void DoorOpened()
     {

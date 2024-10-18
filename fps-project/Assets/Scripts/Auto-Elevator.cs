@@ -1,3 +1,11 @@
+/************************************************************************************ 
+* * Full Sail GDB229 FPS Project *
+* Developers: Michael Bump *
+* *
+* This script component implements functioning elevator that automatically goes to its destination as the player steps on. *
+************************************************************************************/
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

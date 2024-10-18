@@ -1,11 +1,18 @@
+/************************************************************************************ 
+* * Full Sail GDB229 FPS Project *
+* Developers: Michael Bump *
+* *
+* This script component implements functioning elevator that the player has to "interact with for functionality" *
+************************************************************************************/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElevatorController : MonoBehaviour
+public class ElevatorController : MonoBehaviour, IInteractable
 {
-    [SerializeField] private float startHeight = 1.2f;
-    [SerializeField] private float endHeight = 11.2f;
+    [SerializeField] private float startHeight = 0.1f;
+    [SerializeField] private float endHeight = 10.9f;
     [SerializeField] private float speed = 2f;
     
 
@@ -22,11 +29,11 @@ public class ElevatorController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        /* if (Input.GetKeyDown("f"))
         {
             isGoingUp = !isGoingUp; // Toggle the direction on each "E" press
             isMoving = true; // Start the elevator's movement
-        }
+        } */
         if (isMoving)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
@@ -52,7 +59,7 @@ public class ElevatorController : MonoBehaviour
     }
 
     // Implementation of the IInteractable interface
-    /*public void Interact(Interact interactor)
+    public void Interact(Interact interactor)
     {
         
         if (!isMoving)
@@ -60,7 +67,7 @@ public class ElevatorController : MonoBehaviour
             isGoingUp = !isGoingUp; // Toggle the direction on each interaction
             isMoving = true; // Start the elevator's movement
         }
-    }*/
+    }
     
 }
     
