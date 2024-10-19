@@ -13,7 +13,7 @@ using UnityEngine;
 public class BossElevator : MonoBehaviour
 {
     public float elevatorSpeed = 2f;
-    public float bossSpawnDelay = 0.1f;
+    public float bossSpawnDelay = 0.0f;
     public float targetHeight = 10f; // The desired vertical distance to move
 
     private bool isElevatorActive = false;
@@ -23,21 +23,23 @@ public class BossElevator : MonoBehaviour
     {
         // Subscribe to the door's "DoorOpened" event
         GameObject.FindGameObjectWithTag("Door").GetComponent<TestingDoor>().OnDoorOpened += ActivateElevator;
-
+        Instantiate(Resources.Load<GameObject>("Boss"), transform.position, Quaternion.identity);
         // Store the starting position
         startingPosition = transform.position;
     }
 
     private void ActivateElevator()
     {
+        
         isElevatorActive = true;
-        Invoke("SpawnBoss", bossSpawnDelay);
+        //Invoke("SpawnBoss", bossSpawnDelay);
+
     }
 
     private void SpawnBoss()
     {
         // Instantiate the boss at the elevator's position
-        Instantiate(Resources.Load<GameObject>("BossPrefab"), transform.position, Quaternion.identity);
+        //Instantiate(Resources.Load<GameObject>("Boss"), transform.position, Quaternion.identity);
     }
 
     private void Update()
@@ -50,5 +52,21 @@ public class BossElevator : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, elevatorSpeed * Time.deltaTime);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.transform.parent = transform;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.transform.parent = null;
+        }
+}
     
 }
