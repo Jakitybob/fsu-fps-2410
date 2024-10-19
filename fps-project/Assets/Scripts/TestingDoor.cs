@@ -1,3 +1,10 @@
+/************************************************************************************ 
+* * Full Sail GDB229 FPS Project *
+* Developers: Michael Bump *
+* *
+* this simply a test door for the boss elevator to function *
+************************************************************************************/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
