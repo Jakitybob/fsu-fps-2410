@@ -1464,6 +1464,10 @@ PrefabInstance:
       propertyPath: destination
       value: 
       objectReference: {fileID: 90489466}
+    - target: {fileID: 8282165577922938124, guid: 3b3809bca5756ff45986f87db9195257, type: 3}
+      propertyPath: elevatorSpeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
