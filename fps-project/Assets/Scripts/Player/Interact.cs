@@ -38,7 +38,7 @@ public class Interact : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactionRange))
         {
-            Debug.Log(hit.collider.name);
+            //Debug.Log(hit.collider.name);
             // If the collided component has the IInteractable interface, call its interact function
             IInteractable interactee = hit.collider.GetComponent<IInteractable>();
             if (interactee != null)

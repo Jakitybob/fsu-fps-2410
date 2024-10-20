@@ -42,6 +42,7 @@ public class playerController : MonoBehaviour, IDamage
 
     // Components
     private Interact interactor;
+    private PlayerWeaponComponent weaponComponent;
 
     //
     // FUNCTIONS
@@ -53,6 +54,7 @@ public class playerController : MonoBehaviour, IDamage
         HPOrig = Hp;
         updatePlayerUI();
         interactor = GetComponent<Interact>();
+        weaponComponent = GetComponent<PlayerWeaponComponent>();
 
         distToGround += transform.localScale.y;
         defaultLayer = LayerMask.GetMask("Default");
@@ -79,6 +81,15 @@ public class playerController : MonoBehaviour, IDamage
         {
             interactor.InteractPressed();
         }
+
+        // Call attack with the current weapon if the Fire1 key is being pressed
+        if (Input.GetButton("Fire1"))
+        {
+            weaponComponent.WeaponAttack();
+        }
+
+        // Check for switching weapons
+        SwitchWeapons();
     }
 
 
@@ -149,6 +160,31 @@ public class playerController : MonoBehaviour, IDamage
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
+
+    /*
+     * Performs checks for mouse wheel input and switches the user's weapons
+     * accordingly. All range checks are performed within the weapon component
+     * and only input is checked here.
+     * 
+     * TODO: Implement 1->2->3->...N number keys for switching as well
+     */
+    void SwitchWeapons()
+    {
+        // NOTE: Range checks are done in the weapon component so no need here
+        // If scrolling up, increment the weapon index and update the weapon
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            weaponComponent.SetWeaponIndex(weaponComponent.GetWeaponIndex() + 1);
+            weaponComponent.SetWeaponStats(weaponComponent.GetCurrentWeapon());
+        }
+        // Otherwise if scrolling down, decrement the weapon index and update the weapon
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            weaponComponent.SetWeaponIndex(weaponComponent.GetWeaponIndex() - 1);
+            weaponComponent.SetWeaponStats(weaponComponent.GetCurrentWeapon());
+        }
+    }
+
     /*
      * Implementation of the IDamage interface's takeDamage. When called,
      * lowers the player's health by the amount and checks to see if the player
@@ -220,11 +256,10 @@ public class playerController : MonoBehaviour, IDamage
     //
 
     // Returns the Interact component attached to the player
-    public Interact GetInteractComponent()
-    {
-        return interactor;
-    }
+    public Interact GetInteractComponent() { return interactor; }
 
+    // Returns the weapon component attached to the player
+    public PlayerWeaponComponent GetWeaponComponent() { return weaponComponent; }
 
 
     public void setSpeed(int newSpeed)
