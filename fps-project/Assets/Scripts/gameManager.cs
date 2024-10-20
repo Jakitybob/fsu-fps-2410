@@ -21,7 +21,8 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuInventory;
     [SerializeField] GameObject Win;
     [SerializeField] GameObject Lose;
-   
+
+    public playerController playerScript;
     public GameObject playerSpawnPos; 
 
     public GameObject player;
@@ -43,6 +44,7 @@ public class gameManager : MonoBehaviour
         OrigTime = Time.timeScale;
         player = GameObject.FindWithTag("Player");
         playerSpawnPos = GameObject.FindWithTag("Player Spawn Pos");
+        playerScript = player.GetComponent<playerController>();
     }
 
     // Update is called once per frame
