@@ -8,6 +8,7 @@ TagManager:
   - ValidHookObject
   - Door
   - BossPrefab
+  - Player Spawn Pos
   layers:
   - Default
   - TransparentFX

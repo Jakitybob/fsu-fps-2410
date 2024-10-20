@@ -57,6 +57,15 @@ public class playerController : MonoBehaviour, IDamage
         distToGround += transform.localScale.y;
         defaultLayer = LayerMask.GetMask("Default");
 
+        spawnPlayer();
+    }
+
+    public void spawnPlayer()
+    {
+        controller.enabled = false;
+        transform.position = gameManager.instance.playerSpawnPos.transform.position;
+        controller.enabled = true;
+        Hp = HPOrig;
     }
 
     // Update is called once per frame
