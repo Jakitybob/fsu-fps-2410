@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 public class GunController : MonoBehaviour
@@ -167,4 +168,14 @@ public class GunController : MonoBehaviour
             }
         }
     }
-}
+    public void AddAmmo(int amount)
+    {
+         AmmoReserved += amount;
+        
+        if (AmmoReserved > ReserveAmmoCap) 
+        {
+            AmmoReserved = ReserveAmmoCap;
+    
+        }
+    }
+}   

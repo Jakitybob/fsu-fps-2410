@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Health up", menuName ="Powerup/HealthUps")]
-public class Healthup : ScriptableObject
+public class Healthup : MonoBehaviour
 {
-    [SerializeField] int amount;
-    //sets heal amount and appplies it 
-    public  void applyHeal(playerController player)
+    public int amount;
+    //sets heal amount and appplies it   
+    private void OnTriggerEnter(Collider other) 
     {
-        player.Heal(amount);
+        playerController health = other.GetComponent<playerController>();
+        if (health)
+        {
+            health.Heal(amount);
+            Destroy(gameObject); 
+        }
+        
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro.Examples;
 using Unity.VisualScripting;
 using UnityEngine;
-
+// Script that spawns enemies from a GameObject Array at a set spawnpoint 
 public class EnemySpawerScript : MonoBehaviour
 {
     [Header("Spawner Settings")]
