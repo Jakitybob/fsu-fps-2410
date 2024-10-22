@@ -8,10 +8,17 @@ public class AmmoUp: MonoBehaviour{
 
     private void OnTriggerEnter(Collider other)
     {
-        GunController ammo = other.GetComponent<GunController>();
-        if (ammo)
-        {
-            ammo.AddAmmo(amount); 
+
+        PlayerWeaponComponent weapon = other.GetComponent<PlayerWeaponComponent>();
+        
+        if (weapon != null)
+        {//current weapon inplayer hand
+           SO_Weapon currWeapon = weapon.GetCurrentWeapon();
+            //make sure its valid
+            if (currWeapon != null && currWeapon.totalAmmo < currWeapon.ammoMax) {
+                
+                currWeapon.totalAmmo = Mathf.Min(currWeapon.totalAmmo + amount, currWeapon.ammoMax);
+            }
             Destroy(gameObject);
         }
         
