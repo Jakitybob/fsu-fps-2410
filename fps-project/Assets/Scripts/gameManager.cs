@@ -31,6 +31,8 @@ public class gameManager : MonoBehaviour
     //declare private variable
     public Image playerHPBar;
     public GameObject playerDmgScreen;
+    [SerializeField] TMP_Text currentAmmoText;
+    [SerializeField] TMP_Text totalAmmoText;
 
     public bool isPaused;
 
@@ -129,9 +131,17 @@ public class gameManager : MonoBehaviour
         menuActive.SetActive(false);
         menuActive = null;
     }
+
+    //
+    // GETTERS & SETTERS
+    //
+
     public Image PlayerHPBar
     {
-        get { return playerHPBar;}
-        set {playerHPBar = value;}
-    } 
+        get { return playerHPBar; }
+        set { playerHPBar = value; }
+    }
+
+    public TMP_Text GetCurrentAmmoText() { return currentAmmoText; }
+    public TMP_Text GetTotalAmmoText() { return totalAmmoText; }
 }
