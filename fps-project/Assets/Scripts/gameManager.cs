@@ -114,6 +114,12 @@ public class gameManager : MonoBehaviour
         menuActive = Lose;
         menuActive.SetActive(true);
     }
+    public void gameWon()
+    {
+        Paused();
+        menuActive = Win;
+        menuActive.SetActive(true);
+    }
     public void openInventory()
     {
         isPaused = !isPaused;
