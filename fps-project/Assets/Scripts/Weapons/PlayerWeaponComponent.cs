@@ -99,11 +99,30 @@ public class PlayerWeaponComponent : MonoBehaviour
      */
     public void Reload()
     {
-        // Only perform a reload if it would actually do anything
-        if (weaponList[weaponIndex].ammoCurrent < weaponList[weaponIndex].ammoMax)
+        SO_Weapon curWeapon = weaponList[weaponIndex];
+        // Checks if the weapon can reload
+        if (curWeapon.CanReload())
         {
             StartCoroutine(DoReload());
-            weaponList[weaponIndex].ammoCurrent = weaponList[weaponIndex].ammoMax;
+            
+            //calculates how much ammo to fill mag
+            int ammoNeed = curWeapon.ammoMax - curWeapon.ammoCurrent;
+           
+            //takes from total reserve
+            if (curWeapon.totalAmmo >= ammoNeed) {
+                
+                curWeapon.ammoCurrent += ammoNeed;
+                curWeapon.totalAmmo -= ammoNeed;
+            }
+            else
+            {
+                //if there isnt enough ammo to refill mag it puts the remainder of reserve in mag 
+                curWeapon.ammoCurrent += curWeapon.totalAmmo;
+                curWeapon.totalAmmo = 0;
+
+            }
+
+
         }
     }
 
@@ -180,6 +199,7 @@ public class PlayerWeaponComponent : MonoBehaviour
         else
             return weaponList[index];
     }
+
 
     public int GetCurrentAmmo() { return weaponList[weaponIndex].ammoCurrent; }
     public int GetTotalAmmo() { return weaponList[weaponIndex].ammoMax; }
