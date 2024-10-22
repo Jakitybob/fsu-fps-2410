@@ -51,10 +51,13 @@ public class playerController : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
+        // Set all baseline values and get all components
         HPOrig = Hp;
-        updatePlayerUI();
         interactor = GetComponent<Interact>();
         weaponComponent = GetComponent<PlayerWeaponComponent>();
+
+        // Update the UI
+        updatePlayerUI();
 
         distToGround += transform.localScale.y;
         defaultLayer = LayerMask.GetMask("Default");
@@ -86,6 +89,14 @@ public class playerController : MonoBehaviour, IDamage
         if (Input.GetButton("Fire1"))
         {
             weaponComponent.WeaponAttack();
+            updatePlayerUI();
+        }
+
+        // Call reload on the current weapon if the Reload key is pressed down
+        if (Input.GetButtonDown("Reload"))
+        {
+            weaponComponent.Reload();
+            updatePlayerUI();
         }
 
         // Check for switching weapons
@@ -172,16 +183,18 @@ public class playerController : MonoBehaviour, IDamage
     {
         // NOTE: Range checks are done in the weapon component so no need here
         // If scrolling up, increment the weapon index and update the weapon
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && weaponComponent.GetWeaponListCount() > 0)
         {
             weaponComponent.SetWeaponIndex(weaponComponent.GetWeaponIndex() + 1);
             weaponComponent.SetWeaponStats(weaponComponent.GetCurrentWeapon());
+            updatePlayerUI();
         }
         // Otherwise if scrolling down, decrement the weapon index and update the weapon
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && weaponComponent.GetWeaponListCount() > 0)
         {
             weaponComponent.SetWeaponIndex(weaponComponent.GetWeaponIndex() - 1);
             weaponComponent.SetWeaponStats(weaponComponent.GetCurrentWeapon());
+            updatePlayerUI();
         }
     }
 
@@ -204,9 +217,22 @@ public class playerController : MonoBehaviour, IDamage
 
     }
 
+    /*
+     * Update any player-facing GUI elements:
+     * > Health
+     * > Current and Total Ammo for Weapon
+     */
     public void updatePlayerUI()
     {
         gameManager.instance.PlayerHPBar.fillAmount = (float) Hp / HPOrig;
+
+        // If there is a weapon, update the ammo
+        if (weaponComponent.GetWeaponListCount() > 0)
+        {
+            gameManager.instance.GetCurrentAmmoText().text = weaponComponent.GetCurrentAmmo().ToString();
+            gameManager.instance.GetTotalAmmoText().text = weaponComponent.GetTotalAmmo().ToString();
+        }
+        
     }
 
     IEnumerator damageFlash()

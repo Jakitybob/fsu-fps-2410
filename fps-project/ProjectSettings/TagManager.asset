@@ -9,6 +9,7 @@ TagManager:
   - Door
   - BossPrefab
   - Player Spawn Pos
+  - BrainBoss
   layers:
   - Default
   - TransparentFX

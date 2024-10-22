@@ -23,6 +23,7 @@ public class SO_Weapon : ScriptableObject
     public float attackRate;
     public int attackRange;
     public int ammoCurrent, ammoMax;
+    public float reloadTime;
     private bool bCanAttack; // Used to ensure each weapon can attack on their own no matter the coroutine status
 
 

@@ -93,6 +93,34 @@ public class PlayerWeaponComponent : MonoBehaviour
     }
 
     /*
+     * Reloads the current weapon if it can be reloaded.
+     * TODO: Implement a total ammo for any given weapon for ammo pickups and only allow reloads if
+     * the player has enough ammo stored.
+     */
+    public void Reload()
+    {
+        // Only perform a reload if it would actually do anything
+        if (weaponList[weaponIndex].ammoCurrent < weaponList[weaponIndex].ammoMax)
+        {
+            StartCoroutine(DoReload());
+            weaponList[weaponIndex].ammoCurrent = weaponList[weaponIndex].ammoMax;
+        }
+    }
+
+    /*
+     * Stops the gun from shooting while reloading, and should eventually also fire the animation
+     * for reloading on the gun and simply wait for that to finish before allowing the weapon
+     * to attack again.
+     */
+    IEnumerator DoReload()
+    {
+        // TODO: Implement playing a reload animation here
+        weaponList[weaponIndex].SetCanAttack(false);
+        yield return new WaitForSeconds(weaponList[weaponIndex].reloadTime);
+        weaponList[weaponIndex].SetCanAttack(true);
+    }
+
+    /*
      * Change the currently equipped weapon to the weapon input
      * to this function.
      * 
@@ -121,6 +149,7 @@ public class PlayerWeaponComponent : MonoBehaviour
         weaponList.Add(weapon);
         weaponIndex = weaponList.Count - 1;
         SetWeaponStats(weapon);
+        gameManager.instance.playerScript.updatePlayerUI(); // Update the player UI when picking up a weapon
     }
 
 
@@ -128,8 +157,8 @@ public class PlayerWeaponComponent : MonoBehaviour
     // GETTERS & SETTERS
     //
 
-    public int GetWeaponIndex() {  return weaponIndex; }
-    public void SetWeaponIndex(int index) 
+    public int GetWeaponIndex() { return weaponIndex; }
+    public void SetWeaponIndex(int index)
     {
         // If the index would be out of range simply return
         if (index < 0 || index >= weaponList.Count)
@@ -138,23 +167,28 @@ public class PlayerWeaponComponent : MonoBehaviour
         }
         // Otherwise set the weaponIndex to the index specified
         else
-            weaponIndex = index; 
+            weaponIndex = index;
     }
 
     public SO_Weapon GetCurrentWeapon() { return weaponList[weaponIndex]; }
-    public SO_Weapon GetWeaponAtIndex(int index) 
+    public SO_Weapon GetWeaponAtIndex(int index)
     {
         // If the weapon would be out of bounds simply return null
         if (index < 0 || index >= weaponList.Count)
             return null;
         // Otherwise return the weapon at the index specified
         else
-            return weaponList[index]; 
+            return weaponList[index];
     }
+
+    public int GetCurrentAmmo() { return weaponList[weaponIndex].ammoCurrent; }
+    public int GetTotalAmmo() { return weaponList[weaponIndex].ammoMax; }
 
     public int GetWeaponDamage() { return weaponDamage; }
     
     public float GetWeaponAttackRate() { return weaponAttackRate; }
     
     public int GetWeaponRange() { return weaponRange; }
+
+    public int GetWeaponListCount() { return weaponList.Count; }
 }
