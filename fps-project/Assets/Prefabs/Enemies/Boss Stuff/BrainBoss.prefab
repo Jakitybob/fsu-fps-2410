@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6337084012015203385}
   m_Layer: 6
   m_Name: FleshBrain
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -349,14 +349,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 50
   HPBar: {fileID: 1552863868672553163}
-  rotationSpeed: 10
-  bossViewAngle: 107
-  pauseDurationMin: 3
-  pauseDurationMax: 3
+  rotationSpeed: 15
+  bossViewAngle: 97
+  pauseDurationMin: 10
+  pauseDurationMax: 20
   minRotations: 1
   maxRotations: 4
   riseSpeed: 10
-  riseMaxHeight: 10
+  riseMaxHeight: 65
 --- !u!1 &4820240200257313641
 GameObject:
   m_ObjectHideFlags: 0

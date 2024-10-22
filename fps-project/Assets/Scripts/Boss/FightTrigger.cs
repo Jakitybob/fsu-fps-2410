@@ -15,7 +15,7 @@ public class FightTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Instantiate(bossPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(bossPrefab, spawnPoint.position, spawnPoint.localRotation);
 
         //
         // turn on spawners here
