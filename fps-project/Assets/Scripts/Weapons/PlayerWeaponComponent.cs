@@ -157,4 +157,6 @@ public class PlayerWeaponComponent : MonoBehaviour
     public float GetWeaponAttackRate() { return weaponAttackRate; }
     
     public int GetWeaponRange() { return weaponRange; }
+
+    public int GetWeaponListCount() { return weaponList.Count; }
 }

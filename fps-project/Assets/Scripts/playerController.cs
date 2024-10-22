@@ -172,13 +172,13 @@ public class playerController : MonoBehaviour, IDamage
     {
         // NOTE: Range checks are done in the weapon component so no need here
         // If scrolling up, increment the weapon index and update the weapon
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && weaponComponent.GetWeaponListCount() > 0)
         {
             weaponComponent.SetWeaponIndex(weaponComponent.GetWeaponIndex() + 1);
             weaponComponent.SetWeaponStats(weaponComponent.GetCurrentWeapon());
         }
         // Otherwise if scrolling down, decrement the weapon index and update the weapon
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && weaponComponent.GetWeaponListCount() > 0)
         {
             weaponComponent.SetWeaponIndex(weaponComponent.GetWeaponIndex() - 1);
             weaponComponent.SetWeaponStats(weaponComponent.GetCurrentWeapon());
