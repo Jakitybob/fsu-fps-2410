@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.72309977, z: 0, w: 0.6907436}
   m_LocalPosition: {x: 105.7081, y: 1, z: 112.844345}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7554063442050783927}
@@ -58,11 +58,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Hp: 5
-  speed: 20
+  speed: 15
   sprintMod: 2
-  jumpSpeed: 12
+  jumpSpeed: 7
   jumpCountMax: 2
-  gravity: 23
+  gravity: 25
 --- !u!114 &6449016865945566969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   meatHookTransform: {fileID: 5751523262287700662}
   controller: {fileID: 3887737451399973826}
   pullSpeed: 40
-  pullRange: 50
+  pullRange: 30
 --- !u!143 &3887737451399973826
 CharacterController:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 47d7feaa8f52a0b40b1197e324d66cb1, type: 2}
+  - {fileID: 2100000, guid: fcea59582a54c264699e22f57f88f3dc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
