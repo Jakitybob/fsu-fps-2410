@@ -23,8 +23,8 @@ public class AutoElevator : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerOn = true;
-            playerTransform = other.transform;
-            playerTransform.parent = transform; // Parent the player to the elevator
+            //playerTransform = other.transform;
+            //playerTransform.parent = transform; // Parent the player to the elevator
         }
     }
 
@@ -33,7 +33,7 @@ public class AutoElevator : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerOn = false;
-            playerTransform.parent = null; // Unparent the player from the elevator
+            //playerTransform.parent = null; // Unparent the player from the elevator
         }
     }
 

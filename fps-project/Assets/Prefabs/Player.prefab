@@ -57,7 +57,7 @@ MonoBehaviour:
   ignoreMask:
     serializedVersion: 2
     m_Bits: 8
-  Hp: 5
+  Hp: 10
   speed: 15
   sprintMod: 2
   jumpSpeed: 7
@@ -112,7 +112,7 @@ MonoBehaviour:
   meatHookTransform: {fileID: 5751523262287700662}
   controller: {fileID: 3887737451399973826}
   pullSpeed: 40
-  pullRange: 30
+  pullRange: 50
 --- !u!143 &3887737451399973826
 CharacterController:
   m_ObjectHideFlags: 0
