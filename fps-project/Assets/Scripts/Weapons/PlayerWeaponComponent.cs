@@ -130,7 +130,6 @@ public class PlayerWeaponComponent : MonoBehaviour
     {
         // TODO: Implement playing a reload animation here
         weaponList[weaponIndex].SetCanAttack(false);
-        StopCoroutine(Attack()); // Stop attacking before reloading to prevent strange behavior
         yield return new WaitForSeconds(weaponList[weaponIndex].reloadTime);
         weaponList[weaponIndex].SetCanAttack(true);
     }
@@ -185,7 +184,15 @@ public class PlayerWeaponComponent : MonoBehaviour
             weaponIndex = index;
     }
 
-    public SO_Weapon GetCurrentWeapon() { return weaponList[weaponIndex]; }
+    public SO_Weapon GetCurrentWeapon() 
+    {
+        // If the player has weapons, return the weapon equipped
+        if (weaponList.Count > 0)
+            return weaponList[weaponIndex];
+        // Else return null as they have nothing equipped
+        else
+            return null;
+    }
     public SO_Weapon GetWeaponAtIndex(int index)
     {
         // If the weapon would be out of bounds simply return null
