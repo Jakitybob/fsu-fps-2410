@@ -5,6 +5,7 @@ using UnityEngine;
 public class Healthup : MonoBehaviour
 {
     public int amount;
+    public int respawnTime;
     private PickupSpawner Spawner;
     
    
@@ -23,9 +24,10 @@ public class Healthup : MonoBehaviour
             health.Heal(amount);
             if(Spawner != null)
             {
-                Spawner.SpawnPickUp();
+                Spawner.pickedup();
             }
-            Destroy(gameObject); 
+            Destroy(gameObject);
+            
         }
         
     }

@@ -10,13 +10,14 @@ public class PickupSpawner : MonoBehaviour
 
     public float spawnInterval;
     private float spawnTime;
-    private int currentIndx;
+    private bool IsSpawning;
+   
 
     void Update()
     {
         spawnTime += Time.deltaTime;
 
-        if(spawnTime >= spawnInterval)
+        if(spawnTime >= spawnInterval&& !IsSpawning)   
         {
             SpawnPickUp();
             
@@ -34,6 +35,7 @@ public class PickupSpawner : MonoBehaviour
             if(heal!= null)
             {
                 heal.setSpawner(this);
+               
             }
             
             if (ammo != null)
@@ -45,4 +47,8 @@ public class PickupSpawner : MonoBehaviour
 
         
     } 
+    public void pickedup()
+    {
+        IsSpawning = false; 
+    }
 }

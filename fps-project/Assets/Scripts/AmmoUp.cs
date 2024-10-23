@@ -33,7 +33,7 @@ public class AmmoUp: MonoBehaviour
             }
             if(spawner!= null)
             {
-                spawner.SpawnPickUp(); 
+                spawner.pickedup(); 
             }
             Destroy(gameObject);
         }
