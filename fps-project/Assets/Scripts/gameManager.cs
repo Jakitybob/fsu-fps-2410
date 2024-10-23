@@ -102,12 +102,6 @@ public class gameManager : MonoBehaviour
     {
         enemycount += amount;
         enemyText.text = enemycount.ToString("F0");
-        if(enemycount<= 0)
-        {
-            Paused();
-            menuActive = Win;
-            menuActive.SetActive(true);
-        }
     }
     public void gameLost()
     {
