@@ -5,7 +5,18 @@ using UnityEngine;
 
 public class AmmoUp: MonoBehaviour{ 
    [SerializeField] int amount;
+    public PickupSpawner spawner;
 
+    
+
+    public void setSpawner(PickupSpawner spawner)
+    {
+        this.spawner = spawner;
+    }
+    
+    
+    
+    
     private void OnTriggerEnter(Collider other)
     {
 
@@ -18,6 +29,10 @@ public class AmmoUp: MonoBehaviour{
             if (currWeapon != null && currWeapon.totalAmmo < currWeapon.ammoMax) {
                 
                 currWeapon.totalAmmo = Mathf.Min(currWeapon.totalAmmo + amount, currWeapon.ammoMax);
+            }
+            if(spawner!= null)
+            {
+                spawner.SpawnPickUp(); 
             }
             Destroy(gameObject);
         }

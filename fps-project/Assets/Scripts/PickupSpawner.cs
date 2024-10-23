@@ -10,6 +10,7 @@ public class PickupSpawner : MonoBehaviour
 
     public float spawnInterval;
     private float spawnTime;
+    private int currentIndx;
 
     void Update()
     {
@@ -19,13 +20,29 @@ public class PickupSpawner : MonoBehaviour
         {
             SpawnPickUp();
             
-            spawnTime = 0;  
+            spawnTime -=spawnInterval ;  
         }
 
     }
-    void SpawnPickUp()
+    public void SpawnPickUp()
     {
-        Instantiate(PickUP, spawnPoint);
+        if (PickUP != null && spawnPoint != null)
+        {
+            GameObject spawned = Instantiate(PickUP, spawnPoint.position, spawnPoint.rotation);
+            Healthup heal=spawned.GetComponent<Healthup>();
+            AmmoUp ammo = spawned.GetComponent<AmmoUp>();
+            if(heal!= null)
+            {
+                heal.setSpawner(this);
+            }
+            
+            if (ammo != null)
+            {
+                ammo.setSpawner(this);
+            }
+        
+        }
+
         
     } 
 }

@@ -21,7 +21,8 @@ public class EnemySpawerScript : MonoBehaviour
     IEnumerator SpawnObject()
     {
         while (count < maxSpawn) { 
-           yield return new WaitForSeconds(spawntimer);
+           
+            yield return new WaitForSeconds(spawntimer);
            
            Spawn();
 

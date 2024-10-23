@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\fps-project",
+    "\\fps-project\\Assets",
+    "\\fps-project\\Assets\\Scripts",
+    "\\fps-project\\Assets\\Scripts\\enemy"
   ],
-  "SelectedNode": "\\C:\\Group-FPS",
+  "SelectedNode": "\\fps-project\\Assets\\Scripts\\enemy\\enemyAI.cs",
   "PreviewInSolutionExplorer": false
 }
