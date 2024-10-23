@@ -18,6 +18,8 @@ MonoBehaviour:
   attackRange: 50
   ammoCurrent: 13
   ammoMax: 13
+  totalAmmo: 31
+  reloadTime: 3
   hitEffect: {fileID: 7226583673155636403, guid: a2ab56839e1c9504ea9d141e95d0b16b, type: 3}
   attackSound: []
   attackVolume: 0

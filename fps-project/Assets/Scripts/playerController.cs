@@ -92,8 +92,8 @@ public class playerController : MonoBehaviour, IDamage
             updatePlayerUI();
         }
 
-        // Call reload on the current weapon if the Reload key is pressed down
-        if (Input.GetButtonDown("Reload"))
+        // Call reload on the current weapon if the Reload key is pressed down and the user is not firing
+        if (Input.GetButtonDown("Reload") && !Input.GetButton("Fire1"))
         {
             weaponComponent.Reload();
             updatePlayerUI();
@@ -171,7 +171,7 @@ public class playerController : MonoBehaviour, IDamage
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
-
+    
     /*
      * Performs checks for mouse wheel input and switches the user's weapons
      * accordingly. All range checks are performed within the weapon component

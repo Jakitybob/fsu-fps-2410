@@ -52,22 +52,21 @@ public class PlayerWeaponComponent : MonoBehaviour
      */
     IEnumerator Attack()
     {
-        // Sett the character to now attacking
+        // Set the character to now attacking
         weaponList[weaponIndex].SetCanAttack(false);
         weaponList[weaponIndex].ammoCurrent -= 1;
-        // TODO: Update ammo in HUD here
 
         // Fire a raycast using the Physics class and check for damageable objects
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, weaponRange, ~ignoreMask))
         {
-            Debug.Log(hit.collider.name); // Debug text to make sure the raycast is hittig proper objects
+            //Debug.Log(hit.collider.name); // Debug text to make sure the raycast is hittig proper objects
 
             // Check if the hit object can be damaged via the IDamage interface
             IDamage damage = hit.collider.GetComponent<IDamage>();
 
             // No matter the hit result, instantiate the weapon's hit effect
-            //Instantiate(weaponList[weaponIndex].hitEffect, hit.point, Quaternion.identity);
+            Instantiate(weaponList[weaponIndex].hitEffect, hit.point, Quaternion.identity);
 
             // Damage the hit actor if it was found
             if (damage != null)
@@ -99,30 +98,26 @@ public class PlayerWeaponComponent : MonoBehaviour
      */
     public void Reload()
     {
-        SO_Weapon curWeapon = weaponList[weaponIndex];
         // Checks if the weapon can reload
-        if (curWeapon.CanReload())
+        if (weaponList[weaponIndex].CanReload())
         {
             StartCoroutine(DoReload());
             
             //calculates how much ammo to fill mag
-            int ammoNeed = curWeapon.ammoMax - curWeapon.ammoCurrent;
+            int ammoNeed = weaponList[weaponIndex].ammoMax - weaponList[weaponIndex].ammoCurrent;
            
             //takes from total reserve
-            if (curWeapon.totalAmmo >= ammoNeed) {
-                
-                curWeapon.ammoCurrent += ammoNeed;
-                curWeapon.totalAmmo -= ammoNeed;
+            if (weaponList[weaponIndex].totalAmmo >= ammoNeed) {
+
+                weaponList[weaponIndex].ammoCurrent += ammoNeed;
+                weaponList[weaponIndex].totalAmmo -= ammoNeed;
             }
             else
             {
                 //if there isnt enough ammo to refill mag it puts the remainder of reserve in mag 
-                curWeapon.ammoCurrent += curWeapon.totalAmmo;
-                curWeapon.totalAmmo = 0;
-
+                weaponList[weaponIndex].ammoCurrent += weaponList[weaponIndex].totalAmmo;
+                weaponList[weaponIndex].totalAmmo = 0;
             }
-
-
         }
     }
 
@@ -189,7 +184,15 @@ public class PlayerWeaponComponent : MonoBehaviour
             weaponIndex = index;
     }
 
-    public SO_Weapon GetCurrentWeapon() { return weaponList[weaponIndex]; }
+    public SO_Weapon GetCurrentWeapon() 
+    {
+        // If the player has weapons, return the weapon equipped
+        if (weaponList.Count > 0)
+            return weaponList[weaponIndex];
+        // Else return null as they have nothing equipped
+        else
+            return null;
+    }
     public SO_Weapon GetWeaponAtIndex(int index)
     {
         // If the weapon would be out of bounds simply return null
@@ -202,7 +205,7 @@ public class PlayerWeaponComponent : MonoBehaviour
 
 
     public int GetCurrentAmmo() { return weaponList[weaponIndex].ammoCurrent; }
-    public int GetTotalAmmo() { return weaponList[weaponIndex].ammoMax; }
+    public int GetTotalAmmo() { return weaponList[weaponIndex].totalAmmo; }
 
     public int GetWeaponDamage() { return weaponDamage; }
     

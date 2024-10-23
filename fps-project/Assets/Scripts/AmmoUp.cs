@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AmmoUp: MonoBehaviour{ 
+public class AmmoUp: MonoBehaviour
+{ 
    [SerializeField] int amount;
     public PickupSpawner spawner;
 
@@ -19,16 +20,16 @@ public class AmmoUp: MonoBehaviour{
     
     private void OnTriggerEnter(Collider other)
     {
-
         PlayerWeaponComponent weapon = other.GetComponent<PlayerWeaponComponent>();
         
         if (weapon != null)
         {//current weapon inplayer hand
            SO_Weapon currWeapon = weapon.GetCurrentWeapon();
             //make sure its valid
-            if (currWeapon != null && currWeapon.totalAmmo < currWeapon.ammoMax) {
+            if (currWeapon != null) {
                 
-                currWeapon.totalAmmo = Mathf.Min(currWeapon.totalAmmo + amount, currWeapon.ammoMax);
+                currWeapon.totalAmmo += Mathf.Min(currWeapon.totalAmmo + amount, currWeapon.ammoMax); // Add a full magazine worth of ammo to the equipped weapon
+                gameManager.instance.playerScript.updatePlayerUI(); // Update the player UI to reflect the new ammo
             }
             if(spawner!= null)
             {
@@ -36,6 +37,5 @@ public class AmmoUp: MonoBehaviour{
             }
             Destroy(gameObject);
         }
-        
     }
 }
