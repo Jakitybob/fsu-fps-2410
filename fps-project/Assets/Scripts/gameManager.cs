@@ -10,6 +10,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
@@ -150,4 +151,14 @@ public class gameManager : MonoBehaviour
 
     public TMP_Text GetCurrentAmmoText() { return currentAmmoText; }
     public TMP_Text GetTotalAmmoText() { return totalAmmoText; }
+
+
+
+
+    public void changeLevel(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
+    }
+
+
 }
