@@ -10,7 +10,7 @@ public class PickupSpawner : MonoBehaviour
 
     public float spawnInterval;
     private float spawnTime;
-    private bool IsSpawning;
+    private bool IsSpawning=false;
    
 
     void Update()
@@ -42,6 +42,7 @@ public class PickupSpawner : MonoBehaviour
             {
                 ammo.setSpawner(this);
             }
+            IsSpawning = true;
         
         }
 
