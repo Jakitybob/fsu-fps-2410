@@ -21011,6 +21011,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3430493802586140704, guid: 25e44cb7fc7bf7f4aa495f5b78a739eb, type: 3}
+      propertyPath: nextSceneName
+      value: LevelTwo
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26873,9 +26877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67915dd854a4f34887c99c8b630b8d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elevatorSpeed: 2
-  destination: {fileID: 47192188}
-  playerScaleInElevator: {x: 1.25, y: 1.25, z: 1.25}
 --- !u!1001 &1982430688
 PrefabInstance:
   m_ObjectHideFlags: 0
