@@ -16,8 +16,10 @@ MonoBehaviour:
   weaponDamage: 1
   attackRate: 0.25
   attackRange: 45
-  ammoCurrent: 25
+  ammoCurrent: 0
   ammoMax: 25
+  totalAmmo: 28
+  reloadTime: 3
   hitEffect: {fileID: 7226583673155636403, guid: a2ab56839e1c9504ea9d141e95d0b16b, type: 3}
   attackSound: []
   attackVolume: 0
