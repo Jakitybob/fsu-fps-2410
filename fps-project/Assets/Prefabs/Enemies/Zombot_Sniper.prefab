@@ -120,13 +120,13 @@ MonoBehaviour:
   headPos: {fileID: 5453806370687917430}
   weapon: {fileID: 3837377784594007772, guid: 0a608ff8654cc074ebf22ea6e213140b, type: 3}
   attackRate: 2.5
-  detectionRange: 30
+  detectionRange: 100
   walkSpeed: 0
   rotateSpeed: 100
   viewAngle: 0
   roamDist: 0
   roamPauseTime: 3
-  HP: 3
+  HP: 5
 --- !u!195 &4648029759504769158
 NavMeshAgent:
   m_ObjectHideFlags: 0

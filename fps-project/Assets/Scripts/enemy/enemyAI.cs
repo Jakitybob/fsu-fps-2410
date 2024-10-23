@@ -86,12 +86,13 @@ public class enemyAI : MonoBehaviour, IDamage
 
 
 
-
+        //will implement glory kills next class
+        //
         //when enemy is low health, start flashing yellow
-        if (HP == 1 && !showExecuteFlash)
-        {
-            StartCoroutine(flashExecution());
-        }
+        //if (HP == 1 && !showExecuteFlash)
+        //{
+        //    StartCoroutine(flashExecution());
+        //}
     }
 
 
@@ -215,11 +216,11 @@ public class enemyAI : MonoBehaviour, IDamage
             gameManager.instance.updateGameGoal(-1);
             Destroy(gameObject);
         }
-        else if (HP == 1)
-        {
-            isStunned = true;
-            agent.GetComponent<NavMeshAgent>().speed = 0;
-        }
+        //else if (HP == 1)
+        //{
+        //    isStunned = true;
+        //    agent.GetComponent<NavMeshAgent>().speed = 0;
+        //}
     }
 
 
@@ -249,16 +250,18 @@ public class enemyAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(0.01f);
         model.material.color = colorOrig;
     }
-    IEnumerator flashExecution()
-    {
-        showExecuteFlash = true;
 
-        model.material.color = Color.yellow;
-        yield return new WaitForSeconds(0.5f);
-        model.material.color = colorOrig;
-        yield return new WaitForSeconds(0.5f);
 
-        showExecuteFlash = false;
-    }
+    //IEnumerator flashExecution()
+    //{
+    //    showExecuteFlash = true;
+
+    //    model.material.color = Color.yellow;
+    //    yield return new WaitForSeconds(0.5f);
+    //    model.material.color = colorOrig;
+    //    yield return new WaitForSeconds(0.5f);
+
+    //    showExecuteFlash = false;
+    //}
 
 }
