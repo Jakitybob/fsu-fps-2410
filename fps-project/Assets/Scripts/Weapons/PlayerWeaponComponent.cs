@@ -38,7 +38,7 @@ public class PlayerWeaponComponent : MonoBehaviour
      */
     public void WeaponAttack()
     {
-        if (weaponList.Count > 0 && weaponList[weaponIndex].ammoCurrent > 0 && weaponList[weaponIndex].CanAttack())
+        if (weaponList.Count > 0 && weaponList[weaponIndex].ammoCurrent > 0 && weaponList[weaponIndex].CanAttack() && !gameManager.instance.isPaused)
         {
             StartCoroutine(DoWeaponEffect());
             StartCoroutine(Attack());
