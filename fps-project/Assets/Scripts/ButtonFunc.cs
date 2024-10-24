@@ -14,12 +14,7 @@ public class ButtonFunc : MonoBehaviour
      */
     public void StartGame()
     {
-        #if UNITY_EDITOR
-                SceneManager.LoadScene("LevelOne");
-        #else
-            SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(1).name);
-        #endif
-
+        SceneManager.LoadScene("LevelOne");
         
         // TODO: Modify this to work with saving and loading save data to go to the proper scene.
     }
