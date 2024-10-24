@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 3760406020078619401}
+  model: {fileID: 986751539002209615}
 --- !u!33 &2481727273221930572
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -347,12 +348,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f03e1171efe3df44c855a5891a959efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 50
+  HP: 200
   HPBar: {fileID: 1552863868672553163}
   rotationSpeed: 15
   bossViewAngle: 97
-  pauseDurationMin: 10
-  pauseDurationMax: 20
+  pauseDurationMin: 5
+  pauseDurationMax: 10
   minRotations: 1
   maxRotations: 4
   riseSpeed: 10

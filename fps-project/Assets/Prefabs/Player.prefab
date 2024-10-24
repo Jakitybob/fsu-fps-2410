@@ -59,7 +59,7 @@ MonoBehaviour:
     m_Bits: 8
   Hp: 10
   speed: 15
-  sprintMod: 2
+  sprintMod: 1
   jumpSpeed: 7
   jumpCountMax: 2
   gravity: 25
