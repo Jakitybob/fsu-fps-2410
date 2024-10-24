@@ -74,7 +74,10 @@ public class enemyAI : MonoBehaviour, IDamage
 
         if (playerInRange)
         {
-            canSeePlayer();
+            if (!canSeePlayer() && !isRoaming && agent.remainingDistance < 0.01f)
+            {
+                someCo = StartCoroutine(roam());
+            }
         }
         else if (!playerInRange)
         {
