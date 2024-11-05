@@ -29,7 +29,7 @@ public class Rocketlaucherr : MonoBehaviour
         Rigidbody rb = Rocket.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.AddForce(ShootPos.forward * Force,ForceMode.Impulse);
+            rb.AddForce(ShootPos.forward * Force);
 
         } 
 
