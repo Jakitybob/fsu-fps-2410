@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
+   
     public GameObject Effects;
     public float Explosion_Radius;
     public float force;
     public float rcktLife;
+    public int rcktDmg;
 
 
     void Update()
@@ -27,14 +29,22 @@ public class Rocket : MonoBehaviour
 
         foreach (Collider obj in colliders)
         {
-            Rigidbody rb = obj.GetComponent<Rigidbody>();
-
-            if (rb != null)
+            if (obj.CompareTag("Enemy"))
             {
-                rb.AddExplosionForce(force, transform.position, Explosion_Radius);
-            }
 
-        }
+                Rigidbody rb = obj.GetComponent<Rigidbody>();
+
+                if (rb != null)
+                {
+                    rb.AddExplosionForce(force, transform.position, Explosion_Radius);
+                }
+                var enemy = obj.GetComponent<IDamage>();
+                if (enemy != null)
+                { 
+                    enemy.takeDamage(rcktDmg); 
+                }
+            }
+        }   
 
     }
 }

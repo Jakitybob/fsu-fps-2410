@@ -14,6 +14,7 @@ public class Rocketlaucherr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetButtonDown("Fire1"))
         {
             FireRocket();
@@ -28,7 +29,7 @@ public class Rocketlaucherr : MonoBehaviour
         Rigidbody rb = Rocket.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.AddForce(ShootPos.forward * Force);
+            rb.AddForce(ShootPos.forward * Force,ForceMode.Impulse);
 
         } 
 
