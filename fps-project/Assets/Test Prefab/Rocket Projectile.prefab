@@ -4915,7 +4915,7 @@ Transform:
   m_GameObject: {fileID: 4619365966329170564}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071057, z: -0, w: 0.7071079}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.055}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5077,10 +5077,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3111640402455489586}
-  - component: {fileID: 2475272515234287814}
   - component: {fileID: 3279658218386668347}
   - component: {fileID: 2192560860664577175}
-  m_Layer: 7
+  - component: {fileID: 5781412084747444654}
+  m_Layer: 3
   m_Name: Rocket Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5096,40 +5096,13 @@ Transform:
   m_GameObject: {fileID: 6073652650292212690}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.518875, y: 1.222, z: 16.514713}
+  m_LocalPosition: {x: -32.518875, y: 1.222, z: 16.481}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4960741654948161224}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2475272515234287814
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6073652650292212690}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 1
 --- !u!135 &3279658218386668347
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5143,14 +5116,14 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.126585
+  m_Center: {x: -0.0024738312, y: 0, z: -0.026254654}
 --- !u!114 &2192560860664577175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5164,11 +5137,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effects: {fileID: 1764654978243476, guid: a98b15aa948478849b54661e4d9a317e, type: 3}
-  Explosion_Radius: 35
+  Explosion_Radius: 1
   force: 50
   rcktLife: 2
   rcktDmg: 50
   Rcktspeed: 3
+  layer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!54 &5781412084747444654
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6073652650292212690}
+  serializedVersion: 4
+  m_Mass: 0.1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &6798494840931391245
 GameObject:
   m_ObjectHideFlags: 0

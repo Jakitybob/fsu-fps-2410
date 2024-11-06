@@ -11,6 +11,7 @@ public class Rocket : MonoBehaviour
     public float rcktLife;
     public int rcktDmg;
     public float Rcktspeed;
+    public LayerMask layer;
     private Rigidbody rb;
 
 
@@ -20,21 +21,20 @@ public class Rocket : MonoBehaviour
      {
         rb= GetComponent<Rigidbody>();
         rb.velocity= transform.forward * Rcktspeed;
-        Invoke(nameof(BlowUp), rcktLife); 
+        //Invoke(nameof(BlowUp), rcktLife); 
      }
 
-   /* void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Boom" + collision.gameObject.name);
-        Debug.Log("@" + collision.contacts[0].point);
+   void OnTriggerEnter(Collider other) 
+    { 
         BlowUp();
-        Destroy(gameObject);
+        Destroy(gameObject, rcktLife); 
 
-    }*/
+
+    }
     void BlowUp()
     {
         Instantiate(Effects, transform.position, transform.rotation);
-        Collider[] colliders = Physics.OverlapSphere(transform.position, Explosion_Radius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, Explosion_Radius,layer);
 
         foreach (Collider obj in colliders)
         {
@@ -52,7 +52,7 @@ public class Rocket : MonoBehaviour
                 }
             
         }
-        Destroy(gameObject);
+        Destroy(gameObject,rcktLife);
 
     }
 }

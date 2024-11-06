@@ -5,8 +5,9 @@
     "\\fps-project\\Assets",
     "\\fps-project\\Assets\\Scripts",
     "\\fps-project\\Assets\\Scripts\\enemy",
-    "\\fps-project\\Assets\\Scripts\\Environment"
+    "\\fps-project\\Assets\\Scripts\\Environment",
+    "\\fps-project\\Assets\\Scripts\\Weapons"
   ],
-  "SelectedNode": "\\fps-project\\Assets\\Scripts\\TestingDoor.cs",
+  "SelectedNode": "\\fps-project\\Assets\\Scripts\\Weapons\\SO_Weapon.cs",
   "PreviewInSolutionExplorer": false
 }
