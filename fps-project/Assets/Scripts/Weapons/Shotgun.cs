@@ -9,8 +9,17 @@ public class Shotgun : MonoBehaviour
     public float range;
     public int pelletdamage;
     public Transform ShootPos;
-    
 
+
+
+    void Update() 
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            shoot();
+
+        }
+    }
     void shoot()
     {
         for (int i = 0; i < pellets; i++)
@@ -26,18 +35,11 @@ public class Shotgun : MonoBehaviour
                     if (Damage != null)
                     {
                         Damage.takeDamage(pelletdamage);
+                        gameManager.instance.updateGameGoal(-1);
                     }
                 }
             }
         }
     }
     
-    void Update()
-    {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            shoot();
-
-        }
-    } 
  }   

@@ -49,7 +49,8 @@ public class Rocket : MonoBehaviour
                 var damage = obj.GetComponent<IDamage>();
                 if (damage != null)
                 { 
-                    damage.takeDamage(rcktDmg); 
+                    damage.takeDamage(rcktDmg);
+                 gameManager.instance.updateGameGoal(-1);
                 }
             
         }
