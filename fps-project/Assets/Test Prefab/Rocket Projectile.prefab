@@ -5137,11 +5137,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effects: {fileID: 1764654978243476, guid: a98b15aa948478849b54661e4d9a317e, type: 3}
-  Explosion_Radius: 1
+  Explosion_Radius: 10
   force: 50
   rcktLife: 2
-  rcktDmg: 50
   Rcktspeed: 3
+  rcktDmg: 50
   layer:
     serializedVersion: 2
     m_Bits: 64
