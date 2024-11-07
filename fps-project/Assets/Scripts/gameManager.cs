@@ -11,6 +11,7 @@ using TMPro;
 using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class gameManager : MonoBehaviour
 {
@@ -62,6 +63,8 @@ public class gameManager : MonoBehaviour
                 Paused();
                 menuActive = menuPause;
                 menuActive.SetActive(isPaused);
+
+                selectStartingButton();
             }
             else if (menuActive == menuPause) 
             {
@@ -82,6 +85,20 @@ public class gameManager : MonoBehaviour
                 closeInventory();
             }
         }
+
+
+
+
+        if (menuActive != null && EventSystem.current.currentSelectedGameObject == null)
+        {
+            selectStartingButton();
+        }
+
+
+
+
+
+
     }
     public void Paused()
     {
@@ -99,6 +116,8 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         menuActive.SetActive(false);
         menuActive = null;
+
+        EventSystem.current.SetSelectedGameObject(null);
     }
     public void updateGameGoal(int amount)
     {
@@ -110,12 +129,16 @@ public class gameManager : MonoBehaviour
         Paused();
         menuActive = Lose;
         menuActive.SetActive(true);
+
+        selectStartingButton();
     }
     public void gameWon()
     {
         Paused();
         menuActive = Win;
         menuActive.SetActive(true);
+
+        selectStartingButton();
     }
     public void openInventory()
     {
@@ -159,4 +182,9 @@ public class gameManager : MonoBehaviour
     }
 
 
+    void selectStartingButton()
+    {
+        //first button should always be first child of menu's first child
+        EventSystem.current.SetSelectedGameObject(menuActive.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject);
+    }
 }
