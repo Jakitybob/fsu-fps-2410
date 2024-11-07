@@ -7,6 +7,7 @@ public class LoreObject : MonoBehaviour, IInteractable
     public string loreText;
     public GameObject lorePanel;
     public TMPro.TextMeshProUGUI loreTextDisplay;
+    public bool isPickable = true;
 
     private float displayTime = 5f;
 

@@ -26,6 +26,8 @@ public class gameManager : MonoBehaviour
     public playerController playerScript;
     public GameObject playerSpawnPos; 
 
+    public Inventory inventory;
+
     public GameObject player;
     [SerializeField] TMP_Text enemyText;
 
@@ -121,6 +123,7 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 0f;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        
     }
 
     public void closeInventory()
@@ -131,6 +134,7 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         menuActive.SetActive(false);
         menuActive = null;
+        
     }
 
     //
