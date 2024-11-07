@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
     public List<InventoryItem> inventoryItems = new List<InventoryItem>();
     public int maxCapacity = 10;
+
+    public GameObject inventoryUI; // Reference to the Inventory GameObject in the scene
+    public GameObject inventorySlotPrefab; // Reference to the inventory slot prefab
 
     public void AddItem(InventoryItem item)
     {
@@ -26,7 +30,19 @@ public class Inventory : MonoBehaviour
 
     public void DisplayInventory()
     {
-        // Update the UI to display the current inventory items
-        // This might involve creating UI elements for each item and updating their quantity and icon
+        // Clear the inventory UI
+        foreach (Transform child in inventoryUI.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Populate the inventory UI with items from the list
+        for (int i = 0; i < inventoryItems.Count; i++)
+        {
+            InventoryItem item = inventoryItems[i];
+
+        
+        }
     }
+    
 }

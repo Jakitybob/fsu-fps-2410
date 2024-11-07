@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 
-public class InventoryItem : MonoBehaviour
+public class InventoryItem : ScriptableObject
 {
     public string itemName;
     public string itemDescription;
