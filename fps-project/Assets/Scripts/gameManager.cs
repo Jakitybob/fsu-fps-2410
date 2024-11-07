@@ -32,6 +32,9 @@ public class gameManager : MonoBehaviour
     public GameObject player;
     [SerializeField] TMP_Text enemyText;
 
+    public Animator transitionAnim;
+    public float levelTransitionTime;
+
     //declare private variable
     public Image playerHPBar;
     public GameObject playerDmgScreen;
@@ -178,6 +181,20 @@ public class gameManager : MonoBehaviour
 
     public void changeLevel(string levelName)
     {
+        StartCoroutine(levelFade(levelName));
+    }
+
+
+    IEnumerator levelFade(string levelName)
+    {
+        //start fade
+        transitionAnim.SetTrigger("Fade");
+
+        //wait
+        yield return new WaitForSeconds(levelTransitionTime);
+
+
+        //load level
         SceneManager.LoadScene(levelName);
     }
 
