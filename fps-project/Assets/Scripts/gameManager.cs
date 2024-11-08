@@ -1,6 +1,6 @@
 /************************************************************************************ 
 * * Full Sail GDB229 FPS Project *
-* Developers: [Gyoed Crespo] * [Michael Bump] * [David Oross]
+* Developers: [Gyoed Crespo] * [Michael Bump] * [David Oross] * [Z Broyles]
 * *
 * This is the game manager so all things that the game needs to see/use for the game to run. *
 ************************************************************************************/
@@ -11,6 +11,7 @@ using TMPro;
 using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class gameManager : MonoBehaviour
 {
@@ -20,14 +21,20 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuInventory;
+    [SerializeField] GameObject menuSettings;
     [SerializeField] GameObject Win;
     [SerializeField] GameObject Lose;
 
     public playerController playerScript;
     public GameObject playerSpawnPos; 
 
+    public Inventory inventory;
+
     public GameObject player;
     [SerializeField] TMP_Text enemyText;
+
+    public Animator transitionAnim;
+    public float levelTransitionTime;
 
     //declare private variable
     public Image playerHPBar;
@@ -40,7 +47,7 @@ public class gameManager : MonoBehaviour
     float OrigTime;
     int enemycount;
 
-    // Start is called before the first frame update
+    // Awake is called before the first frame update
     void Awake()
     {
         instance = this;
@@ -60,7 +67,17 @@ public class gameManager : MonoBehaviour
                 Paused();
                 menuActive = menuPause;
                 menuActive.SetActive(isPaused);
+
+                selectStartingButton();
             }
+
+            else if (menuActive == menuSettings)
+            {
+                menuActive = menuPause;
+                menuSettings.gameObject.SetActive(false);
+                menuPause.gameObject.SetActive(true);
+            }
+
             else if (menuActive == menuPause) 
             {
                 UnPaused();          
@@ -80,6 +97,20 @@ public class gameManager : MonoBehaviour
                 closeInventory();
             }
         }
+
+
+
+
+        if (menuActive != null && EventSystem.current.currentSelectedGameObject == null)
+        {
+            selectStartingButton();
+        }
+
+
+
+
+
+
     }
     public void Paused()
     {
@@ -97,6 +128,8 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         menuActive.SetActive(false);
         menuActive = null;
+
+        EventSystem.current.SetSelectedGameObject(null);
     }
     public void updateGameGoal(int amount)
     {
@@ -108,12 +141,16 @@ public class gameManager : MonoBehaviour
         Paused();
         menuActive = Lose;
         menuActive.SetActive(true);
+
+        selectStartingButton();
     }
     public void gameWon()
     {
         Paused();
         menuActive = Win;
         menuActive.SetActive(true);
+
+        selectStartingButton();
     }
     public void openInventory()
     {
@@ -121,6 +158,7 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 0f;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        
     }
 
     public void closeInventory()
@@ -131,6 +169,7 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         menuActive.SetActive(false);
         menuActive = null;
+        
     }
 
     //
@@ -151,8 +190,32 @@ public class gameManager : MonoBehaviour
 
     public void changeLevel(string levelName)
     {
+        StartCoroutine(levelFade(levelName));
+    }
+
+
+    IEnumerator levelFade(string levelName)
+    {
+        //start fade
+        transitionAnim.SetTrigger("Fade");
+
+        //wait
+        yield return new WaitForSeconds(levelTransitionTime);
+
+
+        //load level
         SceneManager.LoadScene(levelName);
     }
 
 
+    public void selectStartingButton()
+    {
+        //first button should always be first child of menu's first child
+        EventSystem.current.SetSelectedGameObject(menuActive.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject);
+    }
+
+    public void setActiveMenu(GameObject newMenu)
+    {
+        menuActive = newMenu;
+    }
 }
