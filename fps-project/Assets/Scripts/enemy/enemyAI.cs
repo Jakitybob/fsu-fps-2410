@@ -11,7 +11,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class enemyAI : MonoBehaviour, IDamage
+public class enemyAI : MonoBehaviour, IDamage, IInteractable
 {
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Renderer model;
@@ -31,6 +31,12 @@ public class enemyAI : MonoBehaviour, IDamage
 
     [SerializeField] int HP;
 
+    [SerializeField] List<GameObject> gloryKillDrops;
+    [SerializeField] int gloryKillDiceSize;
+
+
+    int origHP;
+
     bool isShooting;
     bool playerInRange;
     bool isRoaming;
@@ -38,7 +44,8 @@ public class enemyAI : MonoBehaviour, IDamage
     float angleToPlayer;
     float stoppingDistOrig;
 
-    bool showExecuteFlash;
+    bool isShowingExecuteFlash;
+    bool isExecutable;
     bool isStunned;
 
 
@@ -53,6 +60,7 @@ public class enemyAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
+        origHP = HP;
         gameManager.instance.updateGameGoal(1);
         colorOrig = model.material.color;
         GetComponent<SphereCollider>().radius = detectionRange;
@@ -65,12 +73,26 @@ public class enemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-
         animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
-
-
         playerDir = gameManager.instance.player.transform.position - headPos.position;
         facePlayer();
+
+
+        //when enemy is low health, start flashing yellow, prevent all other actions
+        if (true == isExecutable)
+        {
+            //freeze movement
+            agent.GetComponent<NavMeshAgent>().speed = 0;
+
+            if (false == isShowingExecuteFlash)
+            {
+                StartCoroutine(flashExecution());
+            }
+            return;
+        }
+
+
+        
 
         if (playerInRange)
         {
@@ -86,16 +108,6 @@ public class enemyAI : MonoBehaviour, IDamage
                 someCo = StartCoroutine(roam());
             }
         }
-
-
-
-        //will implement glory kills next class
-        //
-        //when enemy is low health, start flashing yellow
-        //if (HP == 1 && !showExecuteFlash)
-        //{
-        //    StartCoroutine(flashExecution());
-        //}
     }
 
 
@@ -202,6 +214,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
     public void takeDamage(int amount)
     {
+        
         HP -= amount;
 
         StartCoroutine(flashHit());
@@ -216,14 +229,26 @@ public class enemyAI : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
-            gameManager.instance.updateGameGoal(-1);
-            Destroy(gameObject);
+            //execution state health
+            HP = origHP;
+
+
+            //roll for glory kill
+            int gloryKillRoll = Random.Range(0, gloryKillDiceSize + 1); //if (0,4) it will only roll 1-3
+
+            //if already in execution state, kill
+            if (gloryKillRoll != 0 || true == isExecutable)
+            {
+                //no glory kill
+                gameManager.instance.updateGameGoal(-1);
+                Destroy(gameObject);
+            }
+            else
+            {
+                //can glory kill
+                isExecutable = true;
+            }                
         }
-        //else if (HP == 1)
-        //{
-        //    isStunned = true;
-        //    agent.GetComponent<NavMeshAgent>().speed = 0;
-        //}
     }
 
 
@@ -255,16 +280,38 @@ public class enemyAI : MonoBehaviour, IDamage
     }
 
 
-    //IEnumerator flashExecution()
-    //{
-    //    showExecuteFlash = true;
+    IEnumerator flashExecution()
+    {
+        isShowingExecuteFlash = true;
 
-    //    model.material.color = Color.yellow;
-    //    yield return new WaitForSeconds(0.5f);
-    //    model.material.color = colorOrig;
-    //    yield return new WaitForSeconds(0.5f);
+        model.material.color = Color.yellow;
+        yield return new WaitForSeconds(0.5f);
+        model.material.color = colorOrig;
+        yield return new WaitForSeconds(0.5f);
 
-    //    showExecuteFlash = false;
-    //}
+        isShowingExecuteFlash = false;
+    }
 
+    public void Interact(Interact interactor)
+    {
+        if (isExecutable == true)
+        {
+            //roll 2 sided dice
+            int dropRoll = Random.Range(0, gloryKillDrops.Count);
+
+
+            //instantiate object in gloryKillDrops at index [dropRoll]
+            Vector3 dropPos = transform.position + new Vector3(0, 1, 0);
+            Instantiate(gloryKillDrops[dropRoll], dropPos, transform.rotation);
+
+
+
+            //play melee animation on player
+
+
+            //destroy enemy object
+            gameManager.instance.updateGameGoal(-1);
+            Destroy(gameObject);
+        }
+    }
 }

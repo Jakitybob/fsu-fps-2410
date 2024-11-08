@@ -127,6 +127,10 @@ MonoBehaviour:
   roamDist: 0
   roamPauseTime: 3
   HP: 5
+  gloryKillDrops:
+  - {fileID: 677127544455421823, guid: 1587e584c158fec42ad8bcdabf8fef08, type: 3}
+  - {fileID: 8596002656679671966, guid: c56a9e554bca3414db4b480448fec1ac, type: 3}
+  gloryKillDiceSize: 5
 --- !u!195 &4648029759504769158
 NavMeshAgent:
   m_ObjectHideFlags: 0
