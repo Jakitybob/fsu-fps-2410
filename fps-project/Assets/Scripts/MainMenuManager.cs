@@ -26,10 +26,22 @@ public class MainMenuManager : MonoBehaviour
         {
             selectStartingButton();
         }
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (mainMenuActive == menuSettings)
+            {
+                mainMenuActive = menuStarting;
+                menuSettings.gameObject.SetActive(false);
+                menuStarting.gameObject.SetActive(true);
+
+                selectStartingButton();
+            }
+        }
     }
 
 
-    void selectStartingButton()
+    public void selectStartingButton()
     {
         //first button should always be first child of menu
         EventSystem.current.SetSelectedGameObject(mainMenuActive.transform.GetChild(0).gameObject);

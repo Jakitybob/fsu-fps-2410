@@ -1,6 +1,6 @@
 /************************************************************************************ 
 * * Full Sail GDB229 FPS Project *
-* Developers: [Gyoed Crespo] * [Michael Bump] * [David Oross]
+* Developers: [Gyoed Crespo] * [Michael Bump] * [David Oross] * [Z Broyles]
 * *
 * This is the game manager so all things that the game needs to see/use for the game to run. *
 ************************************************************************************/
@@ -21,6 +21,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuInventory;
+    [SerializeField] GameObject menuSettings;
     [SerializeField] GameObject Win;
     [SerializeField] GameObject Lose;
 
@@ -46,7 +47,7 @@ public class gameManager : MonoBehaviour
     float OrigTime;
     int enemycount;
 
-    // Start is called before the first frame update
+    // Awake is called before the first frame update
     void Awake()
     {
         instance = this;
@@ -69,6 +70,14 @@ public class gameManager : MonoBehaviour
 
                 selectStartingButton();
             }
+
+            else if (menuActive == menuSettings)
+            {
+                menuActive = menuPause;
+                menuSettings.gameObject.SetActive(false);
+                menuPause.gameObject.SetActive(true);
+            }
+
             else if (menuActive == menuPause) 
             {
                 UnPaused();          
@@ -199,9 +208,14 @@ public class gameManager : MonoBehaviour
     }
 
 
-    void selectStartingButton()
+    public void selectStartingButton()
     {
         //first button should always be first child of menu's first child
         EventSystem.current.SetSelectedGameObject(menuActive.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject);
+    }
+
+    public void setActiveMenu(GameObject newMenu)
+    {
+        menuActive = newMenu;
     }
 }
