@@ -26,18 +26,6 @@ public class MainMenuManager : MonoBehaviour
         {
             selectStartingButton();
         }
-
-        if (Input.GetButtonDown("Cancel"))
-        {
-            if (mainMenuActive == menuSettings)
-            {
-                mainMenuActive = menuStarting;
-                menuSettings.gameObject.SetActive(false);
-                menuStarting.gameObject.SetActive(true);
-
-                selectStartingButton();
-            }
-        }
     }
 
 
