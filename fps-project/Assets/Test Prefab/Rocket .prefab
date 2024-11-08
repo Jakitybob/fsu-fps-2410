@@ -52,8 +52,11 @@ MonoBehaviour:
   Explosion_Radius: 50
   force: 1000
   rcktLife: 7
-  rcktDmg: 50
   Rcktspeed: 1
+  rcktDmg: 50
+  layer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!33 &2245409638812895274
 MeshFilter:
   m_ObjectHideFlags: 0

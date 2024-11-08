@@ -50,7 +50,7 @@ public class Rocket : MonoBehaviour
                 if (damage != null)
                 { 
                     damage.takeDamage(rcktDmg);
-                 gameManager.instance.updateGameGoal(-1);
+                 
                 }
             
         }

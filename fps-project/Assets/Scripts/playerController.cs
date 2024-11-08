@@ -171,7 +171,12 @@ public class playerController : MonoBehaviour, IDamage
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
-    
+    // Method to apply KnockBack physics without RigidBody
+    public void KnockBack(Vector3 dir , float force)
+    {
+        transform.position += dir*force *Time.deltaTime;
+
+    }
     /*
      * Performs checks for mouse wheel input and switches the user's weapons
      * accordingly. All range checks are performed within the weapon component

@@ -18,7 +18,7 @@ public class Rocketlaucherr : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             FireRocket();
-            delay = Time.deltaTime + 1f / Rate;
+            delay = Time.deltaTime + 1f;
         }
 
 
