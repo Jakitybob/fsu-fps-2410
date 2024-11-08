@@ -39,6 +39,7 @@ public class playerController : MonoBehaviour, IDamage
     bool isShooting;
     int defaultLayer;
     float distToGround = 0.1f;
+    float spherecastRadius;
 
     // Components
     private Interact interactor;
@@ -59,7 +60,10 @@ public class playerController : MonoBehaviour, IDamage
         // Update the UI
         updatePlayerUI();
 
-        distToGround += transform.localScale.y;
+        spherecastRadius = transform.localScale.x / 2;
+        distToGround += transform.localScale.y / 2;
+
+
         defaultLayer = LayerMask.GetMask("Default");
 
         spawnPlayer();
@@ -153,7 +157,7 @@ public class playerController : MonoBehaviour, IDamage
     public void Jump()
     {
         // If the player is on the ground reset the jump count to 0 and zero the playerVelocity vector so it doesn't get infinitely small
-        if (isGroundedRaycast())
+        if (isGroundedSpherecast())
         {
             jumpCount = 0;
             playerVelocity = Vector3.zero;
@@ -256,24 +260,35 @@ public class playerController : MonoBehaviour, IDamage
 
 
     //custom isGrounded method that uses raycast to detect objects with "Default" tag
-    public bool isGroundedRaycast()
+    public bool isGroundedSpherecast()
     {
         bool isGrounded = false;
 
-        Debug.DrawRay(transform.position, Vector3.down * distToGround, Color.yellow);
 
-        if (Physics.Raycast(
-                transform.position, //where it starts [character body]
-                Vector3.down, //where it points [down]
-                distToGround, //how far out should it check for ground
-                defaultLayer, //what layer to check for
-                QueryTriggerInteraction.Ignore))
+        RaycastHit hit;
+
+        if (Physics.SphereCast(
+                                transform.position,
+                                spherecastRadius,
+                                Vector3.down,
+                                out hit,
+                                distToGround,
+                                defaultLayer,
+                                QueryTriggerInteraction.Ignore)
+        )
         {
-            //if detects ground
             isGrounded = true;
         }
 
+
         return isGrounded;
+    }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position + Vector3.down * distToGround, spherecastRadius);
     }
 
 
