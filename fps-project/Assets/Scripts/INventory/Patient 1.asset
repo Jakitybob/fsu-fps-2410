@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d13af043034369cdd90dd47e39aee144, type: 3}
-  m_Name: Patient1 2
+  m_Name: Patient 1
   m_EditorClassIdentifier: 
-  itemName: L2
+  itemName: L1
   itemDescription: <placeholder>
   itemIcon: {fileID: 21300000, guid: 4ca406bffcf4d4c6f93431eca103d24e, type: 3}
-  quantity: 1
+  value: 1

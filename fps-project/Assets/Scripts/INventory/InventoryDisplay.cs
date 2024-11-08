@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class InventoryDisplay : MonoBehaviour
 {
-    public InventoryItem lore;
+    public InventoryItem Item;
     // Start is called before the first frame update
-    void Start()
-    {
-        Debug.Log(lore.itemName);
-    }
+    
 
    
 }

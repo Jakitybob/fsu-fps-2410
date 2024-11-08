@@ -28,7 +28,7 @@ public class gameManager : MonoBehaviour
     public playerController playerScript;
     public GameObject playerSpawnPos; 
 
-    public Inventory inventory;
+    public InventoryManager inventory;
 
     public GameObject player;
     [SerializeField] TMP_Text enemyText;

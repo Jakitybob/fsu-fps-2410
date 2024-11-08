@@ -5,34 +5,26 @@ using UnityEngine;
 
 public class LoreObject : MonoBehaviour, IInteractable
 {
-    public string loreText;
-    public GameObject lorePanel;
-    public TMPro.TextMeshProUGUI loreTextDisplay;
+    
     public bool isPickable = true;
     public InventoryItem inventoryItem;
 
-    private float displayTime = 5f;
+    
     
 
     public void Interact(Interact interactor)
     {
-        lorePanel.SetActive(true);
-        loreTextDisplay.text = loreText;
-        StartCoroutine(ClosePanelAfterTime());
+        
         if (isPickable)
         {
-            gameManager.instance.inventory.AddItem(inventoryItem);
+            InventoryManager.Instance.Add(inventoryItem);
+            //gameManager.instance.inventory.Add(inventoryItem);
             // Destroy the LoreObject
-              
+            Destroy(gameObject);  
         }
-        gameObject.SetActive(false);
+        
     } 
     
-    private IEnumerator ClosePanelAfterTime()
-    {
-        yield return new WaitForSeconds(displayTime);
-        lorePanel.SetActive(false);
-        loreTextDisplay.text = "";
-    }
+    
 
 }
