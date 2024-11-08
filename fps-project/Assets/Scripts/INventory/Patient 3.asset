@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d13af043034369cdd90dd47e39aee144, type: 3}
   m_Name: Patient 3
   m_EditorClassIdentifier: 
-  itemName: L2
+  itemName: L3
   itemDescription: <placeholder>
   itemIcon: {fileID: 21300000, guid: 4ca406bffcf4d4c6f93431eca103d24e, type: 3}
-  value: 2
+  value: 3

@@ -12,6 +12,7 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using JetBrains.Annotations;
 
 public class gameManager : MonoBehaviour
 {
@@ -91,6 +92,7 @@ public class gameManager : MonoBehaviour
                 openInventory();
                 menuActive = menuInventory;
                 menuActive.SetActive(isPaused);
+                
             }
             else if (menuActive == menuInventory)
             {
@@ -158,6 +160,7 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 0f;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        InventoryManager.Instance.ListItems();
         
     }
 
