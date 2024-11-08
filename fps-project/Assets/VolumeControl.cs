@@ -7,56 +7,29 @@ using UnityEngine.UI;
 
 public class VolumeControl : MonoBehaviour
 {
-    [SerializeField] string volum = "Master";
-    [SerializeField] AudioMixer mixer;
-    [SerializeField] Slider volumeSlider;
-    private float Multiplier = 10;
-    [SerializeField]Toggle volumeToggle;
-    private bool volumUntoggle;
+    [SerializeField] private AudioMixer Mixer;
+    [SerializeField] private Slider VolumeSlider;
 
-    // Start is called before the first frame update
-
-
-    private void Awake()
+    private void Start()
     {
-        volumeSlider.onValueChanged.AddListener(slidervalueChange);
-        volumeToggle.onValueChanged.AddListener(Toggled);
+        if (PlayerPrefs.HasKey("Music"))
+        {
+            LoadVolume();
         
     }
-
-    private void Toggled(bool enabled)
-    {
-        if (volumUntoggle) return;
-        if (enabled)
-        {
-            volumeSlider.value = volumeSlider.maxValue;
-        }
         else
-        {
-            volumeSlider.value = volumeSlider.minValue;
-        }
+            SetVolume();
         
     }
-
-    private void OnDisable()
+    private void SetVolume()
     {
-        PlayerPrefs.SetFloat(volum, volumeSlider.value);
-        
+       float volume = VolumeSlider.value;  
+       Mixer.SetFloat("Music", Mathf.Log10(volume)*20);
+        PlayerPrefs.SetFloat("Music", volume);
     }
-
-    private void slidervalueChange(float volume)
+    private void LoadVolume()
     {
-        mixer.SetFloat(volum, Mathf.Log10(volume)* Multiplier);
-        volumUntoggle = true;
-        volumeToggle.isOn = volumeSlider.value > volumeSlider.minValue;
-        volumUntoggle = false;
-
+        VolumeSlider.value = PlayerPrefs.GetFloat("Music");
+        SetVolume();
     }
-
-    void Start()
-    {
-        volumeSlider.value=PlayerPrefs.GetFloat(volum, volumeSlider.value);
-        
-    }
-
 }
