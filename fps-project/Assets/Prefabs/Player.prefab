@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92604b25b221274c8f4d8069ce6bfaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRange: 150
+  interactionRange: 5
 --- !u!114 &2505691355124891748
 MonoBehaviour:
   m_ObjectHideFlags: 0
