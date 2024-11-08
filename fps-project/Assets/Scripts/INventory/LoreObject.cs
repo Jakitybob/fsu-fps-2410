@@ -18,8 +18,6 @@ public class LoreObject : MonoBehaviour, IInteractable
         if (isPickable)
         {
             InventoryManager.Instance.Add(inventoryItem);
-            //gameManager.instance.inventory.Add(inventoryItem);
-            // Destroy the LoreObject
             Destroy(gameObject);  
         }
         

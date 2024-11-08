@@ -16,15 +16,21 @@ public class AutoElevator : MonoBehaviour
     public Transform destination; // Set the destination point for the elevator
 
     private bool isPlayerOn = false;
-    private Transform playerTransform;
+
+    
+    
+    //private Transform playerTransform;
+
+    
     
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             isPlayerOn = true;
-            //playerTransform = other.transform;
+            //other.transform.parent = transform;
             //playerTransform.parent = transform; // Parent the player to the elevator
+            
         }
     }
 
@@ -33,17 +39,23 @@ public class AutoElevator : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerOn = false;
-            //playerTransform.parent = null; // Unparent the player from the elevator
+            //other.transform.parent = null; // Unparent the player from the elevator
+            
+            
+    
         }
     }
 
+    
     private void Update()
     {
         if (isPlayerOn)
         {
             transform.position = Vector3.MoveTowards(transform.position, destination.position, elevatorSpeed * Time.deltaTime);
+            
         }
-    } 
+    }  
+    
 
     
     
