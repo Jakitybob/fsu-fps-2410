@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -41,8 +43,19 @@ public class Inventory : MonoBehaviour
         {
             InventoryItem item = inventoryItems[i];
 
-        
+            GameObject Slot = Instantiate(inventorySlotPrefab, inventoryUI.transform);
+
+            // Get references to the slot's image and text components
+            UnityEngine.UI.Image itemIcon = Slot.GetComponentInChildren<UnityEngine.UI.Image>();
+            TextMeshProUGUI itemNameText = Slot.GetComponentInChildren<TextMeshProUGUI>();
+            TextMeshProUGUI itemQuantityText = Slot.GetComponentInChildren<TextMeshProUGUI>();
+
+            // Set the item icon, name, and quantity in the slot
+            itemIcon.sprite = item.itemIcon;
+            itemNameText.text = item.itemName;
+            itemQuantityText.text = item.quantity.ToString();
+
         }
     }
-    
+
 }

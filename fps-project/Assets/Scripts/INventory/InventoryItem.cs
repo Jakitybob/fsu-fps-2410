@@ -5,6 +5,7 @@ using UnityEngine;
 
 
 
+[CreateAssetMenu]
 public class InventoryItem : ScriptableObject
 {
     public string itemName;
@@ -12,3 +13,4 @@ public class InventoryItem : ScriptableObject
     public Sprite itemIcon;
     public int quantity;
 }
+
