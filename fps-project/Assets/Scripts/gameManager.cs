@@ -213,6 +213,12 @@ public class gameManager : MonoBehaviour
 
     public void selectStartingButton()
     {
+        if (menuActive == menuInventory && InventoryManager.Instance.Items.Count == 0)
+    {
+        //show the inventory is empty
+        Debug.Log("Inventory is empty.");
+        return;
+    }
         //first button should always be first child of menu's first child
         EventSystem.current.SetSelectedGameObject(menuActive.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject);
     }
