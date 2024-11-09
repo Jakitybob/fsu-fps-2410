@@ -32,6 +32,12 @@ public class damage : MonoBehaviour
             rb.velocity = (gameManager.instance.player.transform.position - transform.position).normalized * speed;
             Destroy(gameObject, destroyTime);
         }
+
+        //stationary explosions
+        if (explosionEffect != null)
+        {
+            Instantiate(explosionEffect, transform.position, transform.rotation);
+        }
     }
 
 

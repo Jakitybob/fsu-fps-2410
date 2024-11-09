@@ -102,9 +102,7 @@ public class EnemyFlyingAI : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
-            //explode on death
             explode();
-
             Destroy(gameObject);
         }
     }
