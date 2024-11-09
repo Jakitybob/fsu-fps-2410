@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     public static InventoryManager Instance;
 
     public Transform ItemContent;
@@ -28,7 +28,7 @@ public class InventoryManager : MonoBehaviour
         
     }
 
-    
+
     
 
     public void Add(InventoryItem item)

@@ -214,7 +214,7 @@ public class meatHook : MonoBehaviour
     private void launchPlayer()
     {
         //check if on ground
-        if (gameManager.instance.player.GetComponent<playerController>().isGroundedRaycast())
+        if (gameManager.instance.player.GetComponent<playerController>().isGroundedSpherecast())
         {
             state = State.Normal;
             momentum = Vector3.zero;

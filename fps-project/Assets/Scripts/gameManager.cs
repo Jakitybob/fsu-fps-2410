@@ -160,7 +160,8 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 0f;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
-        InventoryManager.Instance.ListItems();
+        //InventoryManager.Instance.ListItems();
+        PersistantInventory.Instance.ListItems();
         
     }
 
