@@ -43,12 +43,16 @@ public class playerController : MonoBehaviour, IDamage
     // Components
     private Interact interactor;
     private PlayerWeaponComponent weaponComponent;
+    
 
     //
     // FUNCTIONS
     //
 
     // Start is called before the first frame update
+
+   
+
     void Start()
     {
         // Set all baseline values and get all components

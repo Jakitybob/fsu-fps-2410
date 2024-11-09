@@ -9,27 +9,31 @@ public class VolumeControl : MonoBehaviour
 {
     [SerializeField] private AudioMixer Mixer;
     [SerializeField] private Slider VolumeSlider;
+    [SerializeField] private Slider SFXslider;
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey("Music"))
+        float CurrVolm;
+        if(Mixer.GetFloat("Music",out CurrVolm))
         {
-            LoadVolume();
-        
+            VolumeSlider.value = MathF.Pow(10, CurrVolm / 20);
+        }
+        VolumeSlider.onValueChanged.AddListener(onSlide);
     }
-        else
-            SetVolume();
-        
-    }
-    private void SetVolume()
+    private void onSlide(float value)
     {
-       float volume = VolumeSlider.value;  
-       Mixer.SetFloat("Music", Mathf.Log10(volume)*20);
-        PlayerPrefs.SetFloat("Music", volume);
+        float volume = MathF.Log10(Mathf.Clamp(value, 0.0f, 1f)) * 20;
+        Mixer.SetFloat("Music", volume);
     }
-    private void LoadVolume()
+    private void onSFXSlide(float value)
     {
-        VolumeSlider.value = PlayerPrefs.GetFloat("Music");
-        SetVolume();
+        float volume = MathF.Log10(Mathf.Clamp(value, 0.0f, 1f)) * 20;
+        Mixer.SetFloat("SFX", volume);
     }
+    private void OnDestroy()
+    {
+        VolumeSlider.onValueChanged.RemoveListener(onSlide);
+        SFXslider.onValueChanged.RemoveListener(onSFXSlide);
+    }
+
 }
