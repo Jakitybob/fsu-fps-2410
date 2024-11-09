@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    
+
     public static InventoryManager Instance;
 
     public Transform ItemContent;
@@ -20,28 +20,28 @@ public class InventoryManager : MonoBehaviour
 
     public List<InventoryItem> Items = new List<InventoryItem>();
 
-    
+
 
     private void Awake()
     {
         Instance = this;
-        
+
     }
 
 
-    
+
 
     public void Add(InventoryItem item)
     {
         Items.Add(item);
-        
+
     }
 
     public void Remove(InventoryItem item)
     {
         Items.Remove(item);
     }
-    
+
 
     public void ListItems()
     {
@@ -57,8 +57,13 @@ public class InventoryManager : MonoBehaviour
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.itemIcon;
+
         }
+            
     }
+
+    
+
 
 
 }
