@@ -87,8 +87,8 @@ MonoBehaviour:
   animator: {fileID: 2447741692928555175}
   shootPos: {fileID: 6667883411058679570}
   headPos: {fileID: 1633734907471940876}
-  weapon: {fileID: 369560074476020369, guid: e96e8178711c1b54d835357241c7c565, type: 3}
-  attackRate: 1
+  weapon: {fileID: 3995833234172464783, guid: 3aac3286526a573458cf08bb46a9263d, type: 3}
+  attackRate: 3
   detectionRange: 100
   walkSpeed: 7
   rotateSpeed: 100

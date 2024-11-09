@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class damage : MonoBehaviour
 {
-    [SerializeField] enum damageType { bullet, stationary }
+    [SerializeField] enum damageType { bullet, stationary, rocket }
     [SerializeField] damageType type;
     [SerializeField] Rigidbody rb;
 
@@ -13,19 +13,30 @@ public class damage : MonoBehaviour
     [SerializeField] int destroyTime;
     [SerializeField] float dotDelay;
 
+    [SerializeField] GameObject explosionObject;
+    [SerializeField] GameObject explosionEffect;
+    [SerializeField] float explosionRadius;
+
 
     IDamage dmg;
+
+    GameObject objectToScale;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        if (type == damageType.bullet)
+        if (type == damageType.bullet || type == damageType.rocket)
         {
-            //rb.velocity = transform.forward * speed;
             rb.velocity = (gameManager.instance.player.transform.position - transform.position).normalized * speed;
             Destroy(gameObject, destroyTime);
+        }
+
+        //stationary explosions
+        if (explosionEffect != null)
+        {
+            Instantiate(explosionEffect, transform.position, transform.rotation);
         }
     }
 
@@ -46,10 +57,31 @@ public class damage : MonoBehaviour
 
         if (dmg != null)
         {
-            dmg.takeDamage(damageAmount);
+            if (type == damageType.bullet)
+            {
+                dmg.takeDamage(damageAmount);
+            }
         }
 
-        if (type == damageType.bullet)
+
+        if (type == damageType.rocket)
+        {
+            explode();
+        }
+
+        if (explosionEffect != null)
+        {
+            Instantiate(explosionEffect, transform.position, transform.rotation);
+        }
+
+
+
+
+
+
+
+
+        if (type == damageType.bullet || type == damageType.rocket)
         {
             Destroy(gameObject);
         }
@@ -72,10 +104,10 @@ public class damage : MonoBehaviour
 
 
 
-    // Update is called once per frame
-    void Update()
+    void explode()
     {
-        
+        objectToScale = Instantiate(explosionObject, transform.position, transform.rotation);
+        objectToScale.transform.localScale *= explosionRadius;
     }
 
 

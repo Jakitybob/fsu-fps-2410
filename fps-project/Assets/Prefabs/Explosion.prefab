@@ -54,6 +54,9 @@ MonoBehaviour:
   speed: 0
   destroyTime: 1
   dotDelay: 0
+  explosionObject: {fileID: 0}
+  explosionEffect: {fileID: 6300341094750103197, guid: b813570156540374d8a1ff8025466618, type: 3}
+  explosionRadius: 0
 --- !u!33 &662202006948820824
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -82,7 +85,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31a6ba79face7f340a44ac5aadc8bad2, type: 2}
+  - {fileID: 2100000, guid: 9c9ff2f6df5325743a0eb348d418224c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
