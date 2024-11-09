@@ -27,16 +27,21 @@ public class damage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if (type == damageType.bullet || type == damageType.rocket)
         {
             rb.velocity = (gameManager.instance.player.transform.position - transform.position).normalized * speed;
             Destroy(gameObject, destroyTime);
         }
 
-        //stationary explosions
+        //play explosion effect
         if (explosionEffect != null)
         {
-            Instantiate(explosionEffect, transform.position, transform.rotation);
+            objectToScale = Instantiate(explosionEffect, transform.position, transform.rotation);
+
+            //explosion effect size is dependent on explosion AOE size
+            //effect is half size of explosion AOE (looks better)
+            objectToScale.transform.localScale = gameObject.transform.localScale / 2;
         }
     }
 
@@ -67,11 +72,6 @@ public class damage : MonoBehaviour
         if (type == damageType.rocket)
         {
             explode();
-        }
-
-        if (explosionEffect != null)
-        {
-            Instantiate(explosionEffect, transform.position, transform.rotation);
         }
 
 
