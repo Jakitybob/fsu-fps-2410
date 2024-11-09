@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3862646079904684753}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46,4 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemContent: {fileID: 0}
   InventoryItem: {fileID: 302775468379206265, guid: f5d7456d29c0d8b74a40484a69967409, type: 3}
+  TooltipPrefab: {fileID: 3242411366361343710, guid: e072fcd7f07f7c793aff8181aa63a2ba, type: 3}
   Items: []

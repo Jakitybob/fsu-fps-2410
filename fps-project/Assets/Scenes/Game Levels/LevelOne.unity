@@ -28689,6 +28689,10 @@ PrefabInstance:
       propertyPath: ItemContent
       value: 
       objectReference: {fileID: 2039123225}
+    - target: {fileID: 6283847437969341782, guid: 041fa9526d42d0a899679a107bc98fc6, type: 3}
+      propertyPath: TooltipPrefab
+      value: 
+      objectReference: {fileID: 3242411366361343710, guid: e072fcd7f07f7c793aff8181aa63a2ba, type: 3}
     - target: {fileID: 8718508265724307630, guid: 041fa9526d42d0a899679a107bc98fc6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
