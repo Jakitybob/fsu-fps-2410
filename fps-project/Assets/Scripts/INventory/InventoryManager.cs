@@ -25,7 +25,7 @@ public class InventoryManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
+        PersistantInventory.Instance.ListItems();
     }
 
 
