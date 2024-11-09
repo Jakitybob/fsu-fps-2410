@@ -14413,6 +14413,18 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 1569606460}
+    - target: {fileID: 4710304220324025953, guid: d163936f5d29b7441bcbb3d350d1ad77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710304220324025953, guid: d163936f5d29b7441bcbb3d350d1ad77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710304220324025953, guid: d163936f5d29b7441bcbb3d350d1ad77, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5482745877642065894, guid: d163936f5d29b7441bcbb3d350d1ad77, type: 3}
       propertyPath: m_Name
       value: UI
