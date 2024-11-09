@@ -6,7 +6,9 @@ public class Rocket : MonoBehaviour
 {
    
     public GameObject Effects;
-    
+  
+
+
     public float Explosion_Radius;
     public float force;
     public float rcktLife;
@@ -48,9 +50,8 @@ public class Rocket : MonoBehaviour
                 }
                 var damage = obj.GetComponent<IDamage>();
                 if (damage != null)
-                { 
-                    damage.takeDamage(rcktDmg);
-                 
+                {
+                damage.takeDamage(rcktDmg);
                 }
             
         }

@@ -43,6 +43,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] TMP_Text currentAmmoText;
     [SerializeField] TMP_Text totalAmmoText;
 
+
     public bool isPaused;
 
     float OrigTime;

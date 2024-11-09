@@ -34,7 +34,7 @@ AudioMixerController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 'Master '
+  m_Name: Main
   m_OutputGroup: {fileID: 0}
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
@@ -44,10 +44,12 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
-  - guid: 8c1f33fa00318154a89312e9ebf8b1b4
-    name: Music
   - guid: 22d0594eeb3caf0488eb8468a93fbe8a
     name: Master Music
+  - guid: 8c1f33fa00318154a89312e9ebf8b1b4
+    name: Music
+  - guid: 12db6d016b252894984b725c054662da
+    name: SFX
   m_AudioMixerGroupViews:
   - guids:
     - f2613bebb7880134285ed7d599d9f45e
@@ -67,13 +69,14 @@ AudioMixerGroupController:
   m_GroupID: f2613bebb7880134285ed7d599d9f45e
   m_Children:
   - {fileID: 4858505242070532177}
+  - {fileID: 6044083621281201823}
   m_Volume: 22d0594eeb3caf0488eb8468a93fbe8a
   m_Pitch: 21dbab9afce944441873a38af658d934
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
   m_UserColorIndex: 3
-  m_Mute: 1
+  m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
 --- !u!244 &24400004
@@ -100,10 +103,10 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 015127c4566873f4b80e8e07b2d5fb05
   m_FloatValues:
-    12db6d016b252894984b725c054662da: -80
+    12db6d016b252894984b725c054662da: -0.03766775
     21dbab9afce944441873a38af658d934: 1
-    8c1f33fa00318154a89312e9ebf8b1b4: 9.757735
-    22d0594eeb3caf0488eb8468a93fbe8a: -14.369635
+    8c1f33fa00318154a89312e9ebf8b1b4: -16.1
+    22d0594eeb3caf0488eb8468a93fbe8a: 0.3945702
   m_TransitionOverrides: {}
 --- !u!243 &4858505242070532177
 AudioMixerGroupController:
@@ -114,8 +117,7 @@ AudioMixerGroupController:
   m_Name: 'Music '
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 6f8bd7614456dfa47979c4de0d8085cf
-  m_Children:
-  - {fileID: 6044083621281201823}
+  m_Children: []
   m_Volume: 8c1f33fa00318154a89312e9ebf8b1b4
   m_Pitch: c9f3468276d73834280abbbac82da284
   m_Send: 00000000000000000000000000000000
@@ -123,7 +125,7 @@ AudioMixerGroupController:
   - {fileID: -4732189919264131763}
   m_UserColorIndex: 1
   m_Mute: 0
-  m_Solo: 1
+  m_Solo: 0
   m_BypassEffects: 0
 --- !u!243 &6044083621281201823
 AudioMixerGroupController:
