@@ -1,6 +1,6 @@
 /************************************************************************************ 
 * * Full Sail GDB229 FPS Project *
-* Developers: Jacob Yates * Gyoed Crespo * 
+* Developers: Jacob Yates * Gyoed Crespo * Z Broyles
 * *
 * A brief description of the program should also be added here. *
 ************************************************************************************/
@@ -8,6 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class cameraController : MonoBehaviour
 {
@@ -15,16 +16,18 @@ public class cameraController : MonoBehaviour
     // SERIALIZED FIELDS
     //
 
-    [SerializeField] int sens;
+    [SerializeField] float sens;
     [SerializeField] int lockVertMin, lockVertMax;
     [SerializeField] bool invertY;
+    [SerializeField] float maxSens;
+    [SerializeField] float minSens;
 
     //
     // MEMBER VARIABLES
     //
 
     float rotationX;
-
+    public Slider sensSlider;
 
     //
     // FUNCTIONS
@@ -41,6 +44,8 @@ public class cameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        sensChange();
+        
         // Get the input from the x and y axes of the mouse
         float mouseX = Input.GetAxis("Mouse X") * sens * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * sens * Time.deltaTime;
@@ -63,5 +68,17 @@ public class cameraController : MonoBehaviour
 
         // Turn the player about the y-axis (left and right)
         transform.parent.Rotate(Vector3.up * mouseX);
+    }
+    void sensChange()
+    {
+        if (sensSlider.value * maxSens < minSens)
+        {
+            sens = minSens;
+        }
+
+        else
+        {
+            sens = sensSlider.value * maxSens;
+        }
     }
 }

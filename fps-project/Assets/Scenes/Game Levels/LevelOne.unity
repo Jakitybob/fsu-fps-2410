@@ -11370,6 +11370,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 929356225784455867, guid: e0cec83a7cf940d419138f1a3133384f, type: 3}
   m_PrefabInstance: {fileID: 397257742}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &789723474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1585747767946670521, guid: d163936f5d29b7441bcbb3d350d1ad77, type: 3}
+  m_PrefabInstance: {fileID: 1048236696}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &794293163 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8522143455253002593, guid: 909837a3115de9f49a387d07a19d7db2, type: 3}
@@ -19436,9 +19447,9 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1971270918710628966, guid: b25332627c084354d91f2212e0702fc7, type: 3}
-      propertyPath: sens
-      value: 70
-      objectReference: {fileID: 0}
+      propertyPath: sensSlider
+      value: 
+      objectReference: {fileID: 789723474}
     - target: {fileID: 5335141273024281609, guid: b25332627c084354d91f2212e0702fc7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.89
@@ -30608,6 +30619,6 @@ SceneRoots:
   - {fileID: 418992179}
   - {fileID: 2100877009}
   - {fileID: 1788952678}
-  - {fileID: 8581692053001092478}
   - {fileID: 846000414}
   - {fileID: 1673688162}
+  - {fileID: 8581692053001092478}

@@ -1,6 +1,6 @@
 /************************************************************************************ 
 * * Full Sail GDB229 FPS Project *
-* Developers: Jacob Yates * [Michael Bump] *
+* Developers: Jacob Yates * [Michael Bump] * [Z Broyles]
 * *
 * A brief description of the program should also be added here. *
 ************************************************************************************/

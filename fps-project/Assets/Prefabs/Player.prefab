@@ -260,10 +260,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83e5162b84c1ff4fb120e2c8c844a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sens: 300
+  sens: 70
   lockVertMin: -65
   lockVertMax: 65
   invertY: 0
+  maxSens: 200
+  minSens: 10
+  sensSlider: {fileID: 0}
 --- !u!114 &640290373254327468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +312,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
