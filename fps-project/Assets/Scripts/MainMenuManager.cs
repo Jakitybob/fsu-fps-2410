@@ -9,14 +9,17 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] GameObject mainMenuActive;
     [SerializeField] GameObject menuStarting;
     [SerializeField] GameObject menuSettings;
+    [SerializeField] GameObject menuCreditsPanel;
 
     bool inSettings;
+    bool inCredits;
 
     // Start is called before the first frame update
     void Start()
     {
         mainMenuActive = menuStarting;
         inSettings = false;
+        inCredits = false;
     }
 
     // Update is called once per frame
@@ -50,5 +53,20 @@ public class MainMenuManager : MonoBehaviour
         }
 
         EventSystem.current.SetSelectedGameObject(null);
+    }
+
+
+    public void toggleCreditsPanel()
+    {
+        inCredits = !inCredits;
+
+        if (true == inCredits)
+        {
+            menuCreditsPanel.SetActive(true);
+        }
+        else
+        {
+            menuCreditsPanel.SetActive(false);
+        }
     }
 }
