@@ -9,6 +9,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class weaponPickup : MonoBehaviour
@@ -20,6 +21,7 @@ public class weaponPickup : MonoBehaviour
     [SerializeField] SO_Weapon weapon;
     [SerializeField] MeshRenderer meshRenderer;
     [SerializeField] MeshFilter meshFilter;
+    
 
 
     //

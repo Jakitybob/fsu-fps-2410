@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88a38b32b640d06469f8d7427c4f046a, type: 3}
-  m_Name: New SO_Weapon
+  m_Name: Rocket Laucher
   m_EditorClassIdentifier: 
-  weaponModel: {fileID: 1686925879785163594, guid: 3486fc965ebb4c742b5863736644542d, type: 3}
+  weaponModel: {fileID: 0}
+  Prefab: {fileID: 3062811148324065025, guid: 0bebeee92d19c134391075ea23deedf1, type: 3}
   weaponDamage: 150
   attackRate: 5
   attackRange: 20
-  ammoCurrent: 1
+  ammoCurrent: 4
   ammoMax: 5
   totalAmmo: 6
   reloadTime: 3

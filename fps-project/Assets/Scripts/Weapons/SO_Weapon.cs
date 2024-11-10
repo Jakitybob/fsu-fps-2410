@@ -19,6 +19,7 @@ public class SO_Weapon : ScriptableObject
     //
 
     public GameObject weaponModel;
+    public GameObject Prefab;
     public int weaponDamage;
     public float attackRate;
     public int attackRange;

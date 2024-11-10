@@ -27,7 +27,7 @@ public class Rocketlaucherr : MonoBehaviour
     void Update()
     {
         if (pickerUP)
-        {
+       {
             gameManager.instance.GetCurrentAmmoText();
             gameManager.instance.GetTotalAmmoText();
             if (Input.GetButtonDown("Fire1") && ammoCount > 0)
