@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d13af043034369cdd90dd47e39aee144, type: 3}
   m_Name: Patient 3
   m_EditorClassIdentifier: 
-  itemName: L3
+  itemName: Zombot-Sniper
   itemDescription: <placeholder>
-  itemIcon: {fileID: 21300000, guid: 4ca406bffcf4d4c6f93431eca103d24e, type: 3}
+  itemIcon: {fileID: 21300000, guid: 8f4769881c97a404e9b0f34c8a925ab3, type: 3}
   value: 3

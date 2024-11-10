@@ -12613,11 +12613,11 @@ PrefabInstance:
     - target: {fileID: 4104372253024017438, guid: 4a455e2af0942bdd5aa6a681862af43d, type: 3}
       propertyPath: Item
       value: 
-      objectReference: {fileID: 11400000, guid: 5ec0f5f7ab9a71b14a658f9bab82f18a, type: 2}
+      objectReference: {fileID: 11400000, guid: 1dcd45e90baa57e8792b1a1914fabfa9, type: 2}
     - target: {fileID: 5236037018769824086, guid: 4a455e2af0942bdd5aa6a681862af43d, type: 3}
       propertyPath: inventoryItem
       value: 
-      objectReference: {fileID: 11400000, guid: 5ec0f5f7ab9a71b14a658f9bab82f18a, type: 2}
+      objectReference: {fileID: 11400000, guid: 1dcd45e90baa57e8792b1a1914fabfa9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23543,11 +23543,11 @@ PrefabInstance:
     - target: {fileID: 4104372253024017438, guid: 4a455e2af0942bdd5aa6a681862af43d, type: 3}
       propertyPath: Item
       value: 
-      objectReference: {fileID: 11400000, guid: 7942a2733082d77fc8dfbf302aae72b7, type: 2}
+      objectReference: {fileID: 11400000, guid: 1dcd45e90baa57e8792b1a1914fabfa9, type: 2}
     - target: {fileID: 5236037018769824086, guid: 4a455e2af0942bdd5aa6a681862af43d, type: 3}
       propertyPath: inventoryItem
       value: 
-      objectReference: {fileID: 11400000, guid: 7942a2733082d77fc8dfbf302aae72b7, type: 2}
+      objectReference: {fileID: 11400000, guid: 1dcd45e90baa57e8792b1a1914fabfa9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30218,10 +30218,6 @@ PrefabInstance:
       propertyPath: ItemContent
       value: 
       objectReference: {fileID: 2039123225}
-    - target: {fileID: 6283847437969341782, guid: 041fa9526d42d0a899679a107bc98fc6, type: 3}
-      propertyPath: TooltipPrefab
-      value: 
-      objectReference: {fileID: 3242411366361343710, guid: e072fcd7f07f7c793aff8181aa63a2ba, type: 3}
     - target: {fileID: 8718508265724307630, guid: 041fa9526d42d0a899679a107bc98fc6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

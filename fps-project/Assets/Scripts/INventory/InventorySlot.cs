@@ -25,11 +25,7 @@ public class InventorySlot : MonoBehaviour
         HideTooltip();
     }
 
-    public void OnClicked()
-    {
-        // Show the full description in a popup
-        ShowPopup(item.itemIcon);
-    }
+    
 
     private void ShowTooltip(string description)
     {
@@ -54,9 +50,6 @@ public class InventorySlot : MonoBehaviour
             Destroy(tooltipInstance);
         }
     }
-    private void ShowPopup(Sprite Story)
-    {
-
-    }
+    
     
 }

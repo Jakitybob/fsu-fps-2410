@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemContent: {fileID: 0}
   InventoryItem: {fileID: 302775468379206265, guid: f5d7456d29c0d8b74a40484a69967409, type: 3}
-  TooltipPrefab: {fileID: 3242411366361343710, guid: e072fcd7f07f7c793aff8181aa63a2ba, type: 3}
+  detailViewPrefab: {fileID: 4939699543448478943, guid: 0222dbfa1dcff5949a19b74fe2875ac3, type: 3}
   Items: []

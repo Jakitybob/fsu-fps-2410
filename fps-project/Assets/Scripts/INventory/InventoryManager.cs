@@ -18,7 +18,11 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject InventoryItem;
 
+    public GameObject detailViewPrefab;
+
     public List<InventoryItem> Items = new List<InventoryItem>();
+
+    private GameObject detailPanel;
 
 
 
@@ -52,17 +56,58 @@ public class InventoryManager : MonoBehaviour
         foreach (var item in Items)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
+
             var itemName = obj.transform.Find("itemName").GetComponent<TMPro.TextMeshProUGUI>();
             var itemIcon = obj.transform.Find("itemIcon").GetComponent<Image>();
+            var itemButton = obj.GetComponent<Button>();
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.itemIcon;
+            //onclick listener
+            itemButton.onClick.AddListener(() => InventoryManager.Instance.OnInventoryItemClick(item));
 
         }
-            
+
     }
 
-    
+    public void OnInventoryItemClick(InventoryItem item)
+    {
+
+        Debug.Log("Inventory item clicked: " + item.itemName);
+
+        detailPanel = Instantiate(detailViewPrefab);
+        detailPanel.SetActive(true);
+
+        Text itemDescription = detailPanel.GetComponentInChildren<Text>();
+        Image itemImage = detailPanel.GetComponentInChildren<Image>();
+
+        Button closeButton = detailPanel.GetComponentInChildren<Button>();
+        closeButton.onClick.AddListener(CloseDetailView);
+    }
+
+    public void CloseDetailView()
+    {
+        if (detailPanel != null)
+    {
+        Debug.Log("Close Button Clicked");
+
+        // Ensure the DetailPanel is active before attempting to deactivate or destroy it
+        if (detailPanel.activeSelf)
+        {
+            detailPanel.SetActive(false);
+        }
+
+        // Destroy the DetailPanel after a short delay to allow for potential UI updates
+        Destroy(detailPanel, 0.1f);
+        detailPanel = null;
+    }
+
+        
+
+
+    }
+
+
 
 
 
