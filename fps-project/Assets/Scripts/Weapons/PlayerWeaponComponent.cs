@@ -99,7 +99,7 @@ public class PlayerWeaponComponent : MonoBehaviour
     public void Reload()
     {
         // Checks if the weapon can reload
-        if (weaponList[weaponIndex].CanReload())
+        if (weaponList[weaponIndex].CanReload()&& weaponList[weaponIndex]!= null)
         {
             StartCoroutine(DoReload());
             
