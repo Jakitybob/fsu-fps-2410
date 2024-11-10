@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3532953455063342443}
-  - component: {fileID: 4542983737655264536}
+  - component: {fileID: 3817079167136393876}
+  - component: {fileID: 6778493221546359167}
   - component: {fileID: 3623150859078641381}
   - component: {fileID: 8340123163257218046}
   - component: {fileID: 3668836616543396928}
   m_Layer: 0
-  m_Name: SfxMIxer
+  m_Name: RocketFireSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +36,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4542983737655264536
+--- !u!114 &3817079167136393876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,12 +45,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 6986727127194397561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a80248b9999d8c4281cc5096263efbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e81a74fa5fd8bc948b182ea6001de70d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mixer: {fileID: 24100000, guid: c152dd3ebbcb45347a9889571ab2598b, type: 2}
-  VolumeSlider: {fileID: 0}
-  SFXslider: {fileID: 0}
+  SFXobj: {fileID: 3668836616543396928}
+--- !u!114 &6778493221546359167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986727127194397561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda691b2ab91edf42b84d8b90f9f1036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: c152dd3ebbcb45347a9889571ab2598b, type: 2}
 --- !u!82 &3623150859078641381
 AudioSource:
   m_ObjectHideFlags: 0

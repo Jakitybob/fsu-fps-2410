@@ -6,14 +6,17 @@ public class Rocketlaucherr : MonoBehaviour
 {
     public GameObject rckt;
     public Transform ShootPos;
+    public Transform LaucherrPos;
     public float Force;
     public float Rate;
     public int maxAmmo;
     public float reloadtime;
+   
 
     private int ammoCount;
  
     private bool isReload = false;
+    private bool pickerUP = false;
 
 
     // Update is called once per frame
@@ -23,18 +26,41 @@ public class Rocketlaucherr : MonoBehaviour
     }
     void Update()
     {
-        //if (isReload)
-           // return;
-        gameManager.instance.GetCurrentAmmoText();
-        gameManager.instance.GetTotalAmmoText();
-        if (Input.GetButtonDown("Fire1")&& ammoCount > 0)
+        if (pickerUP)
         {
-            FireRocket();
+            gameManager.instance.GetCurrentAmmoText();
+            gameManager.instance.GetTotalAmmoText();
+            if (Input.GetButtonDown("Fire1") && ammoCount > 0)
+            {
+                FireRocket();
+            }
+            if (Input.GetKeyDown(KeyCode.R) && ammoCount <= 0 && !isReload)
+            {
+                StartCoroutine(Reload());
+            }
         }
-        if(Input.GetKeyDown(KeyCode.R)&& ammoCount <= 0 && !isReload)
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player")&& !pickerUP)
         {
-            StartCoroutine(Reload());
+            pickUpLauncher(other.transform);
         }
+        
+    }
+    void pickUpLauncher(Transform player)
+    {
+        pickerUP = true;
+        transform.SetParent(LaucherrPos);
+        transform.localPosition=Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+
+        Collider collider = GetComponent<Collider>();
+        if (collider != null) collider.enabled = false;
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null) rb.isKinematic = true;
 
 
     }
