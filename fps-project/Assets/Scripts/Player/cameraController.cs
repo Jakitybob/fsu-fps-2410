@@ -69,7 +69,7 @@ public class cameraController : MonoBehaviour
         // Turn the player about the y-axis (left and right)
         transform.parent.Rotate(Vector3.up * mouseX);
     }
-    void sensChange()
+    public void sensChange()
     {
         if (sensSlider.value * maxSens < minSens)
         {

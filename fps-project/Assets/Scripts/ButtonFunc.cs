@@ -42,4 +42,10 @@ public class ButtonFunc : MonoBehaviour
                 Application.Quit();
         #endif
     }
+
+    public void showcase()
+    {
+        SceneManager.LoadScene("Showcase");
+    }
+    
 }
