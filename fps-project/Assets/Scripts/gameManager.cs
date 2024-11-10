@@ -19,7 +19,7 @@ public class gameManager : MonoBehaviour
     public static gameManager instance;
     public GameObject meatHookIcon;
 
-    [SerializeField] GameObject menuActive;
+    [SerializeField] public GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuInventory;
     [SerializeField] GameObject menuSettings;
