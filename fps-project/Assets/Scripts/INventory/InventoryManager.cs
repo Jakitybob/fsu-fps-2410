@@ -72,7 +72,7 @@ public class InventoryManager : MonoBehaviour
 
     public void OnInventoryItemClick(InventoryItem item)
     {
-
+        
         Debug.Log("Inventory item clicked: " + item.itemName);
 
         detailPanel = Instantiate(detailViewPrefab);
@@ -88,21 +88,21 @@ public class InventoryManager : MonoBehaviour
     public void CloseDetailView()
     {
         if (detailPanel != null)
-    {
-        Debug.Log("Close Button Clicked");
-
-        // Ensure the DetailPanel is active before attempting to deactivate or destroy it
-        if (detailPanel.activeSelf)
         {
-            detailPanel.SetActive(false);
+            Debug.Log("Close Button Clicked");
+
+            // Ensure the DetailPanel is active before attempting to deactivate or destroy it
+            if (detailPanel.activeSelf)
+            {
+                detailPanel.SetActive(false);
+            }
+
+            // Destroy the DetailPanel after a short delay to allow for potential UI updates
+            Destroy(detailPanel, 0.1f);
+            detailPanel = null;
         }
 
-        // Destroy the DetailPanel after a short delay to allow for potential UI updates
-        Destroy(detailPanel, 0.1f);
-        detailPanel = null;
-    }
 
-        
 
 
     }
