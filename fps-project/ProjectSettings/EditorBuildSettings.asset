@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game Levels/Showcase.unity
     guid: b03ae2391c9450e4e86449b67c8591ae
+  - enabled: 1
+    path: Assets/Scenes/Game Levels/LevelTwo.unity
+    guid: 7d373882d758aeb448c071378b95d700
   m_configObjects: {}
