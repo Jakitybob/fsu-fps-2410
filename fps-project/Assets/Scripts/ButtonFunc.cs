@@ -37,9 +37,24 @@ public class ButtonFunc : MonoBehaviour
     public void Quit() 
     {
         #if UNITY_EDITOR
+            if ("MainMenu" != SceneManager.GetActiveScene().name)
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+            else
+            {
                 UnityEditor.EditorApplication.isPlaying = false;
+            }
+                
         #else
+            if ("MainMenu" != SceneManager.GetActiveScene().name)
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+            else
+            {
                 Application.Quit();
+            }
         #endif
     }
 
