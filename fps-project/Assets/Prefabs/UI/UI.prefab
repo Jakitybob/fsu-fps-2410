@@ -669,18 +669,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonFunc, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
         m_Mode: 1
@@ -1693,7 +1681,7 @@ MonoBehaviour:
   Lose: {fileID: 9175563845187742366}
   playerScript: {fileID: 0}
   playerSpawnPos: {fileID: 0}
-  inventory: {fileID: 4436832825933174479}
+  inventory: {fileID: 0}
   player: {fileID: 0}
   enemyText: {fileID: 5260699459231857395}
   transitionAnim: {fileID: 6076710872096234931}
@@ -2902,10 +2890,10 @@ RectTransform:
   - {fileID: 5894198739324415884}
   - {fileID: 8471365747375331684}
   - {fileID: 1241020686377685452}
-  - {fileID: 4170628625009053923}
   - {fileID: 4324993287002431858}
   - {fileID: 142646504665015681}
   - {fileID: 321839502969961648}
+  - {fileID: 4170628625009053923}
   - {fileID: 8592862050492874995}
   - {fileID: 2914688614254642164}
   - {fileID: 4067665234921949542}
@@ -9309,17 +9297,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8718508265724307630, guid: 041fa9526d42d0a899679a107bc98fc6, type: 3}
   m_PrefabInstance: {fileID: 7684968357977861017}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4436832825933174479 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6283847437969341782, guid: 041fa9526d42d0a899679a107bc98fc6, type: 3}
-  m_PrefabInstance: {fileID: 7684968357977861017}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 667ae836d8fde0522819c90f35c5d7ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8349031295758509187
 PrefabInstance:
   m_ObjectHideFlags: 0

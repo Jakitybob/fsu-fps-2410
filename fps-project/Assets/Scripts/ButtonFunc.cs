@@ -39,23 +39,27 @@ public class ButtonFunc : MonoBehaviour
         #if UNITY_EDITOR
             if ("MainMenu" != SceneManager.GetActiveScene().name)
             {
-                SceneManager.LoadScene("MainMenu");
+                gameManager.instance.UnPaused();
+                gameManager.instance.changeLevel("MainMenu");
+                //SceneManager.LoadScene("MainMenu");
             }
             else
             {
                 UnityEditor.EditorApplication.isPlaying = false;
             }
-                
-        #else
+
+#else
             if ("MainMenu" != SceneManager.GetActiveScene().name)
             {
-                SceneManager.LoadScene("MainMenu");
+                gameManager.instance.UnPaused();
+                gameManager.instance.changeLevel("MainMenu");
+                //SceneManager.LoadScene("MainMenu");
             }
             else
             {
                 Application.Quit();
             }
-        #endif
+#endif
     }
 
     public void showcase()
