@@ -26,6 +26,9 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int jumpCountMax;
     [SerializeField] int gravity;
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip punchSFX;
+
     //
     // MEMBER VARIABLES
     //
@@ -298,6 +301,13 @@ public class playerController : MonoBehaviour, IDamage
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position + Vector3.down * distToGround, spherecastRadius);
+    }
+
+
+    public void playPunchAudio()
+    {
+        audioSource.clip = punchSFX;
+        audioSource.Play();
     }
 
 

@@ -64,6 +64,8 @@ MonoBehaviour:
   jumpSpeed: 7
   jumpCountMax: 2
   gravity: 25
+  audioSource: {fileID: 3547851076032908927}
+  punchSFX: {fileID: 8300000, guid: 664d9cb765a62b24d85532c6a7959376, type: 3}
 --- !u!114 &6449016865945566969
 MonoBehaviour:
   m_ObjectHideFlags: 0

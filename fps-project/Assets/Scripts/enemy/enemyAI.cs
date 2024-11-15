@@ -355,6 +355,7 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
 
             //play melee animation on player
             AnimationManager.instance.playPunchAnim();
+            interactor.GetComponent<playerController>().playPunchAudio();
 
 
             //destroy enemy object
