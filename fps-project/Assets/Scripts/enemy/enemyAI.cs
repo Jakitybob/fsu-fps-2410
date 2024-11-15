@@ -8,6 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -34,12 +35,19 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
     [SerializeField] List<GameObject> gloryKillDrops;
     [SerializeField] int gloryKillDiceSize;
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource walkingAudioSource;
+    [SerializeField] AudioClip hurtSFX;
+    [SerializeField] AudioClip shootSFX;
+    [SerializeField] AudioClip walkSFX;
+
 
     int origHP;
 
     bool isShooting;
     bool playerInRange;
     bool isRoaming;
+    bool isWalkingAudio;
 
     float angleToPlayer;
     float stoppingDistOrig;
@@ -77,6 +85,17 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
         playerDir = gameManager.instance.player.transform.position - headPos.position;
         facePlayer();
 
+        //play walking audio
+        if (agent.velocity.normalized.magnitude > 0 && walkSFX != null && !isWalkingAudio)
+        {
+            StartCoroutine(walkNoise());
+        }
+        else if (agent.velocity.normalized.magnitude == 0 && walkSFX != null)
+        {
+            isWalkingAudio = false;
+            walkingAudioSource.Stop();
+        }
+
 
         //when enemy is low health, start flashing yellow, prevent all other actions
         if (true == isExecutable)
@@ -110,6 +129,17 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
         }
     }
 
+    IEnumerator walkNoise()
+    {
+        isWalkingAudio = true;
+
+        walkingAudioSource.clip = walkSFX;
+        walkingAudioSource.Play();
+
+        yield return new WaitForSeconds(walkingAudioSource.clip.length);
+
+        isWalkingAudio = false;
+    }
 
 
     IEnumerator roam()
@@ -205,6 +235,16 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
         animator.SetTrigger("Shoot");
 
         Instantiate(weapon, shootPos.position, transform.rotation);
+
+
+        if (shootSFX != null)
+        {
+            audioSource.clip = shootSFX;
+            audioSource.Play();
+        }
+
+
+
         yield return new WaitForSeconds(attackRate);
 
 
@@ -218,6 +258,13 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
         HP -= amount;
 
         StartCoroutine(flashHit());
+
+        //play hurt SFX
+        if (hurtSFX != null)
+        {
+            audioSource.clip = hurtSFX;
+            audioSource.Play();
+        }
 
         //if roaming, stop
         if (someCo != null)
