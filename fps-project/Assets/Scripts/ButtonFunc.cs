@@ -40,8 +40,9 @@ public class ButtonFunc : MonoBehaviour
             if ("MainMenu" != SceneManager.GetActiveScene().name)
             {
                 gameManager.instance.UnPaused();
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
                 gameManager.instance.changeLevel("MainMenu");
-                //SceneManager.LoadScene("MainMenu");
             }
             else
             {
@@ -52,8 +53,9 @@ public class ButtonFunc : MonoBehaviour
             if ("MainMenu" != SceneManager.GetActiveScene().name)
             {
                 gameManager.instance.UnPaused();
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
                 gameManager.instance.changeLevel("MainMenu");
-                //SceneManager.LoadScene("MainMenu");
             }
             else
             {
