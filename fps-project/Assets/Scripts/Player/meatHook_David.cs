@@ -21,6 +21,11 @@ public class meatHook : MonoBehaviour
     [SerializeField] float pullSpeed;
     [SerializeField] float pullRange;
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip castSFX;
+    [SerializeField] AudioClip pullSFX;
+    [SerializeField] AudioClip breakSFX;
+
     Vector3 pullDestination;
     Vector3 pullDir;
     Vector3 momentum;
@@ -126,6 +131,10 @@ public class meatHook : MonoBehaviour
 
                 //start casting hook
                 state = State.CastingHook;
+
+                //play cast SFX
+                audioSource.clip = castSFX;
+                audioSource.Play();
             }
         }
     }
@@ -146,14 +155,22 @@ public class meatHook : MonoBehaviour
         //if reaches destination
         if (chainLength >= Vector3.Distance(transform.position, pullDestination))
         {
+
+
             //stop player wasd movement
             gameManager.instance.player.GetComponent<playerController>().haltMovement();
 
             //adjust fov of camera
             fovSlider.setFOV(meatHookFOV);
 
+
+
             //chain at location, now pull player
             state = State.Moving;
+
+            //play pull SFX
+            audioSource.clip = pullSFX;
+            audioSource.Play();
         }
     }
 
@@ -206,6 +223,12 @@ public class meatHook : MonoBehaviour
             momentum = (pullDir * pullSpeed) + gameManager.instance.player.GetComponent<playerController>().getVelocity();
 
             stopPull();
+
+
+            //play break SFX
+            audioSource.clip = breakSFX;
+            audioSource.Play();
+
 
             state = State.Launched;
         }
@@ -298,6 +321,11 @@ public class meatHook : MonoBehaviour
 
     private void stopPull()
     {
+        //end SFX
+        audioSource.Stop();
+        audioSource.clip = null;
+
+
         gameManager.instance.player.GetComponent<playerController>().setJumpCount(1);
         fovSlider.setFOV(origFov);
         gameManager.instance.player.GetComponent<playerController>().setGravity(origGravity);
