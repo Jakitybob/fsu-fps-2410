@@ -23,8 +23,7 @@ public class BossElevator : MonoBehaviour
     {
         // Subscribe to the door's "DoorOpened" event
         GameObject.FindGameObjectWithTag("Door").GetComponent<TestingDoor>().OnDoorOpened += ActivateElevator;
-        //Instantiate(Resources.Load<GameObject>("Boss"), transform.position, Quaternion.identity);
-        // Store the starting position
+        
         startingPosition = transform.position;
     }
 
@@ -32,15 +31,11 @@ public class BossElevator : MonoBehaviour
     {
         
         isElevatorActive = true;
-        Invoke("SpawnBoss", bossSpawnDelay);
+        
 
     }
 
-    private void SpawnBoss()
-    {
-        // Instantiate the boss at the elevator's position
-        Instantiate(Resources.Load<GameObject>("Boss"), transform.position, Quaternion.identity);
-    }
+    
 
     private void Update()
     {
