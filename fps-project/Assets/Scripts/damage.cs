@@ -75,12 +75,6 @@ public class damage : MonoBehaviour
         }
 
 
-
-
-
-
-
-
         if (type == damageType.bullet || type == damageType.rocket)
         {
             Destroy(gameObject);
