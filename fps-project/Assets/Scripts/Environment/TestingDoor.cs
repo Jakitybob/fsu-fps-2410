@@ -22,6 +22,8 @@ public class TestingDoor : MonoBehaviour
     public bool useTrigger = true;
     public Collider triggerCollider;
 
+    public RedLightscontroller redLightController;
+
 
     void Start()
     {
@@ -32,21 +34,7 @@ public class TestingDoor : MonoBehaviour
     void Update()
     {
 
-        /* if (isOpen)
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, closedRotation * Quaternion.Euler(0, openAngle, 0), doorSpeed * Time.deltaTime);
-
-            // Check if the door is fully open
-            if (Quaternion.Angle(transform.rotation, closedRotation * Quaternion.Euler(0, openAngle, 0)) < 1f)
-            {
-                isOpen = false; // Prevent further rotation
-                OnDoorOpened?.Invoke(); // Trigger the event
-            }
-        }
-        else
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, closedRotation, doorSpeed * Time.deltaTime);
-        } */
+        
         if (isOpen)
         {
             transform.position = Vector3.Lerp(transform.position, closedPosition + Vector3.up * openDistance, doorSpeed * Time.deltaTime);
@@ -67,6 +55,7 @@ public class TestingDoor : MonoBehaviour
     public void ToggleDoor()
     {
         isOpen = !isOpen;
+        redLightController.TurnLightsOn();
     }
 
     private void OnTriggerEnter(Collider other)

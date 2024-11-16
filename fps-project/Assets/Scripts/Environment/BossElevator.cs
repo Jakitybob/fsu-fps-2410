@@ -13,7 +13,7 @@ using UnityEngine;
 public class BossElevator : MonoBehaviour
 {
     public float elevatorSpeed = 2f;
-    public float bossSpawnDelay = 0.0f;
+    
     public float targetHeight = 10f; // The desired vertical distance to move
 
     private bool isElevatorActive = false;
