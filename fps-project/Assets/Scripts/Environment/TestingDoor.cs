@@ -7,6 +7,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class TestingDoor : MonoBehaviour
@@ -23,6 +24,12 @@ public class TestingDoor : MonoBehaviour
     public Collider triggerCollider;
 
     public RedLightscontroller redLightController;
+
+    public AudioSource Explosion;
+
+    public AudioClip explosion;
+
+    public ScreenShake screenShake;
 
 
     void Start()
@@ -56,6 +63,9 @@ public class TestingDoor : MonoBehaviour
     {
         isOpen = !isOpen;
         redLightController.TurnLightsOn();
+
+        screenShake.Shake();
+        Explosion.PlayOneShot(explosion);
     }
 
     private void OnTriggerEnter(Collider other)

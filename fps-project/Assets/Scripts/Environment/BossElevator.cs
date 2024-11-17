@@ -45,12 +45,20 @@ public class BossElevator : MonoBehaviour
             Vector3 targetPosition = startingPosition + new Vector3(0, targetHeight, 0);
 
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, elevatorSpeed * Time.deltaTime);
+
+            foreach (Transform child in transform)
+        {
+            if (child.CompareTag("Water"))
+            {
+                child.position = transform.position;
+            }
+        }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("BossPrefab"))
         {
             other.transform.parent = transform;
         }
@@ -58,7 +66,7 @@ public class BossElevator : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("BossPrefab"))
         {
             other.transform.parent = null;
         }
