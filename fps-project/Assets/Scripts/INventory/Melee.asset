@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d13af043034369cdd90dd47e39aee144, type: 3}
-  m_Name: Patient 1
+  m_Name: Melee
   m_EditorClassIdentifier: 
   itemName: Zombot-Melee
-  itemDescription: <placeholder>
+  itemDescription: Fast attacking Enemy who uses a chain saw Arm
   itemIcon: {fileID: 21300000, guid: eae8088397b79c64e8797b1ff28c51e2, type: 3}
-  value: 1
+  health: 10
+  Damage: 1

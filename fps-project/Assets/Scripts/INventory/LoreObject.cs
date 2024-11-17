@@ -8,6 +8,7 @@ public class LoreObject : MonoBehaviour, IInteractable
     
     public bool isPickable = true;
     public InventoryItem inventoryItem;
+    
 
     
     
@@ -17,6 +18,7 @@ public class LoreObject : MonoBehaviour, IInteractable
         
         if (isPickable)
         {
+            
             InventoryManager.Instance.Add(inventoryItem);
             Destroy(gameObject);  
         }

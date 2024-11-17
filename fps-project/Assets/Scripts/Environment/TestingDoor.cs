@@ -25,11 +25,11 @@ public class TestingDoor : MonoBehaviour
 
     public RedLightscontroller redLightController;
 
-    public AudioSource Explosion;
+    //public AudioSource Explosion;
 
-    public AudioClip explosion;
+    //public AudioClip explosion;
 
-    public ScreenShake screenShake;
+    //public ScreenShake screenShake;
 
 
     void Start()
@@ -64,8 +64,8 @@ public class TestingDoor : MonoBehaviour
         isOpen = !isOpen;
         redLightController.TurnLightsOn();
 
-        screenShake.Shake();
-        Explosion.PlayOneShot(explosion);
+        /* screenShake.Shake();
+        Explosion.PlayOneShot(explosion); */
     }
 
     private void OnTriggerEnter(Collider other)

@@ -22,6 +22,7 @@ public class InventoryManager : MonoBehaviour
 
     public List<InventoryItem> Items = new List<InventoryItem>();
 
+
     private GameObject detailPanel;
 
 
@@ -72,15 +73,19 @@ public class InventoryManager : MonoBehaviour
 
     public void OnInventoryItemClick(InventoryItem item)
     {
-        
+
         Debug.Log("Inventory item clicked: " + item.itemName);
-
-        detailPanel = Instantiate(detailViewPrefab);
-        detailPanel.SetActive(true);
-
-        Text itemDescription = detailPanel.GetComponentInChildren<Text>();
-        Image itemImage = detailPanel.GetComponentInChildren<Image>();
-
+        if (detailPanel == null)
+        {
+            detailPanel = Instantiate(detailViewPrefab);
+            detailPanel.SetActive(true);
+            /* DetailViewPanel detailViewPanelScript = detailPanel.GetComponent<DetailViewPanel>();
+            detailViewPanelScript.SetData(item); */
+        }
+        DetailViewPanel detailPanelScript = detailPanel.GetComponent<DetailViewPanel>();
+        detailPanelScript.SetData(item.itemName, item.itemDescription, item.health, item.Damage, item.itemIcon);
+         
+ 
         Button closeButton = detailPanel.GetComponentInChildren<Button>();
         closeButton.onClick.AddListener(CloseDetailView);
     }
@@ -106,6 +111,8 @@ public class InventoryManager : MonoBehaviour
 
 
     }
+
+
 
 
 
