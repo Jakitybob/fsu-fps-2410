@@ -82,8 +82,8 @@ public class InventoryManager : MonoBehaviour
             /* DetailViewPanel detailViewPanelScript = detailPanel.GetComponent<DetailViewPanel>();
             detailViewPanelScript.SetData(item); */
         }
-        DetailViewPanel detailPanelScript = detailPanel.GetComponent<DetailViewPanel>();
-        detailPanelScript.SetData(item.itemName, item.itemDescription, item.health, item.Damage, item.itemIcon);
+        /* DetailViewPanel detailPanelScript = detailPanel.GetComponent<DetailViewPanel>();
+        detailPanelScript.SetData(item.itemName, item.itemDescription, item.health, item.Damage, item.itemIcon); */
          
  
         Button closeButton = detailPanel.GetComponentInChildren<Button>();
