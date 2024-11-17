@@ -90,7 +90,7 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
         {
             StartCoroutine(walkNoise());
         }
-        else if (agent.velocity.normalized.magnitude == 0 && walkSFX != null)
+        else if (agent.velocity.normalized.magnitude == 0 && walkSFX != null &&walkingAudioSource.isPlaying)
         {
             isWalkingAudio = false;
             walkingAudioSource.Stop();
@@ -172,7 +172,8 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
-            Debug.Log(hit.collider.name);
+            //Debug.Log(hit.collider.name);
+
             if (hit.collider.CompareTag("Player"))
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
@@ -276,6 +277,15 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
 
         if (HP <= 0)
         {
+
+            audioSource.Stop();
+
+            if (walkSFX != null)
+            {
+                walkingAudioSource.Stop();
+                walkingAudioSource = null;
+            }
+
             //execution state health
             HP = origHP;
 

@@ -297,12 +297,6 @@ public class playerController : MonoBehaviour, IDamage
     }
 
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + Vector3.down * distToGround, spherecastRadius);
-    }
-
 
     public void playPunchAudio()
     {

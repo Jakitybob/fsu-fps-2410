@@ -17,7 +17,7 @@ public class PersistantInventory : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         // Load inventory data from a file or player preferences
         LoadInventoryData();
