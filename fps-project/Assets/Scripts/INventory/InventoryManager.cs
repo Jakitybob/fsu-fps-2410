@@ -96,13 +96,13 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.Log("Close Button Clicked");
 
-            // Ensure the DetailPanel is active before attempting to deactivate or destroy it
+            
             if (detailPanel.activeSelf)
             {
                 detailPanel.SetActive(false);
             }
 
-            // Destroy the DetailPanel after a short delay to allow for potential UI updates
+            
             Destroy(detailPanel, 0.1f);
             detailPanel = null;
         }
