@@ -6,6 +6,7 @@ public class SFX : MonoBehaviour
 {
     private AudioSource audioSource;
     private gameManager gm;
+    [SerializeField] bool buttonSFX;
     
     
     // Start is called before the first frame update
@@ -17,9 +18,12 @@ public class SFX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {  
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Tab))
+        if (buttonSFX == true)
         {
-            audioSource.Play();
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Tab))
+            {
+                audioSource.Play();
+            }
         }
     }
 }
