@@ -7,6 +7,8 @@ public class Explosiontrigger : MonoBehaviour
     public AudioClip explosionSound;
     public ScreenShake screenShake;
 
+    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -18,6 +20,9 @@ public class Explosiontrigger : MonoBehaviour
             screenShake.Shake();
 
             Destroy(gameObject);
+
+            
         }
     }
+    
 }
