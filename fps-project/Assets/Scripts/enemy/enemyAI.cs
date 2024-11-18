@@ -8,7 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -36,10 +36,10 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
     [SerializeField] int gloryKillDiceSize;
 
     [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioSource walkingAudioSource;
+    //[SerializeField] AudioSource walkingAudioSource;
     [SerializeField] AudioClip hurtSFX;
     [SerializeField] AudioClip shootSFX;
-    [SerializeField] AudioClip walkSFX;
+    //[SerializeField] AudioClip walkSFX;
 
 
     int origHP;
@@ -85,16 +85,16 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
         playerDir = gameManager.instance.player.transform.position - headPos.position;
         facePlayer();
 
-        //play walking audio
-        if (agent.velocity.normalized.magnitude > 0 && walkSFX != null && !isWalkingAudio)
-        {
-            StartCoroutine(walkNoise());
-        }
-        else if (agent.velocity.normalized.magnitude == 0 && walkSFX != null &&walkingAudioSource.isPlaying)
-        {
-            isWalkingAudio = false;
-            walkingAudioSource.Stop();
-        }
+        ////play walking audio
+        //if (agent.velocity.normalized.magnitude > 0 && walkSFX != null && !isWalkingAudio)
+        //{
+        //    StartCoroutine(walkNoise());
+        //}
+        //else if (agent.velocity.normalized.magnitude == 0 && walkSFX != null &&walkingAudioSource.isPlaying)
+        //{
+        //    isWalkingAudio = false;
+        //    walkingAudioSource.Stop();
+        //}
 
 
         //when enemy is low health, start flashing yellow, prevent all other actions
@@ -129,17 +129,17 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
         }
     }
 
-    IEnumerator walkNoise()
-    {
-        isWalkingAudio = true;
+    //IEnumerator walkNoise()
+    //{
+    //    isWalkingAudio = true;
 
-        walkingAudioSource.clip = walkSFX;
-        walkingAudioSource.Play();
+    //    walkingAudioSource.clip = walkSFX;
+    //    walkingAudioSource.Play();
 
-        yield return new WaitForSeconds(walkingAudioSource.clip.length);
+    //    yield return new WaitForSeconds(walkingAudioSource.clip.length);
 
-        isWalkingAudio = false;
-    }
+    //    isWalkingAudio = false;
+    //}
 
 
     IEnumerator roam()
@@ -280,11 +280,11 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
 
             audioSource.Stop();
 
-            if (walkSFX != null)
-            {
-                walkingAudioSource.Stop();
-                walkingAudioSource = null;
-            }
+            //if (walkSFX != null)
+            //{
+            //    walkingAudioSource.Stop();
+            //    walkingAudioSource = null;
+            //}
 
             //execution state health
             HP = origHP;
