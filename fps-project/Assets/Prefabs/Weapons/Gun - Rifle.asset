@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Gun - Rifle
   m_EditorClassIdentifier: 
   weaponModel: {fileID: 5494625650325380441, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
+  Prefab: {fileID: 0}
   weaponDamage: 1
   attackRate: 0.25
   attackRange: 150
-  ammoCurrent: 0
+  ammoCurrent: 22
   ammoMax: 25
   totalAmmo: 0
   reloadTime: 0

@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 65
+  respawnTime: 0
 --- !u!114 &7977349121703305928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,5 +132,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.79999995, y: 0.63822293, z: 0.099999994}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.989626, y: 0.63822293, z: 0.5793699}
+  m_Center: {x: -0.030031115, y: 0, z: -0.037483096}

@@ -81,7 +81,7 @@ public class Rocketlaucherr : MonoBehaviour
     {
         isReload = true;
         yield return new WaitForSeconds(reloadtime);
-        ammoCount=maxAmmo;
+        ammoCount = maxAmmo;
         isReload = false;
     }
 

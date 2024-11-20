@@ -18,7 +18,7 @@ public class PlayerWeaponComponent : MonoBehaviour
 
     [SerializeField] LayerMask ignoreMask;
 
-    [SerializeField] List<SO_Weapon> weaponList;
+    [SerializeField] List<SO_Weapon> weaponList; 
     [SerializeField] GameObject weaponModel;
     [SerializeField] GameObject weaponAttackEffect; // Effect for things like muzzle flash or slice of air from swing
 
@@ -27,7 +27,7 @@ public class PlayerWeaponComponent : MonoBehaviour
     private float weaponAttackRate;
     private int weaponRange;
 
-
+   private bool canReload;
     //
     // FUNCTIONS
     //
@@ -98,6 +98,7 @@ public class PlayerWeaponComponent : MonoBehaviour
      */
     public void Reload()
     {
+        
         // Checks if the weapon can reload
         if (weaponList[weaponIndex].CanReload()&& weaponList[weaponIndex]!= null)
         {
@@ -126,7 +127,8 @@ public class PlayerWeaponComponent : MonoBehaviour
      * for reloading on the gun and simply wait for that to finish before allowing the weapon
      * to attack again.
      */
-    IEnumerator DoReload()
+    
+     IEnumerator DoReload()
     {
         // TODO: Implement playing a reload animation here
         weaponList[weaponIndex].SetCanAttack(false);
