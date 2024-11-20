@@ -62,7 +62,7 @@ public class damage : MonoBehaviour
 
         if (dmg != null)
         {
-            if (type == damageType.bullet)
+            if (type == damageType.bullet || type == damageType.stationary)
             {
                 dmg.takeDamage(damageAmount);
             }
