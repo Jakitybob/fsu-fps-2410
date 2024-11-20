@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d13af043034369cdd90dd47e39aee144, type: 3}
-  m_Name: sniper
+  m_Name: Rocket-Soldier
   m_EditorClassIdentifier: 
-  itemName: Zombot-Sniper
-  itemDescription: Precise shots Be wary
-  itemIcon: {fileID: 21300000, guid: 8f4769881c97a404e9b0f34c8a925ab3, type: 3}
-  health: 20
-  Damage: 10
+  itemName: Rocket Soldier
+  itemDescription: 'Fires a big bad Rocket '
+  itemIcon: {fileID: 21300000, guid: 38466ee5e87374e46be42e917dc93448, type: 3}
+  health: 5
+  Damage: 3

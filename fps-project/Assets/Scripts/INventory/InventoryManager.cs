@@ -6,9 +6,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-
-
 public class InventoryManager : MonoBehaviour
 {
 
@@ -32,9 +29,6 @@ public class InventoryManager : MonoBehaviour
         Instance = this;
         PersistantInventory.Instance.ListItems();
     }
-
-
-
 
     public void Add(InventoryItem item)
     {
@@ -73,21 +67,40 @@ public class InventoryManager : MonoBehaviour
 
     public void OnInventoryItemClick(InventoryItem item)
     {
+        if (item == null)
+        {
+            Debug.LogError("Clicked item is null!");
+            return;
+        }
 
         Debug.Log("Inventory item clicked: " + item.itemName);
+        
+        // If detail panel exists, update it. Otherwise, create a new one
         if (detailPanel == null)
         {
             detailPanel = Instantiate(detailViewPrefab);
             detailPanel.SetActive(true);
-            /* DetailViewPanel detailViewPanelScript = detailPanel.GetComponent<DetailViewPanel>();
-            detailViewPanelScript.SetData(item); */
         }
-        /* DetailViewPanel detailPanelScript = detailPanel.GetComponent<DetailViewPanel>();
-        detailPanelScript.SetData(item.itemName, item.itemDescription, item.health, item.Damage, item.itemIcon); */
-         
- 
+
+        // Get and update the detail panel
+        DetailViewPanel detailViewPanelScript = detailPanel.GetComponent<DetailViewPanel>();
+        if (detailViewPanelScript != null)
+        {
+            detailViewPanelScript.SetData(item);
+        }
+        else
+        {
+            Debug.LogError("DetailViewPanel component not found on prefab!");
+            return;
+        }
+
+        // Setup close button
         Button closeButton = detailPanel.GetComponentInChildren<Button>();
-        closeButton.onClick.AddListener(CloseDetailView);
+        if (closeButton != null)
+        {
+            closeButton.onClick.RemoveAllListeners(); // Clear previous listeners
+            closeButton.onClick.AddListener(CloseDetailView);
+        }
     }
 
     public void CloseDetailView()
@@ -95,27 +108,9 @@ public class InventoryManager : MonoBehaviour
         if (detailPanel != null)
         {
             Debug.Log("Close Button Clicked");
-
-            
-            if (detailPanel.activeSelf)
-            {
-                detailPanel.SetActive(false);
-            }
-
-            
-            Destroy(detailPanel, 0.1f);
+            Destroy(detailPanel);
             detailPanel = null;
         }
-
-
-
-
     }
-
-
-
-
-
-
 
 }

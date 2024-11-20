@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 1
   rotationSpeed: 15
+  keyCardInventoryItem: {fileID: 11400000, guid: bd18a26bdada373b2879d652f207a08a, type: 2}
 --- !u!33 &7009891975999243970
 MeshFilter:
   m_ObjectHideFlags: 0

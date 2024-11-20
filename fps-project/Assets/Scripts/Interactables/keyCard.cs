@@ -25,6 +25,8 @@ public class keyCard : MonoBehaviour, IInteractable
     // The speed at which the key card should rotate
     [SerializeField] float rotationSpeed;
 
+    // Reference to the inventory item
+    [SerializeField] KeyCardItem keyCardInventoryItem;
 
     //
     // FUNCTIONS
@@ -61,10 +63,26 @@ public class keyCard : MonoBehaviour, IInteractable
      */
     public void Interact(Interact interactor)
     {
-        // Add the key card to the player's inventory of cards
+        // Add the key card to the player's key cards list
         interactor.AddKeyCard(cardColor);
 
-        // Destroy the object as this key card is no longer needed
+        // Add the key card to the inventory
+        if (keyCardInventoryItem != null)
+        {
+            // Create a new instance of the key card item
+            KeyCardItem newKeyCard = ScriptableObject.Instantiate(keyCardInventoryItem);
+            newKeyCard.cardColor = cardColor;
+            
+            // Add to inventory
+            InventoryManager.Instance.Add(newKeyCard);
+            InventoryManager.Instance.ListItems(); // Refresh the inventory display
+        }
+        else
+        {
+            Debug.LogError("KeyCardItem not assigned in inspector for " + gameObject.name);
+        }
+
+        // Destroy the physical key card
         Destroy(gameObject);
     }
 }

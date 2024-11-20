@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 24.51, y: 0.65, z: 118.49}
-  m_LocalScale: {x: 1, y: 0.6, z: 0.01}
+  m_LocalScale: {x: 1, y: 0.6, z: 0.009999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 2
   rotationSpeed: 15
+  keyCardInventoryItem: {fileID: 11400000, guid: 255d76205c8064f2d89bca44d967e5ec, type: 2}
 --- !u!33 &6548741510941921511
 MeshFilter:
   m_ObjectHideFlags: 0
