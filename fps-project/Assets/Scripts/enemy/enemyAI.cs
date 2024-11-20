@@ -64,6 +64,8 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
 
     Coroutine someCo;
 
+    Coroutine damageFlashCo;
+
 
     // Start is called before the first frame update
     void Start()
@@ -258,7 +260,10 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
         
         HP -= amount;
 
-        StartCoroutine(flashHit());
+        if (!isExecutable)
+        {
+            damageFlashCo = StartCoroutine(flashHit());
+        }
 
         //play hurt SFX
         if (hurtSFX != null)
@@ -303,6 +308,8 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
             else
             {
                 //can glory kill
+                StopCoroutine(damageFlashCo);
+                model.material.color = colorOrig;
                 isExecutable = true;
             }                
         }
