@@ -373,4 +373,14 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
             Destroy(gameObject);
         }
     }
+
+    public void setDetectionRange(float newRange)
+    {
+        detectionRange = newRange;
+    }
+
+    public void setRoamingRange(int newRoamingRange)
+    {
+        roamDist = newRoamingRange;
+    }
 }

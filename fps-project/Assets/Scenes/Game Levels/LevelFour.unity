@@ -1104,6 +1104,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombot_Brute
       objectReference: {fileID: 0}
+    - target: {fileID: 6683879380736183143, guid: d49a952c0657b5944bb8fdb4cb25b56a, type: 3}
+      propertyPath: roamDist
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683879380736183143, guid: d49a952c0657b5944bb8fdb4cb25b56a, type: 3}
+      propertyPath: detectionRange
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4653,8 +4661,16 @@ PrefabInstance:
       value: Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 2977821077585162315, guid: cde853cc94492bc49adc4b2ec947e6f6, type: 3}
+      propertyPath: newRoamingRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2977821077585162315, guid: cde853cc94492bc49adc4b2ec947e6f6, type: 3}
       propertyPath: Enemy.Array.size
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2977821077585162315, guid: cde853cc94492bc49adc4b2ec947e6f6, type: 3}
+      propertyPath: newDetectionRange
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2977821077585162315, guid: cde853cc94492bc49adc4b2ec947e6f6, type: 3}
       propertyPath: Enemy.Array.data[7]
@@ -7082,7 +7098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1432330163782750930, guid: e301e69dff0ac6f44962b05093384d00, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 48.899902
+      value: 46.894352
       objectReference: {fileID: 0}
     - target: {fileID: 1432330163782750930, guid: e301e69dff0ac6f44962b05093384d00, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10996,6 +11012,10 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 1198076470}
+    - target: {fileID: 2575098997434158310, guid: d163936f5d29b7441bcbb3d350d1ad77, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2610219555160589194, guid: d163936f5d29b7441bcbb3d350d1ad77, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -12833,6 +12853,10 @@ PrefabInstance:
     - target: {fileID: 386729354709593800, guid: 899a499447d56d14388a9f02b05d7fbd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026912082917610730, guid: 899a499447d56d14388a9f02b05d7fbd, type: 3}
+      propertyPath: detectionRange
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7269609474669297725, guid: 899a499447d56d14388a9f02b05d7fbd, type: 3}
       propertyPath: m_Name
@@ -20903,8 +20927,16 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2977821077585162315, guid: cde853cc94492bc49adc4b2ec947e6f6, type: 3}
+      propertyPath: newRoamingRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2977821077585162315, guid: cde853cc94492bc49adc4b2ec947e6f6, type: 3}
       propertyPath: Enemy.Array.size
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2977821077585162315, guid: cde853cc94492bc49adc4b2ec947e6f6, type: 3}
+      propertyPath: newDetectionRange
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2977821077585162315, guid: cde853cc94492bc49adc4b2ec947e6f6, type: 3}
       propertyPath: Enemy.Array.data[0]
@@ -26220,8 +26252,16 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2977821077585162315, guid: cde853cc94492bc49adc4b2ec947e6f6, type: 3}
+      propertyPath: newRoamingRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2977821077585162315, guid: cde853cc94492bc49adc4b2ec947e6f6, type: 3}
       propertyPath: Enemy.Array.size
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2977821077585162315, guid: cde853cc94492bc49adc4b2ec947e6f6, type: 3}
+      propertyPath: newDetectionRange
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2977821077585162315, guid: cde853cc94492bc49adc4b2ec947e6f6, type: 3}
       propertyPath: Enemy.Array.data[0]
@@ -28599,6 +28639,14 @@ PrefabInstance:
     - target: {fileID: 4888348362042680782, guid: 0e62eaf4523f9b945a35af54cd01e003, type: 3}
       propertyPath: m_Name
       value: Zombot_Soldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376401832006703283, guid: 0e62eaf4523f9b945a35af54cd01e003, type: 3}
+      propertyPath: roamDist
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376401832006703283, guid: 0e62eaf4523f9b945a35af54cd01e003, type: 3}
+      propertyPath: detectionRange
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5812873509701531723, guid: 0e62eaf4523f9b945a35af54cd01e003, type: 3}
       propertyPath: m_LocalScale.x

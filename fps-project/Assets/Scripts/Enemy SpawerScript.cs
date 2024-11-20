@@ -11,6 +11,8 @@ public class EnemySpawerScript : MonoBehaviour
     [SerializeField] Transform[] spawnpoint;
     [SerializeField] float spawntimer;
     [SerializeField] int maxSpawn;
+    [SerializeField] float newDetectionRange;
+    [SerializeField] int newRoamingRange;
 
     int count;
     private void Start()
@@ -37,8 +39,15 @@ public class EnemySpawerScript : MonoBehaviour
         int randomObjectIndex = Random.Range(0, Enemy.Length);
         
         GameObject objectToSpawn = Enemy[randomObjectIndex];
-       
-        Instantiate(objectToSpawn, spawnPoint.position, spawnPoint.rotation);
+
+        GameObject spawnedEnemy;
+        spawnedEnemy = Instantiate(objectToSpawn, spawnPoint.position, spawnPoint.rotation);
+
+        if (spawnedEnemy.GetComponent<enemyAI>())
+        {
+            spawnedEnemy.GetComponent<enemyAI>().setDetectionRange(newDetectionRange);
+            spawnedEnemy.GetComponent<enemyAI>().setRoamingRange(newRoamingRange);
+        }
         
         count++;
     }
