@@ -12773,6 +12773,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1473164188980053377, guid: ba0576b2557a71148be1bc0c2639d87d, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473164188980053377, guid: ba0576b2557a71148be1bc0c2639d87d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6292922236722971453, guid: ba0576b2557a71148be1bc0c2639d87d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.49577704

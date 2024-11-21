@@ -15744,11 +15744,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1993862119}
+    m_TransformParent: {fileID: 1766294446}
     m_Modifications:
     - target: {fileID: 5724995136514506141, guid: 04607acdb3e736e4ca7127ef6185d321, type: 3}
       propertyPath: m_Name
       value: Blue Keycard Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724995136514506141, guid: 04607acdb3e736e4ca7127ef6185d321, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724995136514506141, guid: 04607acdb3e736e4ca7127ef6185d321, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8056139144544388509, guid: 04607acdb3e736e4ca7127ef6185d321, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24963,6 +24971,7 @@ Transform:
   - {fileID: 1873979849}
   - {fileID: 1178075826}
   - {fileID: 1145354015}
+  - {fileID: 2078770019}
   m_Father: {fileID: 1129525672}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1770265510
@@ -28336,7 +28345,6 @@ Transform:
   - {fileID: 266688368}
   - {fileID: 683775659}
   - {fileID: 1680458581}
-  - {fileID: 2078770019}
   - {fileID: 1962762271}
   - {fileID: 1027258074}
   - {fileID: 698944529}
