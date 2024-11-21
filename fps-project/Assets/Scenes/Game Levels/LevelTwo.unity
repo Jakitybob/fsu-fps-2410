@@ -13344,6 +13344,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1481190241997879155, guid: 48f68a3c33405a8449788e5bb9a70930, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5064446754879681796, guid: 48f68a3c33405a8449788e5bb9a70930, type: 3}
       propertyPath: m_Name
       value: Gun Pickup - Rifle

@@ -221,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 7269609474669297725}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -4.61, y: 1.01, z: -1.07}
+  m_LocalPosition: {x: -4.6, y: 1.01, z: -1.07}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -261,10 +261,8 @@ MonoBehaviour:
   - {fileID: 8596002656679671966, guid: c56a9e554bca3414db4b480448fec1ac, type: 3}
   gloryKillDiceSize: 5
   audioSource: {fileID: 5622518488641688386}
-  walkingAudioSource: {fileID: 0}
   hurtSFX: {fileID: 8300000, guid: 760961d979dc69c48807908aff088eb7, type: 3}
   shootSFX: {fileID: 8300000, guid: c40ad70712c10ed44949a78b512be731, type: 3}
-  walkSFX: {fileID: 0}
 --- !u!195 &4648029759504769158
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -359,7 +357,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.7118196, y: 1.9980745, z: 0.2}
-  m_Center: {x: 0.25180387, y: 0.9564967, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!135 &4453366302417116842
 SphereCollider:
   m_ObjectHideFlags: 0

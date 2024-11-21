@@ -32,6 +32,7 @@ public class weaponPickup : MonoBehaviour
     void Start()
     {
         // Set the weapon's current ammo to its max
+        weapon.totalAmmo = 0;
         weapon.ammoCurrent = weapon.ammoMax;
         weapon.SetCanAttack(true);
 
