@@ -199,7 +199,6 @@ public class gameManager : MonoBehaviour
         StartCoroutine(levelFade(levelName));
     }
 
-
     IEnumerator levelFade(string levelName)
     {
         //start fade
@@ -208,11 +207,9 @@ public class gameManager : MonoBehaviour
         //wait
         yield return new WaitForSeconds(levelTransitionTime);
 
-
         //load level
         SceneManager.LoadScene(levelName);
     }
-
 
     public void selectStartingButton()
     {

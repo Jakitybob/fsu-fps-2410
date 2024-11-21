@@ -8,39 +8,69 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-
     public static InventoryManager Instance;
 
     public Transform ItemContent;
-
     public GameObject InventoryItem;
-
     public GameObject detailViewPrefab;
 
     public List<InventoryItem> Items = new List<InventoryItem>();
 
-
     private GameObject detailPanel;
-
-
 
     private void Awake()
     {
         Instance = this;
-        PersistantInventory.Instance.ListItems();
+    }
+
+    private void Start()
+    {
+        // Load items from PersistantInventory if it exists
+        if (PersistantInventory.Instance != null)
+        {
+            Items = PersistantInventory.Instance.Items;
+            ListItems();
+        }
     }
 
     public void Add(InventoryItem item)
     {
-        Items.Add(item);
+        if (item == null) return;
 
+        // Let PersistantInventory handle the actual item addition
+        if (PersistantInventory.Instance != null)
+        {
+            PersistantInventory.Instance.AddItem(item);
+        }
+        else
+        {
+            // Only add to local inventory if PersistantInventory doesn't exist
+            if (!Items.Contains(item))
+            {
+                Items.Add(item);
+                ListItems();
+            }
+        }
     }
 
     public void Remove(InventoryItem item)
     {
-        Items.Remove(item);
-    }
+        if (item == null) return;
 
+        // Let PersistantInventory handle the actual item removal
+        if (PersistantInventory.Instance != null)
+        {
+            PersistantInventory.Instance.RemoveItem(item);
+        }
+        else
+        {
+            // Only remove from local inventory if PersistantInventory doesn't exist
+            if (Items.Remove(item))
+            {
+                ListItems();
+            }
+        }
+    }
 
     public void ListItems()
     {
@@ -60,21 +90,16 @@ public class InventoryManager : MonoBehaviour
             itemIcon.sprite = item.itemIcon;
             //onclick listener
             itemButton.onClick.AddListener(() => InventoryManager.Instance.OnInventoryItemClick(item));
-
         }
-
     }
 
     public void OnInventoryItemClick(InventoryItem item)
     {
         if (item == null)
         {
-            Debug.LogError("Clicked item is null!");
             return;
         }
 
-        Debug.Log("Inventory item clicked: " + item.itemName);
-        
         // If detail panel exists, update it. Otherwise, create a new one
         if (detailPanel == null)
         {
@@ -90,7 +115,6 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("DetailViewPanel component not found on prefab!");
             return;
         }
 
@@ -107,10 +131,8 @@ public class InventoryManager : MonoBehaviour
     {
         if (detailPanel != null)
         {
-            Debug.Log("Close Button Clicked");
             Destroy(detailPanel);
             detailPanel = null;
         }
     }
-
 }
