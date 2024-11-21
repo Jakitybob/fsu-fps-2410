@@ -23,7 +23,15 @@ public class RedLightscontroller : MonoBehaviour
         StartCoroutine(BlinkLights());
     }
 
-    
+    public void TurnLightsOff()
+    {
+        lightsOn = false;
+        foreach (Light light in redLights)
+        {
+            light.intensity = 0f;
+        }
+    }
+
     private IEnumerator BlinkLights()
     {
         while (lightsOn)
