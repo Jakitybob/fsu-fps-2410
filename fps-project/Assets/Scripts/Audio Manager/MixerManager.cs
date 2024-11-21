@@ -8,18 +8,16 @@ public class MixerManager : MonoBehaviour
 
     public void setMasterVol(float level)
     {
-        mixer.SetFloat("Master", Mathf.Log10(level) * 20);
-
+        mixer.SetFloat("MasterVolume", Mathf.Log10(level) * 20);
     }
+
     public void setSFXVol(float level)
     {
         mixer.SetFloat("SFX", Mathf.Log10(level) * 20);
-
-
     }
+
     public void setMusicVol(float level)
     {
         mixer.SetFloat("Music", Mathf.Log10(level) * 20);
-
     }
 }
