@@ -53,30 +53,28 @@ public class PersistantInventory : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         LoadInventoryData();
-        SyncWithInventoryManager();
     }
 
-    private void SyncWithInventoryManager()
+    public void ListItems()
     {
         InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
         if (inventoryManager != null)
         {
-            inventoryManager.Items = new List<InventoryItem>(Items);
+            inventoryManager.Items = Items;
             inventoryManager.ListItems();
         }
     }
 
     public void AddItem(InventoryItem item)
     {
-        if (item == null) return;
-        
+        if (item == null || Items.Contains(item)) return;
+
         bool isKeyCard = item.GetType().IsSubclassOf(typeof(KeyCardItem)) || item.GetType() == typeof(KeyCardItem);
         
-        if (!isKeyCard && !Items.Contains(item))
+        if (!isKeyCard)
         {
             Items.Add(item);
             SaveInventoryData();
-            SyncWithInventoryManager();
         }
     }
 
@@ -85,7 +83,6 @@ public class PersistantInventory : MonoBehaviour
         if (Items.Remove(item))
         {
             SaveInventoryData();
-            SyncWithInventoryManager();
         }
     }
 
@@ -119,7 +116,6 @@ public class PersistantInventory : MonoBehaviour
         Items.Clear();
         PlayerPrefs.DeleteKey("InventoryData");
         PlayerPrefs.Save();
-        SyncWithInventoryManager();
     }
 }
 

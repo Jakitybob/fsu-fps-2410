@@ -35,41 +35,24 @@ public class InventoryManager : MonoBehaviour
 
     public void Add(InventoryItem item)
     {
-        if (item == null) return;
+        if (item == null || Items.Contains(item)) return;
 
-        // Let PersistantInventory handle the actual item addition
+        Items.Add(item);
         if (PersistantInventory.Instance != null)
         {
             PersistantInventory.Instance.AddItem(item);
         }
-        else
-        {
-            // Only add to local inventory if PersistantInventory doesn't exist
-            if (!Items.Contains(item))
-            {
-                Items.Add(item);
-                ListItems();
-            }
-        }
+        ListItems();
     }
 
     public void Remove(InventoryItem item)
     {
-        if (item == null) return;
-
-        // Let PersistantInventory handle the actual item removal
+        Items.Remove(item);
         if (PersistantInventory.Instance != null)
         {
             PersistantInventory.Instance.RemoveItem(item);
         }
-        else
-        {
-            // Only remove from local inventory if PersistantInventory doesn't exist
-            if (Items.Remove(item))
-            {
-                ListItems();
-            }
-        }
+        ListItems();
     }
 
     public void ListItems()
