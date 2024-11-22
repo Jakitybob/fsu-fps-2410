@@ -61,7 +61,6 @@ public class PersistanceSettings : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"[PersistanceSettings] Scene loaded: {scene.name}, Mode: {mode}");
         StartCoroutine(InitializeAfterSceneLoad());
     }
 
@@ -78,7 +77,6 @@ public class PersistanceSettings : MonoBehaviour
         ApplySettings(currentSettings);
 
         isInitialized = true;
-        Debug.Log("[PersistanceSettings] Settings initialized after scene load");
     }
 
     private void Start()
@@ -88,8 +86,6 @@ public class PersistanceSettings : MonoBehaviour
 
     private void FindReferences()
     {
-        Debug.Log("[PersistanceSettings] Finding references...");
-        
         // Find references if not set
         if (mouseSensSlider == null)
             mouseSensSlider = GameObject.Find("MouseSensitivitySlider")?.GetComponent<Slider>();
@@ -130,8 +126,6 @@ public class PersistanceSettings : MonoBehaviour
 
     private void ApplySettings(SettingsData settings)
     {
-        Debug.Log($"[PersistanceSettings] Applying settings - Mouse: {settings.mouseSensitivity}, SFX: {settings.sfxVolume}, Music: {settings.musicVolume}");
-
         // Apply audio settings first
         if (mixerManager != null)
         {
@@ -207,6 +201,5 @@ public class PersistanceSettings : MonoBehaviour
         string jsonData = JsonUtility.ToJson(currentSettings);
         PlayerPrefs.SetString("GameSettings", jsonData);
         PlayerPrefs.Save();
-        Debug.Log($"[PersistanceSettings] Settings saved - Mouse: {currentSettings.mouseSensitivity}, SFX: {currentSettings.sfxVolume}, Music: {currentSettings.musicVolume}");
     }
 }

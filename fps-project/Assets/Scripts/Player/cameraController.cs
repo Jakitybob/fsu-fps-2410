@@ -48,13 +48,8 @@ public class cameraController : MonoBehaviour
             sensSlider = GameObject.Find("MouseSensitivitySlider")?.GetComponent<Slider>();
             if (sensSlider != null)
             {
-                Debug.Log($"[CameraController] Found sensitivity slider with value: {sensSlider.value}");
                 currentSensitivityValue = sensSlider.value;
                 sensChange();
-            }
-            else
-            {
-                Debug.LogWarning("[CameraController] Could not find MouseSensitivitySlider!");
             }
         }
 
@@ -65,12 +60,10 @@ public class cameraController : MonoBehaviour
             var persistanceSettings = FindObjectOfType<PersistanceSettings>();
             if (persistanceSettings != null)
             {
-                Debug.Log("[CameraController] Found PersistanceSettings, waiting for initialization...");
                 StartCoroutine(WaitForSettings());
             }
             else
             {
-                Debug.LogWarning("[CameraController] PersistanceSettings not found, using default sensitivity.");
                 SetSensitivity(1f);
             }
         }
@@ -81,7 +74,6 @@ public class cameraController : MonoBehaviour
         yield return new WaitForSeconds(0.1f); // Give PersistanceSettings time to initialize
         if (!isInitialized && sensSlider != null)
         {
-            Debug.Log($"[CameraController] Initializing with slider value: {sensSlider.value}");
             SetSensitivity(sensSlider.value);
         }
     }
@@ -126,7 +118,6 @@ public class cameraController : MonoBehaviour
 
         float newSens = sensSlider.value * maxSens;
         sens = Mathf.Max(newSens, minSens);
-        Debug.Log($"[CameraController] Sensitivity changed to: {sens} (slider: {sensSlider.value})");
     }
 
     // Method to set sensitivity directly (used by PersistanceSettings)
@@ -140,6 +131,5 @@ public class cameraController : MonoBehaviour
         float newSens = value * maxSens;
         sens = Mathf.Max(newSens, minSens);
         isInitialized = true;
-        Debug.Log($"[CameraController] SetSensitivity called with value: {value}, final sens: {sens}");
     }
 }

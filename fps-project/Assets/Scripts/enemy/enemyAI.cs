@@ -93,7 +93,6 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
-            Debug.Log($"Added AudioSource to {gameObject.name}");
         }
 
         // Try to get the SFX group from the mixer manager
@@ -105,12 +104,7 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
                 if (sfxGroup != null)
                 {
                     audioSource.outputAudioMixerGroup = sfxGroup;
-                    Debug.Log($"Set SFX mixer group for {gameObject.name}'s audio source");
                 }
-            }
-            else
-            {
-                Debug.LogWarning($"MixerManager not found when setting up audio for {gameObject.name}");
             }
         }
 
@@ -215,13 +209,9 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
     bool canSeePlayer()
     {
         //angleToPlayer = Vector3.Angle(playerDir,transform.forward); // Commented out at the moment as this doesn't apply since the enemies always face the player
-        Debug.DrawRay(headPos.position, playerDir);
-
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
-            //Debug.Log(hit.collider.name);
-
             if (hit.collider.CompareTag("Player"))
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
@@ -238,7 +228,6 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
 
                 //if player seen, turn on original stopping dist
                 agent.stoppingDistance = stoppingDistOrig;
-
 
                 return true;
             }

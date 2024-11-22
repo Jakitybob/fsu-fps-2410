@@ -39,7 +39,6 @@ public class MixerManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"[MixerManager] Scene loaded: {scene.name}, Mode: {mode}");
         StartCoroutine(InitializeAfterSceneLoad());
     }
 
@@ -52,14 +51,12 @@ public class MixerManager : MonoBehaviour
         // Reapply current volume settings
         ApplyCurrentVolumes();
         isInitialized = true;
-        Debug.Log("[MixerManager] Audio settings reapplied after scene load");
     }
 
     private void InitializeMixer()
     {
         if (mixer == null)
         {
-            Debug.LogError("[MixerManager] Audio Mixer not assigned!");
             return;
         }
 
@@ -78,8 +75,6 @@ public class MixerManager : MonoBehaviour
 
         mixer.SetFloat("SFX", sfxDB);
         mixer.SetFloat("Music", musicDB);
-
-        Debug.Log($"[MixerManager] Applied volumes - SFX: {currentSFXVol} ({sfxDB}dB), Music: {currentMusicVol} ({musicDB}dB)");
     }
 
     public void setSFXVol(float volume)
@@ -89,7 +84,6 @@ public class MixerManager : MonoBehaviour
         {
             float dB = Mathf.Log10(Mathf.Max(0.0001f, volume)) * 20f;
             mixer.SetFloat("SFX", dB);
-            Debug.Log($"[MixerManager] Set SFX volume to {volume} ({dB}dB)");
         }
     }
 
@@ -100,7 +94,6 @@ public class MixerManager : MonoBehaviour
         {
             float dB = Mathf.Log10(Mathf.Max(0.0001f, volume)) * 20f;
             mixer.SetFloat("Music", dB);
-            Debug.Log($"[MixerManager] Set Music volume to {volume} ({dB}dB)");
         }
     }
 
