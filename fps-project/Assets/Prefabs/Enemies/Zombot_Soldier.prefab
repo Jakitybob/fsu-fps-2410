@@ -93,7 +93,7 @@ MonoBehaviour:
   gloryKillDrops:
   - {fileID: 677127544455421823, guid: 1587e584c158fec42ad8bcdabf8fef08, type: 3}
   - {fileID: 8596002656679671966, guid: c56a9e554bca3414db4b480448fec1ac, type: 3}
-  gloryKillDiceSize: 0
+  gloryKillDiceSize: 5
   audioSource: {fileID: 5902239328630365407}
   shootSFX: {fileID: 8300000, guid: c40ad70712c10ed44949a78b512be731, type: 3}
   hurtSFX: {fileID: 8300000, guid: 760961d979dc69c48807908aff088eb7, type: 3}
