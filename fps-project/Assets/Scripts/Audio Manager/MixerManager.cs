@@ -76,8 +76,8 @@ public class MixerManager : MonoBehaviour
         float sfxDB = Mathf.Log10(Mathf.Max(0.0001f, currentSFXVol)) * 20f;
         float musicDB = Mathf.Log10(Mathf.Max(0.0001f, currentMusicVol)) * 20f;
 
-        mixer.SetFloat("SFXVolume", sfxDB);
-        mixer.SetFloat("MusicVolume", musicDB);
+        mixer.SetFloat("SFX", sfxDB);
+        mixer.SetFloat("Music", musicDB);
 
         Debug.Log($"[MixerManager] Applied volumes - SFX: {currentSFXVol} ({sfxDB}dB), Music: {currentMusicVol} ({musicDB}dB)");
     }
@@ -88,7 +88,7 @@ public class MixerManager : MonoBehaviour
         if (mixer != null)
         {
             float dB = Mathf.Log10(Mathf.Max(0.0001f, volume)) * 20f;
-            mixer.SetFloat("SFXVolume", dB);
+            mixer.SetFloat("SFX", dB);
             Debug.Log($"[MixerManager] Set SFX volume to {volume} ({dB}dB)");
         }
     }
@@ -99,7 +99,7 @@ public class MixerManager : MonoBehaviour
         if (mixer != null)
         {
             float dB = Mathf.Log10(Mathf.Max(0.0001f, volume)) * 20f;
-            mixer.SetFloat("MusicVolume", dB);
+            mixer.SetFloat("Music", dB);
             Debug.Log($"[MixerManager] Set Music volume to {volume} ({dB}dB)");
         }
     }

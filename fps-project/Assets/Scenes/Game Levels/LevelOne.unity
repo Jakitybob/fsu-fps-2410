@@ -5874,6 +5874,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 929356225784455867, guid: e0cec83a7cf940d419138f1a3133384f, type: 3}
   m_PrefabInstance: {fileID: 3703520431545045584}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &348953353 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8647105500611711345, guid: d163936f5d29b7441bcbb3d350d1ad77, type: 3}
+  m_PrefabInstance: {fileID: 8243962919326446613}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &350632722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17867,7 +17878,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77ec8bc991d3c94c93c89093b53d357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonSFX: 0
+  audioSource: {fileID: 0}
+  defaultVolume: 1
 --- !u!82 &1282536005
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27234,9 +27246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f995ea89a360878438f03e47292504a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensSlider: {fileID: 1585747767038223137}
-  volumeSlider: {fileID: 2032023842}
-  audioMixer: {fileID: 24100000, guid: c152dd3ebbcb45347a9889571ab2598b, type: 2}
+  mouseSensSlider: {fileID: 1585747767038223137}
+  sfxVolumeSlider: {fileID: 2032023842}
+  musicVolumeSlider: {fileID: 348953353}
 --- !u!4 &1909385304
 Transform:
   m_ObjectHideFlags: 0
@@ -30053,6 +30065,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8570692665144123353, guid: 78907a38f4c6dd1408c1fb5ef57b7003, type: 3}
   m_PrefabInstance: {fileID: 131017422}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2117299471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2117299473}
+  - component: {fileID: 2117299472}
+  m_Layer: 0
+  m_Name: MixerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2117299472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117299471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda691b2ab91edf42b84d8b90f9f1036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: c152dd3ebbcb45347a9889571ab2598b, type: 2}
+--- !u!4 &2117299473
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117299471}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -164.57613, y: -73.06548, z: -37.139786}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2119504234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4461516947641986, guid: feff3f6fda7319640bfa52922140c7ac, type: 3}
@@ -32100,7 +32157,8 @@ SceneRoots:
   - {fileID: 1349739124}
   - {fileID: 418992179}
   - {fileID: 1282536006}
-  - {fileID: 8189172968533145021}
   - {fileID: 1477452788}
   - {fileID: 1609181719}
   - {fileID: 1909385304}
+  - {fileID: 2117299473}
+  - {fileID: 8189172968533145021}
