@@ -287,8 +287,6 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
 
         if (shootSFX != null && audioSource != null)
         {
-            // Ensure audio source is at the shoot position
-            audioSource.transform.position = shootPos.position;
             audioSource.clip = shootSFX;
             audioSource.Play();
         }
@@ -311,8 +309,6 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
 
         if (hurtSFX != null && audioSource != null)
         {
-            // Ensure audio source is at the enemy's position for hurt sound
-            audioSource.transform.position = transform.position;
             audioSource.clip = hurtSFX;
             audioSource.Play();
         }
