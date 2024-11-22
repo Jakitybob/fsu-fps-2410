@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Explosiontrigger : MonoBehaviour
 {
-    public AudioClip explosionSound;
+    [SerializeField] AudioClip explosionSound;
+    [SerializeField] float explosionVolume = 1f;
     public ScreenShake screenShake;
 
     
@@ -13,8 +14,11 @@ public class Explosiontrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Play explosion sound
-            AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+            // Play explosion sound through SFXControl
+            if (explosionSound != null && SFXControl.Instance != null)
+            {
+                SFXControl.Instance.playSound(explosionSound, transform, explosionVolume);
+            }
 
             // Trigger screen shake
             screenShake.Shake();

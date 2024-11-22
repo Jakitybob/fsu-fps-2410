@@ -19,8 +19,8 @@ public class cameraController : MonoBehaviour
     [SerializeField] float sens;
     [SerializeField] int lockVertMin, lockVertMax;
     [SerializeField] bool invertY;
-    [SerializeField] float maxSens;
-    [SerializeField] float minSens;
+    [SerializeField] float maxSens = 5f;  // Default max sensitivity
+    [SerializeField] float minSens = 0.1f;  // Default min sensitivity
 
     //
     // MEMBER VARIABLES
@@ -28,6 +28,8 @@ public class cameraController : MonoBehaviour
 
     float rotationX;
     public Slider sensSlider;
+    private float currentSensitivityValue = 1f;
+    private bool isInitialized = false;
 
     //
     // FUNCTIONS
@@ -39,12 +41,60 @@ public class cameraController : MonoBehaviour
         // Lock the cursor to the center of the screen and hide it
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        // Try to find the sensitivity slider if not already set
+        if (sensSlider == null)
+        {
+            sensSlider = GameObject.Find("MouseSensitivitySlider")?.GetComponent<Slider>();
+            if (sensSlider != null)
+            {
+                Debug.Log($"[CameraController] Found sensitivity slider with value: {sensSlider.value}");
+                currentSensitivityValue = sensSlider.value;
+                sensChange();
+            }
+            else
+            {
+                Debug.LogWarning("[CameraController] Could not find MouseSensitivitySlider!");
+            }
+        }
+
+        // Initialize sensitivity
+        if (!isInitialized)
+        {
+            // Try to get settings from PersistanceSettings
+            var persistanceSettings = FindObjectOfType<PersistanceSettings>();
+            if (persistanceSettings != null)
+            {
+                Debug.Log("[CameraController] Found PersistanceSettings, waiting for initialization...");
+                StartCoroutine(WaitForSettings());
+            }
+            else
+            {
+                Debug.LogWarning("[CameraController] PersistanceSettings not found, using default sensitivity.");
+                SetSensitivity(1f);
+            }
+        }
+    }
+
+    private IEnumerator WaitForSettings()
+    {
+        yield return new WaitForSeconds(0.1f); // Give PersistanceSettings time to initialize
+        if (!isInitialized && sensSlider != null)
+        {
+            Debug.Log($"[CameraController] Initializing with slider value: {sensSlider.value}");
+            SetSensitivity(sensSlider.value);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        sensChange();
+        // Update sensitivity if slider exists and value changed
+        if (sensSlider != null && currentSensitivityValue != sensSlider.value)
+        {
+            currentSensitivityValue = sensSlider.value;
+            sensChange();
+        }
         
         // Get the input from the x and y axes of the mouse
         float mouseX = Input.GetAxis("Mouse X") * sens * Time.deltaTime;
@@ -69,16 +119,27 @@ public class cameraController : MonoBehaviour
         // Turn the player about the y-axis (left and right)
         transform.parent.Rotate(Vector3.up * mouseX);
     }
+
     public void sensChange()
     {
-        if (sensSlider.value * maxSens < minSens)
-        {
-            sens = minSens;
-        }
+        if (sensSlider == null) return;
 
-        else
+        float newSens = sensSlider.value * maxSens;
+        sens = Mathf.Max(newSens, minSens);
+        Debug.Log($"[CameraController] Sensitivity changed to: {sens} (slider: {sensSlider.value})");
+    }
+
+    // Method to set sensitivity directly (used by PersistanceSettings)
+    public void SetSensitivity(float value)
+    {
+        currentSensitivityValue = value;
+        if (sensSlider != null)
         {
-            sens = sensSlider.value * maxSens;
+            sensSlider.value = value;
         }
+        float newSens = value * maxSens;
+        sens = Mathf.Max(newSens, minSens);
+        isInitialized = true;
+        Debug.Log($"[CameraController] SetSensitivity called with value: {value}, final sens: {sens}");
     }
 }

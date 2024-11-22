@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class SFX : MonoBehaviour
 {
-    private AudioSource audioSource;
-    private gameManager gm;
-    [SerializeField] bool buttonSFX;
-    
-    
-    // Start is called before the first frame update
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private float defaultVolume = 1f;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        if (audioSource != null && SFXControl.Instance != null)
+        {
+            SFXControl.Instance.SetupExistingAudioSource(audioSource);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {  
-        if (buttonSFX == true)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Tab))
+            if (audioSource != null && audioSource.clip != null)
             {
                 audioSource.Play();
             }

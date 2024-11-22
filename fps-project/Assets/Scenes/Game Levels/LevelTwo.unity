@@ -3473,6 +3473,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7026912082917610730, guid: 899a499447d56d14388a9f02b05d7fbd, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     - target: {fileID: 7269609474669297725, guid: 899a499447d56d14388a9f02b05d7fbd, type: 3}
       propertyPath: m_Name
       value: Zombot_Sniper (3)
@@ -3609,6 +3613,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5084091486640059133, guid: b563179b91f02dc48a87a3a6fc7d1558, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     - target: {fileID: 8227354446737401527, guid: b563179b91f02dc48a87a3a6fc7d1558, type: 3}
       propertyPath: m_Name
       value: Zombot_Rocket_Soldier (4)
@@ -6748,6 +6756,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombot_Brute (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6683879380736183143, guid: d49a952c0657b5944bb8fdb4cb25b56a, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6884,6 +6896,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombot_Brute
       objectReference: {fileID: 0}
+    - target: {fileID: 6683879380736183143, guid: d49a952c0657b5944bb8fdb4cb25b56a, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7791,6 +7807,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7026912082917610730, guid: 899a499447d56d14388a9f02b05d7fbd, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     - target: {fileID: 7269609474669297725, guid: 899a499447d56d14388a9f02b05d7fbd, type: 3}
       propertyPath: m_Name
       value: Zombot_Sniper (2)
@@ -8130,6 +8150,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5084091486640059133, guid: b563179b91f02dc48a87a3a6fc7d1558, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     - target: {fileID: 8227354446737401527, guid: b563179b91f02dc48a87a3a6fc7d1558, type: 3}
       propertyPath: m_Name
       value: Zombot_Rocket_Soldier (5)
@@ -9647,6 +9671,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7026912082917610730, guid: 899a499447d56d14388a9f02b05d7fbd, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     - target: {fileID: 7269609474669297725, guid: 899a499447d56d14388a9f02b05d7fbd, type: 3}
       propertyPath: m_Name
       value: Zombot_Sniper
@@ -9713,6 +9741,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombot_Brute (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6683879380736183143, guid: d49a952c0657b5944bb8fdb4cb25b56a, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10593,6 +10625,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombot_Brute (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6683879380736183143, guid: d49a952c0657b5944bb8fdb4cb25b56a, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11825,6 +11861,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombot_Brute (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6683879380736183143, guid: d49a952c0657b5944bb8fdb4cb25b56a, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12607,6 +12647,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombot_Brute (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6683879380736183143, guid: d49a952c0657b5944bb8fdb4cb25b56a, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14256,6 +14300,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5084091486640059133, guid: b563179b91f02dc48a87a3a6fc7d1558, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     - target: {fileID: 8227354446737401527, guid: b563179b91f02dc48a87a3a6fc7d1558, type: 3}
       propertyPath: m_Name
       value: Zombot_Rocket_Soldier (1)
@@ -14621,6 +14669,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5084091486640059133, guid: b563179b91f02dc48a87a3a6fc7d1558, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     - target: {fileID: 8227354446737401527, guid: b563179b91f02dc48a87a3a6fc7d1558, type: 3}
       propertyPath: m_Name
       value: Zombot_Rocket_Soldier
@@ -15090,6 +15142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombot_Brute (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6683879380736183143, guid: d49a952c0657b5944bb8fdb4cb25b56a, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15506,6 +15562,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5084091486640059133, guid: b563179b91f02dc48a87a3a6fc7d1558, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     - target: {fileID: 7139679025485130235, guid: b563179b91f02dc48a87a3a6fc7d1558, type: 3}
       propertyPath: m_FlipX
       value: 1
@@ -15796,6 +15856,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombot_Brute
       objectReference: {fileID: 0}
+    - target: {fileID: 6683879380736183143, guid: d49a952c0657b5944bb8fdb4cb25b56a, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17336,6 +17400,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7026912082917610730, guid: 899a499447d56d14388a9f02b05d7fbd, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     - target: {fileID: 7269609474669297725, guid: 899a499447d56d14388a9f02b05d7fbd, type: 3}
       propertyPath: m_Name
       value: Zombot_Sniper (1)
@@ -17538,6 +17606,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7026912082917610730, guid: 899a499447d56d14388a9f02b05d7fbd, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     - target: {fileID: 7269609474669297725, guid: 899a499447d56d14388a9f02b05d7fbd, type: 3}
       propertyPath: m_Name
       value: Zombot_Sniper (1)
@@ -17600,6 +17672,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7026912082917610730, guid: 899a499447d56d14388a9f02b05d7fbd, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 6011003304881280845}
     - target: {fileID: 7269609474669297725, guid: 899a499447d56d14388a9f02b05d7fbd, type: 3}
       propertyPath: m_Name
       value: Zombot_Sniper
@@ -17749,6 +17825,11 @@ PrefabInstance:
 --- !u!1 &6011003304881280844 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6288691405954719818, guid: 3d4c992c85159a6c0a4a87b99c48d9a4, type: 3}
+  m_PrefabInstance: {fileID: 6011003304881280843}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &6011003304881280845 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7912755069783823564, guid: 3d4c992c85159a6c0a4a87b99c48d9a4, type: 3}
   m_PrefabInstance: {fileID: 6011003304881280843}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8066336771779747592

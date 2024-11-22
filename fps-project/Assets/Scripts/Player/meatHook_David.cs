@@ -66,6 +66,12 @@ public class meatHook : MonoBehaviour
 
         origSpeed = gameManager.instance.player.GetComponent<playerController>().getSpeed();
         origGravity = gameManager.instance.player.GetComponent<playerController>().getGravity();
+
+        // Setup audio
+        if (audioSource != null && SFXControl.Instance != null)
+        {
+            SFXControl.Instance.SetupExistingAudioSource(audioSource);
+        }
     }
 
     // Update is called once per frame

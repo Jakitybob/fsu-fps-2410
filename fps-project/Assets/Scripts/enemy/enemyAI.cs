@@ -11,16 +11,26 @@ using Unity.VisualScripting;
 //using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 public class enemyAI : MonoBehaviour, IDamage, IInteractable
 {
-    [SerializeField] NavMeshAgent agent;
+    [Header("----- Components -----")]
     [SerializeField] Renderer model;
+    [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
-
-    [SerializeField] Transform shootPos;
     [SerializeField] Transform headPos;
+    [SerializeField] Transform shootPos;
     [SerializeField] GameObject weapon;
+    [SerializeField] List<GameObject> gloryKillDrops;
+    [SerializeField] int gloryKillDiceSize;
+
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip shootSFX;
+    [SerializeField] AudioClip hurtSFX;
+    [SerializeField] AudioMixerGroup sfxGroup; // Reference to store the SFX group
+
     [SerializeField] float attackRate;
     [SerializeField] float detectionRange;
     [SerializeField] float walkSpeed;
@@ -31,16 +41,6 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
     [SerializeField] int roamPauseTime;
 
     [SerializeField] int HP;
-
-    [SerializeField] List<GameObject> gloryKillDrops;
-    [SerializeField] int gloryKillDiceSize;
-
-    [SerializeField] AudioSource audioSource;
-    //[SerializeField] AudioSource walkingAudioSource;
-    [SerializeField] AudioClip hurtSFX;
-    [SerializeField] AudioClip shootSFX;
-    //[SerializeField] AudioClip walkSFX;
-
 
     int origHP;
 
@@ -56,7 +56,6 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
     bool isExecutable;
     bool isStunned;
 
-
     Vector3 playerDir;
     Vector3 startingPos;
 
@@ -66,6 +65,11 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
 
     Coroutine damageFlashCo;
 
+    void Awake()
+    {
+        // Setup audio source if not already setup
+        SetupAudioSource();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +82,48 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
         
         startingPos = transform.position;
         stoppingDistOrig = agent.stoppingDistance;
+
+        // Double-check audio setup
+        SetupAudioSource();
+    }
+
+    void SetupAudioSource()
+    {
+        // If we don't have an audio source, add one
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            Debug.Log($"Added AudioSource to {gameObject.name}");
+        }
+
+        // Try to get the SFX group from the mixer manager
+        if (audioSource.outputAudioMixerGroup == null)
+        {
+            if (MixerManager.Instance != null)
+            {
+                sfxGroup = MixerManager.Instance.GetSFXGroup();
+                if (sfxGroup != null)
+                {
+                    audioSource.outputAudioMixerGroup = sfxGroup;
+                    Debug.Log($"Set SFX mixer group for {gameObject.name}'s audio source");
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"MixerManager not found when setting up audio for {gameObject.name}");
+            }
+        }
+
+        // Configure audio source for better 3D sound
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 1f;  // Full 3D sound
+        audioSource.rolloffMode = AudioRolloffMode.Logarithmic;  // Better distance falloff
+        audioSource.minDistance = 1f;  // Start falloff at 1 unit
+        audioSource.maxDistance = detectionRange;  // Stop at detection range
+        audioSource.spread = 60f;  // Wider sound spread
+        audioSource.dopplerLevel = 0f;  // Disable doppler effect
+        audioSource.reverbZoneMix = 1f;  // Full reverb mix
+        audioSource.priority = 128;  // Default priority
     }
 
     // Update is called once per frame
@@ -239,17 +285,15 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
 
         Instantiate(weapon, shootPos.position, transform.rotation);
 
-
-        if (shootSFX != null)
+        if (shootSFX != null && audioSource != null)
         {
+            // Ensure audio source is at the shoot position
+            audioSource.transform.position = shootPos.position;
             audioSource.clip = shootSFX;
             audioSource.Play();
         }
 
-
-
         yield return new WaitForSeconds(attackRate);
-
 
         isShooting = false;
     }
@@ -265,9 +309,10 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
             damageFlashCo = StartCoroutine(flashHit());
         }
 
-        //play hurt SFX
-        if (hurtSFX != null)
+        if (hurtSFX != null && audioSource != null)
         {
+            // Ensure audio source is at the enemy's position for hurt sound
+            audioSource.transform.position = transform.position;
             audioSource.clip = hurtSFX;
             audioSource.Play();
         }
@@ -283,7 +328,10 @@ public class enemyAI : MonoBehaviour, IDamage, IInteractable
         if (HP <= 0)
         {
 
-            audioSource.Stop();
+            if (audioSource != null)
+            {
+                audioSource.Stop();
+            }
 
             //if (walkSFX != null)
             //{

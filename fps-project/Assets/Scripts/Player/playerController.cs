@@ -74,6 +74,12 @@ public class playerController : MonoBehaviour, IDamage
         defaultLayer = LayerMask.GetMask("Default");
 
         spawnPlayer();
+
+        // Setup audio
+        if (audioSource != null && SFXControl.Instance != null)
+        {
+            SFXControl.Instance.SetupExistingAudioSource(audioSource);
+        }
     }
 
     public void spawnPlayer()
