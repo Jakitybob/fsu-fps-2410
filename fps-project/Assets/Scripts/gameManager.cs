@@ -207,6 +207,7 @@ public class gameManager : MonoBehaviour
         //wait
         yield return new WaitForSeconds(levelTransitionTime);
 
+        //UnPaused();
         //load level
         SceneManager.LoadScene(levelName);
     }

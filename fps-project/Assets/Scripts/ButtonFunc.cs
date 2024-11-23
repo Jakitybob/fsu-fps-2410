@@ -42,26 +42,26 @@ public class ButtonFunc : MonoBehaviour
                 gameManager.instance.UnPaused();
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.Confined;
-                gameManager.instance.changeLevel("MainMenu");
+                SceneManager.LoadScene("MainMenu");
             }
             else
             {
                 UnityEditor.EditorApplication.isPlaying = false;
             }
 
-#else
+        #else
             if ("MainMenu" != SceneManager.GetActiveScene().name)
             {
                 gameManager.instance.UnPaused();
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.Confined;
-                gameManager.instance.changeLevel("MainMenu");
+                SceneManager.LoadScene("MainMenu");
             }
             else
             {
                 Application.Quit();
             }
-#endif
+        #endif
     }
 
     public void showcase()
