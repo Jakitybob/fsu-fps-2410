@@ -6,8 +6,6 @@ public class Rocket : MonoBehaviour
 {
    
     public GameObject Effects;
-  
-
 
     public float Explosion_Radius;
     public float force;
@@ -20,16 +18,30 @@ public class Rocket : MonoBehaviour
     
     private Rigidbody rb;
 
+    private AudioSource audioSource;
 
 
-
-     void Start()
+    void Start()
      {
         rb= GetComponent<Rigidbody>();
         rb.velocity= transform.forward * Rcktspeed;
+
+        audioSource = GetComponentInChildren<AudioSource>();
      }
 
-   void OnTriggerEnter(Collider other) 
+    private void Update()
+    {
+        if (Time.timeScale == 0)
+        {
+            audioSource.enabled = false;
+        }
+        else
+        {
+            audioSource.enabled = true;
+        }
+    }
+
+    void OnTriggerEnter(Collider other) 
     { 
         BlowUp();
         Destroy(gameObject, rcktLife); 

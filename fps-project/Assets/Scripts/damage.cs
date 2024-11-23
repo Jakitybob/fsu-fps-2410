@@ -45,6 +45,25 @@ public class damage : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        //mute rockets on game pause
+        if (Time.timeScale == 0)
+        {
+            if (GetComponentInChildren<AudioSource>() != null)
+            {
+                GetComponentInChildren<AudioSource>().enabled = false;
+            }
+        }
+        else
+        {
+            if (GetComponentInChildren<AudioSource>() != null)
+            {
+                GetComponentInChildren<AudioSource>().enabled = true;
+            }
+        }
+    }
+
 
 
 
