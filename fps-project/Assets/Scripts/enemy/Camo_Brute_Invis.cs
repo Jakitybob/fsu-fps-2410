@@ -48,19 +48,7 @@ public class Camo_Brute_Invis : MonoBehaviour
 
     void checkPlayerDistance()
     {
-        //raycast that checks distance, if under certain amount set playerInRange to true
-
-
-        playerDirection = gameManager.instance.player.transform.position - transform.position;
-
-
-        Debug.DrawRay(transform.position, playerDirection);
-
-
-        RaycastHit hit;
-        Physics.Raycast(transform.position, playerDirection, out hit);
-
-        distanceToPlayer = hit.distance;
+        distanceToPlayer = Vector3.Distance(gameObject.transform.position, gameManager.instance.player.transform.position);
 
         if (distanceToPlayer <= viewableDistance)
         {
@@ -70,6 +58,5 @@ public class Camo_Brute_Invis : MonoBehaviour
         {
             playerInRange = false;
         }
-
     }
 }
