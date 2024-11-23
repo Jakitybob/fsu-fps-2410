@@ -21,6 +21,9 @@ public class PlayerWeaponComponent : MonoBehaviour
     [SerializeField] List<SO_Weapon> weaponList; 
     [SerializeField] GameObject weaponModel;
     [SerializeField] GameObject weaponAttackEffect; // Effect for things like muzzle flash or slice of air from swing
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip shootSFX;
+    [SerializeField] AudioClip emptySFX;
 
     private int weaponIndex;
     private int weaponDamage;
@@ -43,6 +46,11 @@ public class PlayerWeaponComponent : MonoBehaviour
             StartCoroutine(DoWeaponEffect());
             StartCoroutine(Attack());
         }
+        else if (weaponList.Count > 0 && weaponList[weaponIndex].ammoCurrent == 0 && weaponList[weaponIndex].CanAttack() && !gameManager.instance.isPaused)
+        {
+            //play click
+            StartCoroutine(emptyClick());
+        }
     }
 
     /*
@@ -55,6 +63,9 @@ public class PlayerWeaponComponent : MonoBehaviour
         // Set the character to now attacking
         weaponList[weaponIndex].SetCanAttack(false);
         weaponList[weaponIndex].ammoCurrent -= 1;
+
+        audioSource.clip = shootSFX;
+        audioSource.Play();
 
         // Fire a raycast using the Physics class and check for damageable objects
         RaycastHit hit;
@@ -74,6 +85,19 @@ public class PlayerWeaponComponent : MonoBehaviour
                 damage.takeDamage(weaponDamage);
             }
         }
+
+        // Wait to be able to fire again
+        yield return new WaitForSeconds(weaponAttackRate);
+        weaponList[weaponIndex].SetCanAttack(true);
+    }
+
+    IEnumerator emptyClick()
+    {
+        // Set the character to now attacking
+        weaponList[weaponIndex].SetCanAttack(false);
+
+        audioSource.clip = emptySFX;
+        audioSource.Play();
 
         // Wait to be able to fire again
         yield return new WaitForSeconds(weaponAttackRate);

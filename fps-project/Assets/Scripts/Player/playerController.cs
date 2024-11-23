@@ -29,6 +29,8 @@ public class playerController : MonoBehaviour, IDamage
 
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip punchSFX;
+    [SerializeField] AudioClip jumpSFX;
+    [SerializeField] AudioClip hurtSFX;
 
     //
     // MEMBER VARIABLES
@@ -41,6 +43,7 @@ public class playerController : MonoBehaviour, IDamage
     int jumpCount;
     bool isSprinting;
     bool isShooting;
+    public bool isGrappling;
     int defaultLayer;
     float distToGround = 0.1f;
     float spherecastRadius;
@@ -182,6 +185,12 @@ public class playerController : MonoBehaviour, IDamage
         {
             jumpCount++;
             playerVelocity.y = jumpSpeed;
+
+            if (jumpCount == 2 && !isGrappling)
+            {
+                audioSource.clip = jumpSFX;
+                audioSource.Play();
+            }
         }
 
         // Increase the player's velocity and move them in the corresponding direction
@@ -229,6 +238,9 @@ public class playerController : MonoBehaviour, IDamage
     public void takeDamage(int amount) 
     { 
         Hp -= amount;
+
+        audioSource.clip = hurtSFX;
+        audioSource.Play();
 
         updatePlayerUI();
         StartCoroutine(damageFlash());

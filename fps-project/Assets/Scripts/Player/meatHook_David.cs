@@ -141,6 +141,8 @@ public class meatHook : MonoBehaviour
                 //play cast SFX
                 audioSource.clip = castSFX;
                 audioSource.Play();
+
+                gameManager.instance.player.GetComponent<playerController>().isGrappling = true;
             }
         }
     }
@@ -219,6 +221,8 @@ public class meatHook : MonoBehaviour
             stopPull();
 
             state = State.Normal;
+
+            gameManager.instance.player.GetComponent<playerController>().isGrappling = false;
         }
         //you can cancel Meat Hook by pressing 'q'/'jump'/or killing target
         else if (Input.GetButtonDown("Meat Hook") || Input.GetButtonDown("Jump") || hit.collider == null)
@@ -234,7 +238,6 @@ public class meatHook : MonoBehaviour
             //play break SFX
             audioSource.clip = breakSFX;
             audioSource.Play();
-
 
             state = State.Launched;
         }
@@ -265,6 +268,8 @@ public class meatHook : MonoBehaviour
                 momentum = Vector3.zero;
             }
         }
+
+        gameManager.instance.player.GetComponent<playerController>().isGrappling = false;
     }
 
 

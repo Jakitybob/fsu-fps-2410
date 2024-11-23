@@ -66,6 +66,8 @@ MonoBehaviour:
   gravity: 25
   audioSource: {fileID: 3547851076032908927}
   punchSFX: {fileID: 8300000, guid: 664d9cb765a62b24d85532c6a7959376, type: 3}
+  jumpSFX: {fileID: 8300000, guid: a8f0c8e0b0471884aa6b478fddb7e3be, type: 3}
+  hurtSFX: {fileID: 8300000, guid: 8cfda685e9b3dea44b0680f2a703fff0, type: 3}
 --- !u!114 &6449016865945566969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +99,9 @@ MonoBehaviour:
   weaponList: []
   weaponModel: {fileID: 2110990250657801177}
   weaponAttackEffect: {fileID: 5714766148885719343}
+  audioSource: {fileID: 3547851076032908927}
+  shootSFX: {fileID: 8300000, guid: 8220cfd384e115543bb37514c0fd6809, type: 3}
+  emptySFX: {fileID: 8300000, guid: 4b33f18a089390f40b9abae306dd2e2c, type: 3}
 --- !u!114 &2364080142476262894
 MonoBehaviour:
   m_ObjectHideFlags: 0
