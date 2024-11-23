@@ -21,7 +21,7 @@ public class door : MonoBehaviour
     [SerializeField] float doorSpeed;
 
     // How far the door should open in the y-direction
-    [SerializeField] float openHeight;
+    //[SerializeField] float openHeight;
 
     // The original position and open position of the door
     private Vector3 closedPosition;
@@ -43,7 +43,8 @@ public class door : MonoBehaviour
 
         // Set the open position to the closed position + the open height
         openPosition = closedPosition;
-        openPosition.y += openHeight;
+        //openPosition.y += openHeight;
+        openPosition.y += gameObject.transform.localScale.y;
     }
 
     // Update is called once per frame
@@ -70,16 +71,16 @@ public class door : MonoBehaviour
      * On trigger exit, the door should close no matter what entered. Ideally the trigger's layer
      * mask will be set to ignore anything but players and enemies.
      */
-    private void OnTriggerExit(Collider other)
-    {
-        // If the collider is another trigger, simply return
-        if (other.isTrigger)
-            return;
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    // If the collider is another trigger, simply return
+    //    if (other.isTrigger)
+    //        return;
 
-        // TODO: check to make sure this is the last thing in range of the door, so as not to shut out things still in range
-        // Mark the door as closed and let Update() do the rest
-        isOpen = false;
-    }
+    //    // TODO: check to make sure this is the last thing in range of the door, so as not to shut out things still in range
+    //    // Mark the door as closed and let Update() do the rest
+    //    isOpen = false;
+    //}
 
     // Logic for opening and closing the door physically - to be called in Update()
     public void OpenDoor()
@@ -90,9 +91,9 @@ public class door : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, openPosition, doorSpeed * Time.deltaTime);
         }
         // Else if the door is closed but has not completed closing, lerp to the close position
-        else if (!isOpen && transform.position != closedPosition)
-        {
-            transform.position = Vector3.Lerp(transform.position, closedPosition, doorSpeed * Time.deltaTime);
-        }
+        //else if (!isOpen && transform.position != closedPosition)
+        //{
+        //    transform.position = Vector3.Lerp(transform.position, closedPosition, doorSpeed * Time.deltaTime);
+        //}
     }
 }

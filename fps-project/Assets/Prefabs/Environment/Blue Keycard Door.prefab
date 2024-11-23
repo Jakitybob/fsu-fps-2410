@@ -48,8 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 154d7243846b0cf40847a6d5d5ad9382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorSpeed: 5
-  openHeight: 4
+  doorSpeed: 3
   doorColor: 0
 --- !u!33 &8441477555287578824
 MeshFilter:

@@ -121,7 +121,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: db53ffcfe33500c4b89427a56aaa890d, type: 2}
 --- !u!4 &7656572 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8522143455253002593, guid: 909837a3115de9f49a387d07a19d7db2, type: 3}
@@ -661,6 +661,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -682,6 +686,10 @@ PrefabInstance:
     - target: {fileID: 3053250008940686816, guid: 909837a3115de9f49a387d07a19d7db2, type: 3}
       propertyPath: m_Name
       value: Wall_Rock (80)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3053250008940686816, guid: 909837a3115de9f49a387d07a19d7db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8522143455253002593, guid: 909837a3115de9f49a387d07a19d7db2, type: 3}
       propertyPath: m_LocalScale.x
@@ -1456,6 +1464,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_1 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1657,6 +1669,10 @@ PrefabInstance:
     - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
       propertyPath: m_Name
       value: Floor_1 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2178,6 +2194,10 @@ PrefabInstance:
     - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
       propertyPath: m_Name
       value: Floor_1 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4228,6 +4248,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Rock (79)
       objectReference: {fileID: 0}
+    - target: {fileID: 3053250008940686816, guid: 909837a3115de9f49a387d07a19d7db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8522143455253002593, guid: 909837a3115de9f49a387d07a19d7db2, type: 3}
       propertyPath: m_LocalScale.x
       value: 20
@@ -5045,6 +5069,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_1 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5266,6 +5294,10 @@ PrefabInstance:
     - target: {fileID: 3053250008940686816, guid: 909837a3115de9f49a387d07a19d7db2, type: 3}
       propertyPath: m_Name
       value: Wall_Rock (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3053250008940686816, guid: 909837a3115de9f49a387d07a19d7db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8522143455253002593, guid: 909837a3115de9f49a387d07a19d7db2, type: 3}
       propertyPath: m_LocalScale.x
@@ -5977,6 +6009,10 @@ PrefabInstance:
     - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7551,6 +7587,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7616,6 +7656,10 @@ PrefabInstance:
     - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
       propertyPath: m_Name
       value: Floor_1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8020,6 +8064,10 @@ PrefabInstance:
     - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
       propertyPath: m_Name
       value: Floor_1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8490,6 +8538,10 @@ PrefabInstance:
     - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
       propertyPath: m_Name
       value: Floor_1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9470,6 +9522,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9491,6 +9547,10 @@ PrefabInstance:
     - target: {fileID: 3053250008940686816, guid: 909837a3115de9f49a387d07a19d7db2, type: 3}
       propertyPath: m_Name
       value: Wall_Rock (78)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3053250008940686816, guid: 909837a3115de9f49a387d07a19d7db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8522143455253002593, guid: 909837a3115de9f49a387d07a19d7db2, type: 3}
       propertyPath: m_LocalScale.x
@@ -9889,6 +9949,10 @@ PrefabInstance:
     - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
       propertyPath: m_Name
       value: Floor_1 (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10426,6 +10490,10 @@ PrefabInstance:
     - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
       propertyPath: m_Name
       value: Floor_1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11734,6 +11802,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_1 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11931,6 +12003,10 @@ PrefabInstance:
     - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
       propertyPath: m_Name
       value: Floor_1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12538,6 +12614,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Rock (77)
       objectReference: {fileID: 0}
+    - target: {fileID: 3053250008940686816, guid: 909837a3115de9f49a387d07a19d7db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8522143455253002593, guid: 909837a3115de9f49a387d07a19d7db2, type: 3}
       propertyPath: m_LocalScale.x
       value: 15
@@ -12823,7 +12903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1473164188980053377, guid: ba0576b2557a71148be1bc0c2639d87d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6292922236722971453, guid: ba0576b2557a71148be1bc0c2639d87d, type: 3}
       propertyPath: m_LocalScale.x
@@ -13323,6 +13403,10 @@ PrefabInstance:
     - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
       propertyPath: m_Name
       value: Floor_1 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15215,6 +15299,10 @@ PrefabInstance:
     - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
       propertyPath: m_Name
       value: Floor_1 (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17149,6 +17237,10 @@ PrefabInstance:
     - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
       propertyPath: m_Name
       value: Floor_1 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100025327705012717, guid: c785059560937c142a246ada81cd34f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

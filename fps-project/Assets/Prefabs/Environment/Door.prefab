@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473164188980053377}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000064101274, y: 0.7048304, z: -0.00006862702, w: 0.7093759}
+  m_LocalRotation: {x: 0.0000680768, y: 0.7048323, z: -0.00006764095, w: 0.70937395}
   m_LocalPosition: {x: 5.2604, y: 5.2764, z: 79.77}
   m_LocalScale: {x: 0.49577707, y: 10.467739, z: 9.511808}
   m_ConstrainProportionsScale: 0
@@ -48,8 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52880eaf9efb2f4459f04c8e91d27ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorSpeed: 10
-  openHeight: 10
+  doorSpeed: 3
 --- !u!33 &3589575999259795254
 MeshFilter:
   m_ObjectHideFlags: 0

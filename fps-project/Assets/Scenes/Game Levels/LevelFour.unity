@@ -5784,7 +5784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 108428539903203897, guid: d5761517c0962bb45b74ea94ba7063c8, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2154983578927186965, guid: d5761517c0962bb45b74ea94ba7063c8, type: 3}
       propertyPath: m_LocalScale.y
@@ -13702,7 +13702,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77ec8bc991d3c94c93c89093b53d357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonSFX: 0
+  audioSource: {fileID: 0}
+  defaultVolume: 1
 --- !u!82 &933488277
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17677,7 +17678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 108428539903203897, guid: d5761517c0962bb45b74ea94ba7063c8, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2154983578927186965, guid: d5761517c0962bb45b74ea94ba7063c8, type: 3}
       propertyPath: m_LocalScale.y
@@ -22241,7 +22242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5724995136514506141, guid: 04607acdb3e736e4ca7127ef6185d321, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8056139144544388509, guid: 04607acdb3e736e4ca7127ef6185d321, type: 3}
       propertyPath: m_LocalScale.y
@@ -29838,7 +29839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7935732406540638777, guid: 4a0d246385e6ed84485cf9287af92e51, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
